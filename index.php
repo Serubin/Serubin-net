@@ -274,7 +274,7 @@
 					<?php
 						if(isset($_REQUEST['action'])){
 							require_once "./mail/mail.php";
-							$mailer = new $mailer();
+							$mailer = new Mail();
 
 							$action=$_REQUEST['action'];
 							if ($action!="") {               /* send the submitted data */ 

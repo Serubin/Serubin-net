@@ -27,7 +27,7 @@ require_once './mail/class.phpmailer.php';
 define('GUSER', 'noreply@serubin.net'); // GMail username
 define('GPWD', 'tntBlack!'); // GMail password
 
-class mail{
+class Mail{
 	 
 	function mailer($to, $from, $from_name, $subject, $body) { 
 		global $error;
