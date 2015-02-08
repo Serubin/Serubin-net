@@ -22,8 +22,7 @@
  *
  */
  
-@require_once './class.phpmailer.php';
-@require_once './mail/class.phpmailer.php';
+require_once './mail/class.phpmailer.php';
 
 define('GUSER', 'noreply@serubin.net'); // GMail username
 define('GPWD', 'tntBlack!'); // GMail password
