@@ -273,6 +273,9 @@
 				<footer>
 					<?php
 						if(isset($_REQUEST['action'])){
+							require_once "mail/mail.php";
+							$mailer = new $mailer();
+
 							$action=$_REQUEST['action'];
 							if ($action!="") {               /* send the submitted data */ 
 								$name=$_REQUEST['name']; 
@@ -282,9 +285,7 @@
 								if (($name=="")||($email=="")||($subject=="")||($message=="")) { 
 									echo "All fields are required, please be sure everything is filled out correctly."; 
 								} else {         
-									$from="From: $name<$email>\r\nReturn-path: $email"; 
-									$mail = mail("serubin@serubin.net", $subject, $message, $from);
-									echo $mail;
+									$mail = $mailer->send($name, $email, $subject, $message);
 									echo "<h2>Email sent! Send another?</h2>";
 								} 
 							}
