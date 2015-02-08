@@ -42,8 +42,8 @@
 							</ul>
 						</li>
 						<li id="features-nav"><a class="navscroll" href="#features">Features</a></li>
+						<li id="skills-nav"><a class="navscroll" href="#skills">Skills</a></li>
 						<li id="experience-nav"><a class="navscroll" href="#experience">Experience</a></li>
-						<li id="examples-nav"><a class="navscroll" href="#examples">Examples</a></li>
 						<li id="contact-nav"><a class="navscroll" href="#contact">Contact</a></li>
 						<li><a href="http://secure.serubin.net/login/" class="button special">Login</a></li>
 					</ul>
@@ -129,7 +129,7 @@
 					</section>
 				</div>
 				<!-- Experience  -->
-				<div id="experience">
+				<div id="skills">
 					<section class="wrapper style1 container special">
 						<div class="row">
 							<div class="4u 12u(2)">
@@ -186,17 +186,17 @@
 				</div>
 					
 				<!-- Examples -->
-				<div id="examples">
+				<div id="experience">
 					<section class="wrapper style3 container special">
 						<header class="major">
-							<h2>Some <strong>Examples</strong></h2>
+							<h2>Some <strong>Experience</strong></h2>
 						</header>
 						
 						<div class="row">
 							<div class="6u 12u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/serubin.net.png" alt="" /></a>
+									<a href="#" class="image featured"><img src="images/projects/serubin.net.png" height="300" alt="" /></a>
 									<header>
 										<h3>Serubin.net</h3>
 									</header>
@@ -207,7 +207,7 @@
 							<div class="6u 12u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/escapecraft.png" alt="" /></a>
+									<a href="#" class="image featured"><img src="images/projects/escapecraft.png" height="300" alt="" /></a>
 									<header>
 										<h3>Escapecraft</h3>
 									</header>
@@ -217,10 +217,10 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="6u 12u(2)">
+							<div class="4u 4u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/mitll.png" alt="" /></a>
+									<a href="#" class="image featured"><img src="images/projects/mitll.png" height="200" alt="MIT Lincoln Lab" /></a>
 									<header>
 										<h3>MIT Lincoln Lab</h3>
 									</header>
@@ -228,14 +228,25 @@
 								</section>
 
 							</div>
-							<div class="6u 12u(2)">
+							<div class="4u 4u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/grouptones.png" alt="" /></a>
+									<a href="#" class="image featured"><img src="images/projects/grouptones.png" height="200" alt="Grouptones" /></a>
 									<header>
 										<h3>Grouptones</h3>
 									</header>
-									<p>Grouptones is an online website to help musicians connect to one another. Here I took the role of lead System Administrator. I was responsible for and managed all aspects of the website and server.</p>
+									<p>Grouptones is an online website to help musicians connect to one another. Here I took the role of lead System Administrator. I was responsible for and managed all aspects of the website and server. At Grouptones I've been able to apply many of the System Administration skills I've learned over the past few years in a more serious production environment. I also got more experience using other web libraries like NodeJS.</p>
+								</section>
+
+							</div>
+							<div class="4u 4u(2)">
+							
+								<section>
+									<a href="#" class="image featured"><img src="images/projects/ritcat.png" height="200" alt="RIT ITS" /></a>
+									<header>
+										<h3>RIT ITS: Client Services</h3>
+									</header>
+									<p>The Client Automation and Tools division of RIT IT is a place that fosters learning and growth. I've been able to explore new ideas and techniques in web application design. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth. I hope that over the course of my college career I'll be able to grow with the team I work with at RIT IT.</p>
 								</section>
 
 							</div>
@@ -272,7 +283,8 @@
 									echo "All fields are required, please be sure everything is filled out correctly."; 
 								} else {         
 									$from="From: $name<$email>\r\nReturn-path: $email"; 
-									$mail = mail("serubin@serubin.net", $subject, $message, $from); 
+									$mail = mail("serubin@serubin.net", $subject, $message, $from);
+									echo $mail;
 									echo "<h2>Email sent! Send another?</h2>";
 								} 
 							}

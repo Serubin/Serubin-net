@@ -107,8 +107,23 @@
 					}
 				});
 				
+				var featureMin = ($('#skills').offset().top - 150);
+				var featureMax = ($('#skills').offset().top + $('#skills').height() - 50);
+				$(window).scrollspy({
+					min: featureMin,
+					max: featureMax,
+					onEnter: function(element, position) {
+						console.log("enter");
+						$("#skills-nav").addClass('current');
+					},
+					onLeave: function(element, position) {
+						console.log("exit");
+						$("#skills-nav").removeClass('current');
+					}
+				});
+				
 				var featureMin = ($('#experience').offset().top - 150);
-				var featureMax = ($('#experience').offset().top + $('#experience').height() - 50);
+				var featureMax = ($('#experience').offset().top + $('#experience').height());
 				$(window).scrollspy({
 					min: featureMin,
 					max: featureMax,
@@ -119,21 +134,6 @@
 					onLeave: function(element, position) {
 						console.log("exit");
 						$("#experience-nav").removeClass('current');
-					}
-				});
-				
-				var featureMin = ($('#examples').offset().top - 150);
-				var featureMax = ($('#examples').offset().top + $('#examples').height());
-				$(window).scrollspy({
-					min: featureMin,
-					max: featureMax,
-					onEnter: function(element, position) {
-						console.log("enter");
-						$("#examples-nav").addClass('current');
-					},
-					onLeave: function(element, position) {
-						console.log("exit");
-						$("#examples-nav").removeClass('current');
 					}
 				});
 				
