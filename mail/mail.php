@@ -53,7 +53,7 @@ class Mail{
 	}
 
 	function send($sender_name, $sender_email, $subject, $body){
-		return mailer("admin@serubin.net", "noreply@serubin.net", "$sender_name  @ Serubin.net Mailer: ", $subject, "<h2> $sender_name said: <h2> <br /><p>$body</p>");		
+		return $this->mailer("admin@serubin.net", "noreply@serubin.net", "$sender_name  @ Serubin.net Mailer: ", $subject, "<h2> $sender_name said: <h2> <br /><p>$body</p>");		
 	}
 }
 ?>
