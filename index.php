@@ -286,7 +286,6 @@
 									echo "All fields are required, please be sure everything is filled out correctly."; 
 								} else {         
 									$mail = $mailer->send($name, $email, $subject, $message);
-									echo $mail;
 									echo "<h2>Email sent! Send another?</h2>";
 								} 
 							}
