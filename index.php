@@ -187,7 +187,7 @@
 							</div>
 						</div>
 						<div class="row">
-							<div class="4u 4u(2)">
+							<div class="4u 12u(2)">
 							
 								<section>
 									<a href="#" class="image featured"><img src="images/projects/mitll.png" height="200" alt="MIT Lincoln Lab" /></a>
@@ -198,7 +198,7 @@
 								</section>
 
 							</div>
-							<div class="4u 4u(2)">
+							<div class="4u 12u(2)">
 							
 								<section>
 									<a href="#" class="image featured"><img src="images/projects/grouptones.png" height="200" alt="Grouptones" /></a>
@@ -209,7 +209,7 @@
 								</section>
 
 							</div>
-							<div class="4u 4u(2)">
+							<div class="4u 12u(2)">
 							
 								<section>
 									<a href="#" class="image featured"><img src="images/projects/ritcat.png" height="200" alt="RIT ITS" /></a>
