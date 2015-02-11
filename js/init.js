@@ -122,17 +122,15 @@
 					min: contactMin,
 					max: contactMax,
 					onEnter: function(element, position) {
-						console.log("enter");
 						$("#contact-nav").addClass('current');
 					},
 					onLeave: function(element, position) {
-						console.log("exit");
 						$("#contact-nav").removeClass('current');
 					}
 				});
 				// Scrolly links.
 					$('.scrolly').scrolly(1000, -10);
-					$('.navscroll').scrolly(1000, 70);
+					$('.navscroll').scrolly(1000, 40);
 			});
 
 		// CSS polyfills (IE<9).

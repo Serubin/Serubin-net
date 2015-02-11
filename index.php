@@ -98,6 +98,9 @@
 				<!-- Features -->
 				<div id="skills">
 					<section class="wrapper style2 container special">
+							<header class="major">
+								<h2><strong>Skills</strong></h2>
+							</header>
 						<div class="row 50%">
 							<div class="4u 12u(2)">
 							
