@@ -42,7 +42,6 @@
 								<li><a class="scrolly" href="#main">Who Am I?</a></li>
 							</ul>
 						</li>
-						<li id="features-nav"><a class="navscroll" href="#features">Features</a></li>
 						<li id="skills-nav"><a class="navscroll" href="#skills">Skills</a></li>
 						<li id="experience-nav"><a class="navscroll" href="#experience">Experience</a></li>
 						<li id="contact-nav"><a class="navscroll" href="#contact">Contact</a></li>
@@ -97,43 +96,9 @@
 				</header>
 					
 				<!-- Features -->
-				<div id="features">
-					<section class="wrapper style2 container special-alt">
-						<div class="row 50%">
-							<div class="8u 12u(2)">
-							
-								<header>
-									<h2><b>Brilliant</b> Features</h2>
-								</header>
-								<p>My work is tailored for what you need. Providing everything from speed to security I'll provide exactly what is needed in short periods of time. Customizability is first priority to ensure that you not only get exactly what you need but also to ensure that my work can grow and change as you do.</p>
-								<footer>
-									<ul class="buttons">
-										<li><a href="#experience" class="button navscroll">Find Out More</a></li>
-									</ul>
-								</footer>
-							
-							</div>
-							<div class="4u 12u(2) important(2)">
-							
-								<ul class="featured-icons">
-									
-									<li><span class="icon fa-lock"><span class="label">Secure</span></span></li>
-									<li><span class="icon fa-paper-plane"><span class="label">Fast Load Times</span></span></li>
-									<li><span class="icon fa-cloud"><span class="label">Cloud Based</span></span></li>
-									<li><span class="icon fa-cog"><span class="label">Customizable</span></span></li>
-									<li><span class="icon fa-mobile"><span class="label">All Platforms</span></span></li>
-									<li><span class="icon fa-users"><span class="label">Expandable</span></span></li>
-									
-								</ul>
-							
-							</div>				
-						</div>
-					</section>
-				</div>
-				<!-- Experience  -->
 				<div id="skills">
-					<section class="wrapper style1 container special">
-						<div class="row">
+					<section class="wrapper style2 container special">
+						<div class="row 50%">
 							<div class="4u 12u(2)">
 							
 								<section>
@@ -186,7 +151,7 @@
 						</div>
 					</section>
 				</div>
-					
+
 				<!-- Examples -->
 				<div id="experience">
 					<section class="wrapper style3 container special">

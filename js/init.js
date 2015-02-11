@@ -77,71 +77,50 @@
 			$window.on('load', function() {
 				$body.removeClass('is-loading');
 				
-				var featureMin = ($('#welcome').offset().top - 150);
-				var featureMax = ($('#whoami').offset().top + $('#whoami').height());
+				var welcomeMin = ($('#welcome').offset().top - 150);
+				var welcomeMax = ($('#whoami').offset().top + $('#whoami').height());
 				$(window).scrollspy({
-					min: featureMin,
-					max: featureMax,
+					min: welcomeMin,
+					max: welcomeMax,
 					onEnter: function(element, position) {
-						console.log("enter");
 						$("#welcome-nav").addClass('current');
 					},
 					onLeave: function(element, position) {
-						console.log("exit");
 						$("#welcome-nav").removeClass('current');
 					}
 				});
 				
-				var featureMin = ($('#features').offset().top - 150);
-				var featureMax = ($('#features').offset().top + $('#features').height() - 70);
+				var skillsMin = ($('#skills').offset().top - 150);
+				var skillsMax = ($('#skills').offset().top + $('#skills').height() - 50);
 				$(window).scrollspy({
-					min: featureMin,
-					max: featureMax,
+					min: skillsMin,
+					max: skillsMax,
 					onEnter: function(element, position) {
-						console.log("enter");
-						$("#features-nav").addClass('current');
-					},
-					onLeave: function(element, position) {
-						console.log("exit");
-						$("#features-nav").removeClass('current');
-					}
-				});
-				
-				var featureMin = ($('#skills').offset().top - 150);
-				var featureMax = ($('#skills').offset().top + $('#skills').height() - 50);
-				$(window).scrollspy({
-					min: featureMin,
-					max: featureMax,
-					onEnter: function(element, position) {
-						console.log("enter");
 						$("#skills-nav").addClass('current');
 					},
 					onLeave: function(element, position) {
-						console.log("exit");
 						$("#skills-nav").removeClass('current');
 					}
 				});
 				
-				var featureMin = ($('#experience').offset().top - 150);
-				var featureMax = ($('#experience').offset().top + $('#experience').height());
+				var experienceMin = ($('#experience').offset().top - 150);
+				var experienceMax = ($('#experience').offset().top + $('#experience').height());
 				$(window).scrollspy({
-					min: featureMin,
-					max: featureMax,
+					min: experienceMin,
+					max: experienceMax,
 					onEnter: function(element, position) {
-						console.log("enter");
 						$("#experience-nav").addClass('current');
 					},
 					onLeave: function(element, position) {
-						console.log("exit");
 						$("#experience-nav").removeClass('current');
 					}
 				});
 				
-				var featureMin = ($('#contact').offset().top - 150);
-				var featureMax = ($('#contact').offset().top + $('#contact').height());
+				var contactMin = ($('#contact').offset().top - 150);
+				var contactMax = ($('#contact').offset().top + $('#contact').height());
 				$(window).scrollspy({
-					min: featureMin,
-					max: featureMax,
+					min: contactMin,
+					max: contactMax,
 					onEnter: function(element, position) {
 						console.log("enter");
 						$("#contact-nav").addClass('current');
@@ -151,7 +130,6 @@
 						$("#contact-nav").removeClass('current');
 					}
 				});
-				
 				// Scrolly links.
 					$('.scrolly').scrolly(1000, -10);
 					$('.navscroll').scrolly(1000, 70);
