@@ -88,11 +88,12 @@
 						-- <br/>
 						Who am I?
 					</h2>
-					<p>I'm currently a student at Rochester Institute of Technology majoring in </br>
-					<b>Computer Science</b>. Over the last 5 years I've made my speciality <b>Web Development</b> and <br/>
-					<b>System Administration</b>. I've had a focus in <b>PHP</b> and <b>Javascript</b> to power<br/>
-					 my web infrastructure designs as they are crucial in any modern website. In addition, I've also worked <br/>
-					 to create a skill set in <b>Linux Administrator</b>.
+					<p>I am currently a student at Rochester Institute of Technology majoring in</br>
+					<b>Computer Science</b>. In the last 5 years I have specialized <b>Web Development</b> and<br/>
+					<b>System Administration</b> with a particular focus on <b>PHP</b> and <b>Javascript</b> to power<br/>
+					 my web infrastructure designs as they are crucial in any modern website. In <br/>
+					  In addition, I have developed an extensive skill set <b>Linux Administration</b>.
+					 </p>
 				</header>
 					
 				<!-- Features -->
