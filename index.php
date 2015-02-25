@@ -91,7 +91,7 @@
 					<b>Computer Science</b>. In the last 5 years I have specialized <b>Web Development</b> and<br/>
 					<b>System Administration</b> with a particular focus on <b>PHP</b> and <b>Javascript</b> to power<br/>
 					 my web infrastructure designs as they are crucial in any modern website. In <br/>
-					  In addition, I have developed an extensive skill set <b>Linux Administration</b>.
+					  In addition, I have developed an extensive skill set in <b>Linux Administration</b>.
 					 </p>
 				</header>
 					
