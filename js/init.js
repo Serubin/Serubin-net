@@ -104,7 +104,7 @@
 				});
 				
 				var experienceMin = ($('#experience').offset().top - 150);
-				var experienceMax = ($('#experience').offset().top + $('#experience').height());
+				var experienceMax = ($('#experience').offset().top + $('#experience').height() - 50);
 				$(window).scrollspy({
 					min: experienceMin,
 					max: experienceMax,
