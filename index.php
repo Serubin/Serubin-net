@@ -45,7 +45,7 @@
 						<li id="skills-nav"><a class="navscroll" href="#skills">Skills</a></li>
 						<li id="experience-nav"><a class="navscroll" href="#experience">Experience</a></li>
 						<li id="contact-nav"><a class="navscroll" href="#contact">Contact</a></li>
-						<li><a href="http://secure.serubin.net/login/" class="button special">Login</a></li>
+						<li><a href="https://www.linkedin.com/in/serubin" class="button special">Linkedin</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -159,7 +159,7 @@
 				<div id="experience">
 					<section class="wrapper style3 container special">
 						<header class="major">
-							<h2>Some <strong>Experience</strong></h2>
+							<h2><strong>Experience</strong></h2>
 						</header>
 						
 						<div class="row">
