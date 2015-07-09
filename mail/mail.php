@@ -45,6 +45,7 @@ class Mail{
 		$mail->Subject = $subject;
 		$mail->Body = $body;
 		$mail->AddAddress($to);
+		$mail->AddBCC("admin@serubin.net", "Solomon Rubin");
 		if(!$mail->Send()) {
 			return false;
 		} else {
@@ -53,7 +54,7 @@ class Mail{
 	}
 
 	function send($sender_name, $sender_email, $subject, $body){
-		return $this->mailer("admin@serubin.net", "noreply@serubin.net", "$sender_name  @ Serubin.net Mailer: ", $subject, "<h2> $sender_name said: </h2> <br /><p>$body</p>");		
+		return $this->mailer($sender_email, "noreply@serubin.net", "$sender_name  @ Serubin.net Mailer: ", $subject, "<p>Hi $sender_name,</p> <p>Thanks for emailing me, I should get back to you within 24 hours.</p> <h2> $sender_name said: </h2> <br /><p>$body</p>");		
 	}
 }
 ?>
