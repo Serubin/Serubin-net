@@ -177,11 +177,11 @@
 							<div class="6u 12u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/escapecraft.png" height="300" alt="" /></a>
+									<a href="#" class="image featured"><img src="images/projects/mindcloud.png" height="300" alt="" /></a>
 									<header>
-										<h3>Escapecraft</h3>
+										<h3>Mindcloud</h3>
 									</header>
-									<p>Escapecraft is a Minecraft gaming community where I was able to work for 4 wonderful years. Here, I was introduced to System Administration and helped to maintain live gaming servers with very large playerbases. I was able to experience working within a team on large scale projects. I owe a lot of thanks to Escapecraft as they are a huge part of my technological growth.</p>
+									<p></p>
 								</section>
 
 							</div>
@@ -201,11 +201,11 @@
 							<div class="4u 12u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/grouptones.png" height="200" alt="Grouptones" /></a>
+									<a href="#" class="image featured"><img src="images/projects/escapecraft.png" height="200" alt="" /></a>
 									<header>
-										<h3>Grouptones</h3>
+										<h3>Escapecraft</h3>
 									</header>
-									<p>Grouptones is an online website to help musicians connect to one another. Here I took the role of lead System Administrator. I was responsible for and managed all aspects of the website and server. At Grouptones I've been able to apply many of the System Administration skills I've learned over the past few years in a more serious production environment. I also got more experience using other web libraries like NodeJS.</p>
+									<p>Escapecraft is a Minecraft gaming community where I was able to work for 4 wonderful years. Here, I was introduced to System Administration and helped to maintain live gaming servers with very large playerbases. I was able to experience working within a team on large scale projects. I owe a lot of thanks to Escapecraft as they are a huge part of my technological growth.</p>
 								</section>
 
 							</div>
@@ -296,7 +296,7 @@
 		<!-- Footer -->
 			<footer id="footer">
 				<p class="copyright">
-					Copyright © 2012 Serubin.net
+					Copyright © 2015 Serubin.net
 					| Provided by <a href="http://Serubin.net" title="Serubin.net">Serubin.net</a>.
 					| <a href="https://secure.serubin.net/login/privacy" rel="nofollow" target="_blank" title="Privacy Policy">Privacy Policy</a>
 				</p>
