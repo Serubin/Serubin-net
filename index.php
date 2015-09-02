@@ -308,7 +308,7 @@
 					| Provided by <a href="http://Serubin.net" title="Serubin.net">Serubin.net</a>.
 					| <a href="https://secure.serubin.net/login/privacy" rel="nofollow" target="_blank" title="Privacy Policy">Privacy Policy</a>
 				</p>
-				<p class="copyright">Design: <a href="http://html5up.net">HTML5 UP</a></p>
+				<p class="copyright">Modified by: <a href="http://serubin.net"> Solomon Rubin</a> | Original Design: <a href="http://html5up.net">HTML5 UP</a></p>
 			
 			</footer>
 	</body>
