@@ -232,7 +232,7 @@
 
 						<footer class="major">
 							<ul class="buttons">
-								<li><a href="#contact" class="button navscroll"><strong>Let's get</strong> started</a></li>
+								<li><a href="#contact" class="button navscroll"> <strong>Let's get to</strong> know eachother</a></li>
 							</ul>
 						</footer>
 					
@@ -245,7 +245,7 @@
 			<section id="contact">
 			
 				<header>
-					<h2>Let's get <strong>started</strong></h2>
+					<h2>Let's get to <strong>know eachother</strong></h2>
 					<p>Send me an email</p>
 				</header>
 				<footer>
