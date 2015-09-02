@@ -174,7 +174,7 @@
 		margin-bottom: 0;
 	}
 	footer input, footer textarea{
-		background: rgba(124, 128, 129, 0.5) !important;
+		background: rgba(101, 101, 101, 0.6) !important;
 	}
 	footer.major {
 		padding-top: 3em;
@@ -322,6 +322,7 @@
 			.icon.circle.serubin{
 				background: #FFCC04;
 				color: white;
+				overflow: hidden;
 			}
 			.icon.circle.serubin:before{
 				content: "S";
@@ -818,12 +819,12 @@
 	@-ms-keyframes reveal-banner { 0% { opacity: 0; } 100% { opacity: 1; } }
 	@keyframes reveal-banner { 0% { opacity: 0; } 100% { opacity: 1; } }
 
-	#banner {
-		background-attachment: scroll, fixed;
+	#banner, #contact, #skills {
+		background-attachment: fixed;
 		background-color: #645862;
-		background-image: url("images/overlay.png"), url("../images/banner.jpg");
+		background-image: url("../images/overlay2.png"), url("../images/overlay3.svg"), linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2) !important;
 		background-position: top left, top center;
-		background-repeat: repeat, no-repeat;
+		background-repeat: repeat;
 		background-size: auto, cover;
 		color: white;
 		cursor: default;
@@ -911,20 +912,12 @@
 /* CTA */
 
 	#contact {
-		background-attachment: scroll, fixed;
-		background-color: #645862;
-		background-image: url("images/overlay.png"), url("../images/banner.jpg");
-		background-position: top left, bottom center;
-		background-repeat: repeat, no-repeat;
-		background-size: auto, cover;
-		color: white;
-		padding: 5em;
-		text-align: center;
+		padding: 3em;
 	}
 
-		#contact header {
-			margin-bottom: 2em;
-		}
+	#contact header {
+		margin-bottom: 2em;
+	}
 
 /* Footer */
 
@@ -1114,7 +1107,6 @@
 		
 		
 /* SERUBIN.NET CUSTOM */
-
 .logo{
 	font-family: 'PT Sans', sans-serif;
 	font-size: 1.8em;
@@ -1125,4 +1117,6 @@
 	color: #FFCC04;
 	font-family: 'LCALLIG', sans-serif;
 	font-size: 2.0em;
+	position: relative;
+    top: 0.05em;
 }

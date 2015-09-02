@@ -21,28 +21,8 @@
 				config: {
 					mode: function() { return (skel.vars.isMobile ? 'transform' : 'position'); }
 				},
-				topPanel: {
-					states: '/global/wide/normal/narrow/narrower/mobile',
-					position: 'top-center',
-					side: 'top',
-					hidden: true,
-					animation: 'pushY',
-					width: '100%',
-					height: 275,
-					html: '<nav data-action="navList" data-args="nav"></nav>',
-					clickToHide: true,
-					swipeToHide: false,
-					orientation: 'vertical'
-				},
-				topButton: {
-					states: '/global/wide/normal/narrow/narrower/mobile',
-					position: 'top-center',
-					width: 120,
-					height: 50,
-					html: '<span class="toggle" data-action="toggleLayer" data-args="topPanel"></span>'
-				},
 				sidePanel: {
-					states: '/global/wide/normal/narrow/narrower',
+					states: '/global/wide/normal/narrow/narrower/mobile',
 					position: 'top-left',
 					side: 'left',
 					hidden: true,
@@ -54,7 +34,7 @@
 					orientation: 'vertical'
 				},
 				sideButton: {
-					states: '/global/wide/normal/narrow/narrower',
+					states: '/global/wide/normal/narrow/narrower/mobile',
 					position: 'top-left',
 					width: 100,
 					height: 60,
@@ -77,8 +57,8 @@
 			$window.on('load', function() {
 				$body.removeClass('is-loading');
 				
-				var welcomeMin = ($('#welcome').offset().top - 150);
-				var welcomeMax = ($('#whoami').offset().top + $('#whoami').height());
+				var welcomeMin = ($('#welcome').offset().top );
+				var welcomeMax = ($('#intro').offset().top + $('#intro').height());
 				$(window).scrollspy({
 					min: welcomeMin,
 					max: welcomeMax,
@@ -90,8 +70,8 @@
 					}
 				});
 				
-				var skillsMin = ($('#skills').offset().top - 150);
-				var skillsMax = ($('#skills').offset().top + $('#skills').height() - 50);
+				var skillsMin = ($('#skills').offset().top - 70);
+				var skillsMax = ($('#skills').offset().top + $('#skills').height() + 148);
 				$(window).scrollspy({
 					min: skillsMin,
 					max: skillsMax,
@@ -103,8 +83,8 @@
 					}
 				});
 				
-				var experienceMin = ($('#experience').offset().top - 150);
-				var experienceMax = ($('#experience').offset().top + $('#experience').height() - 50);
+				var experienceMin = ($('#experience').offset().top - 60);
+				var experienceMax = ($('#experience').offset().top + $('#experience').height() - 77);
 				$(window).scrollspy({
 					min: experienceMin,
 					max: experienceMax,
@@ -116,7 +96,7 @@
 					}
 				});
 				
-				var contactMin = ($('#contact').offset().top - 150);
+				var contactMin = ($('#contact').offset().top - 130);
 				var contactMax = ($('#contact').offset().top + $('#contact').height());
 				$(window).scrollspy({
 					min: contactMin,
@@ -129,8 +109,8 @@
 					}
 				});
 				// Scrolly links.
-					$('.scrolly').scrolly(1000, -10);
-					$('.navscroll').scrolly(1000, 40);
+					$('.scrolly').scrolly(1000, 90);
+					$('.navscroll').scrolly(1000, 50);
 			});
 
 		// CSS polyfills (IE<9).

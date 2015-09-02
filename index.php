@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Solomon Rubin - Serubin.net</title>
+		<title>Solomon Rubin</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 		<meta name="description" content="" />
@@ -34,12 +34,12 @@
 		<!-- Header -->
 		<div id="welcome">
 			<header id="header" class="alt">
-				<h1 id="logo"><a href="./" class="logo"><span>S</span>erubin.net</a></h1>
+				<h1 id="logo"><a href="./" class="logo"><span>S</span>olomon Rubin</a></h1>
 				<nav id="nav">
 					<ul>
 						<li id="welcome-nav"><a class="navscroll" href="#welcome">Welcome</a>
 							<ul>
-								<li><a class="scrolly" href="#main">Who Am I?</a></li>
+								<li><a class="scrolly" href="#intro">Introduction</a></li>
 							</ul>
 						</li>
 						<li id="skills-nav"><a class="navscroll" href="#skills">Skills</a></li>
@@ -52,7 +52,6 @@
 
 		<!-- Banner -->		
 			<section id="banner">
-				
 				<!--
 					".inner" is set up as an inline-block so it automatically expands
 					in both directions to fit whatever's inside it. This means it won't
@@ -62,15 +61,18 @@
 				<div class="inner">
 					
 					<header>
-						<h2 class="logo"><span>S</span>erubin.net</h2>
+						<h2 class="logo"><span>S</span>olomon Rubin</h2>
 					</header>
-					<p>A portfolio for a young, up and coming <br/>
-						<b>System Administrator</b> <br />
+					<p>A portfolio for highly skilled and experienced <br/>
+
+						<b>Programmer</b> <br />
 						and <br/>
-						<b>Web Developer</b></p>
+						<b>System Administrator</b>
+
+					</p>
 					<footer>
 						<ul class="buttons vertical">
-							<li><a href="#main" class="button fit scrolly">Who am I?</a></li>
+							<li><a href="#intro" class="button fit scrolly">Learn more</a></li>
 						</ul>
 					</footer>
 				
@@ -79,24 +81,25 @@
 			</section>
 		</div>
 		<!-- Main -->
-			<article id="main">
+			<article id="intro">
 
-				<header class="special container" id="whoami">
+				<header class="special container" id="intro-inner">
 					<span class="icon circle serubin"></span>
-					<h2>Solomon Rubin<br />
-						-- <br/>
-						Who am I?
-					</h2>
-					<p>I am currently a student at Rochester Institute of Technology majoring in</br>
-					<b>Computer Science</b>. In the last 5 years I have specialized in <b>Web Development</b> and<br/>
-					<b>System Administration</b> with a particular focus on <b>PHP</b> and <b>Javascript</b> to power<br/>
-					 my web infrastructure designs as they are crucial in any modern website. <br/>
-					  In addition, I have developed an extensive skill set in <b>Linux Administration</b>.
+					<h2>Solomon Rubin</h2>
+					<h2>--</h2>
+					<p>I am currently a student at <b>Rochester Institute of Technology</b> majoring in</br>
+					<b>Computer Science</b>. In the last 6 years I have developed an </br> 
+						extensive skillset in <b>Programming</b> and <b>System Administration</b><br />
+						with a particular focus in <b>Linux</b> tools and programming and <b>Web</b> technologies. <br/>
+					    As my education continues my interests and skills develop exponentially.
 					 </p>
 				</header>
-					
-				<!-- Features -->
-				<div id="skills">
+
+			</article>
+
+			<article id="skills">
+				<!-- Skills -->
+				<div id="skills-inner">
 					<section class="wrapper style2 container special">
 							<header class="major">
 								<h2><strong>Skills</strong></h2>
@@ -110,10 +113,11 @@
 										<h3>Linux Administration</h3>
 									</header>
 									<ul>
-										<li>4+ years experience</li>
-										<li>Apache</li>
-										<li>MySQL</li>
-										<li>Bash scripting</li>
+										<li>5+ years experience</li>
+										<li>Debian, RHEL, Arch</li>
+										<li>Bash</li>
+										<li>Databases</li>
+										<li>Web Stacks</li>
 									</ul>
 								</section>
 							
@@ -123,14 +127,14 @@
 								<section>
 									<span class="icon featured fa-cloud"></span>
 									<header>
-										<h3>Web Programming</h3>
+										<h3>Programming</h3>
 									</header>
 									<ul>
-										<li>5+ years of experience</li>
-										<li>Reusable Frameworks</li>
-										<li>PHP</li>
-										<li>JavaScript</li>
-										<li>HTML/CSS</li>
+										<li>6+ years of experience</li>
+										<li>C, Java, Python</li>
+										<li>JavaScript & NodeJS</li>
+										<li>HTML/CSS, PHP</li>
+										<li>Version Control, Git</li>
 									</ul>
 								</section>
 							
@@ -143,10 +147,11 @@
 										<h3>Employable</h3>
 									</header>
 									<ul>
-										<li>Looking for short and long term employment</li>
-										<li>Excellent Reputation</li>
+										<li>Exceptional Reputation</li>
 										<li>Excellent Communication Skills</li>
-										<li>Excited and Motivated</li>
+										<li>Valuable Teamwork skills</li>
+										<li>Eager to learn</li>
+										<li>Extremely Adaptable</li>
 									</ul>
 								</section>
 							
@@ -154,7 +159,9 @@
 						</div>
 					</section>
 				</div>
+				</article>
 
+				<article>
 				<!-- Examples -->
 				<div id="experience">
 					<section class="wrapper style3 container special">
@@ -166,31 +173,7 @@
 							<div class="6u 12u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/serubin.net.png" height="300" alt="" /></a>
-									<header>
-										<h3>Serubin.net</h3>
-									</header>
-									<p>Serubin.net has been much more than a project. It's been a learning tool for many years. As I've grown it's grown. From the birthplace of my HTML skills to the refinement of my PHP Serubin.net has been my testing grounds. It also serves as a place to show of my level of commitment to my work.</p>
-								</section>
-
-							</div>
-							<div class="6u 12u(2)">
-							
-								<section>
-									<a href="#" class="image featured"><img src="images/projects/mindcloud.png" height="300" alt="" /></a>
-									<header>
-										<h3>Mindcloud</h3>
-									</header>
-									<p></p>
-								</section>
-
-							</div>
-						</div>
-						<div class="row">
-							<div class="4u 12u(2)">
-							
-								<section>
-									<a href="#" class="image featured"><img src="images/projects/mitll.png" height="200" alt="MIT Lincoln Lab" /></a>
+									<a href="#" class="image featured"><img src="images/projects/mitll.png" height="300" alt="MIT Lincoln Lab" /></a>
 									<header>
 										<h3>MIT Lincoln Lab</h3>
 									</header>
@@ -198,6 +181,20 @@
 								</section>
 
 							</div>
+							<div class="6u 12u(2)">
+							
+								<section>
+									<a href="#" class="image featured"><img src="images/projects/ritcat.png" height="300" alt="RIT ITS" /></a>
+									<header>
+										<h3>RIT ITS: Client Services</h3>
+									</header>
+									<p>The Client Automation and Tools division of RIT IT is a place that fosters learning and growth. I've been able to explore new ideas and techniques in web application design. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth. I hope that over the course of my college career I'll be able to grow with the team I work with at RIT IT.</p>
+								</section>
+
+							</div>
+
+						</div>
+						<div class="row">
 							<div class="4u 12u(2)">
 							
 								<section>
@@ -205,18 +202,29 @@
 									<header>
 										<h3>Escapecraft</h3>
 									</header>
-									<p>Escapecraft is a Minecraft gaming community where I was able to work for 4 wonderful years. Here, I was introduced to System Administration and helped to maintain live gaming servers with very large playerbases. I was able to experience working within a team on large scale projects. I owe a lot of thanks to Escapecraft as they are a huge part of my technological growth.</p>
+									<p>Escapecraft is a Minecraft gaming community where I was able to work for 4 wonderful years. I was introduced to System Administration and helped to maintain live gaming servers with very large playerbases, experiencing working within a team on large scale projects. </p>
 								</section>
 
 							</div>
 							<div class="4u 12u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/ritcat.png" height="200" alt="RIT ITS" /></a>
+									<a href="#" class="image featured"><img src="images/projects/serubin.net.png" height="200" alt="" /></a>
 									<header>
-										<h3>RIT ITS: Client Services</h3>
+										<h3>Serubin.net</h3>
 									</header>
-									<p>The Client Automation and Tools division of RIT IT is a place that fosters learning and growth. I've been able to explore new ideas and techniques in web application design. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth. I hope that over the course of my college career I'll be able to grow with the team I work with at RIT IT.</p>
+									<p>Serubin.net has been much more than a project. It's been a learning tool for many years. As I've grown it's grown. From the birthplace of my HTML skills to the refinement of my PHP Serubin.net has been my playing grounds. It also serves as a place to show my level of commitment to my work.</p>
+								</section>
+
+							</div>
+							<div class="4u 12u(2)">
+							
+								<section>
+									<a href="#" class="image featured"><img src="images/projects/mindcloud.png" height="200" alt="" /></a>
+									<header>
+										<h3>Mindcloud</h3>
+									</header>
+									<p></p>
 								</section>
 
 							</div>
