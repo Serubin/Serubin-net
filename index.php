@@ -177,7 +177,7 @@
 									<header>
 										<h3>MIT Lincoln Lab</h3>
 									</header>
-									<p>MIT Lincoln Lab is a research facility that is under contract of the US Department of Defense. I was able to work on several pieces of large scale projects during my time here. Lincoln Lab is a place that fosters learning and growth, as such I was able to refine a lot of my Java and Javascript skills to aid my work.</p>
+									<p>MIT Lincoln Lab is a research facility that is under contract of the US Department of Defense. I was able to work on several pieces of large scale projects during my time here. I was able to explore a large diversity of topics like machine learning and detection algorithms as well as high level parallel computing.</p>
 								</section>
 
 							</div>
@@ -186,9 +186,9 @@
 								<section>
 									<a href="#" class="image featured"><img src="images/projects/ritcat.png" height="300" alt="RIT ITS" /></a>
 									<header>
-										<h3>RIT ITS: Client Services</h3>
+										<h3>RIT ITS: Client Adminstration</h3>
 									</header>
-									<p>The Client Automation and Tools division of RIT IT is a place that fosters learning and growth. I've been able to explore new ideas and techniques in web application design. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth. I hope that over the course of my college career I'll be able to grow with the team I work with at RIT IT.</p>
+									<p>As a part of the Client Administration team of RIT's Information Infrastructure I have been able to balance out a lot of my skills. I've been able to explore new ideas and techniques in web application design as well as expand my system administration skills to windows. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth.</p>
 								</section>
 
 							</div>
@@ -202,7 +202,7 @@
 									<header>
 										<h3>Escapecraft</h3>
 									</header>
-									<p>Escapecraft is a Minecraft gaming community where I was able to work for 4 wonderful years. I was introduced to System Administration and helped to maintain live gaming servers with very large playerbases, experiencing working within a team on large scale projects. </p>
+									<p>Escapecraft is a Minecraft gaming community where I was able to work for 4 wonderful years. I was introduced to System Administration and helped to maintain live gaming servers with a very large player-base, experiencing working within a team on large scale projects.</p>
 								</section>
 
 							</div>
@@ -211,9 +211,9 @@
 								<section>
 									<a href="#" class="image featured"><img src="images/projects/serubin.net.png" height="200" alt="" /></a>
 									<header>
-										<h3>Serubin.net</h3>
+										<h3>Serunified</h3>
 									</header>
-									<p>Serubin.net has been much more than a project. It's been a learning tool for many years. As I've grown it's grown. From the birthplace of my HTML skills to the refinement of my PHP Serubin.net has been my playing grounds. It also serves as a place to show my level of commitment to my work.</p>
+									<p>Serunified is the suite of websites I created in high school, it has been much more than a project. It's been a learning tool for many years. As I've grown it's grown. It's been the home to my PHP and JavaScript learning as ever line of code is my own.</p>
 								</section>
 
 							</div>
@@ -224,7 +224,7 @@
 									<header>
 										<h3>Mindcloud</h3>
 									</header>
-									<p></p>
+									<p>The Mindcloud project was one of the largest scale projects I've ever worked on. The goal of creating a social conversation framework was only a small piece. It tested everyone web techniques I have ever learned as well as pushing my time management and planning skills to a new limit.</p>
 								</section>
 
 							</div>
@@ -232,7 +232,7 @@
 
 						<footer class="major">
 							<ul class="buttons">
-								<li><a href="#contact" class="button navscroll"> <strong>Let's get to</strong> know eachother</a></li>
+								<li><a href="#contact" class="button navscroll"> <strong>Let's </strong>talk</a></li>
 							</ul>
 						</footer>
 					
@@ -245,7 +245,7 @@
 			<section id="contact">
 			
 				<header>
-					<h2>Let's get to <strong>know eachother</strong></h2>
+					<h2>Let's <strong>talk</strong></h2>
 					<p>Send me an email</p>
 				</header>
 				<footer>

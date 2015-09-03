@@ -22,19 +22,21 @@
 					mode: function() { return (skel.vars.isMobile ? 'transform' : 'position'); }
 				},
 				sidePanel: {
-					states: '/global/wide/normal/narrow/narrower/mobile',
+					//states: '/global/wide/normal/narrow/narrower/mobile',
+					breakpoints: ['narrower', 'mobile'],
 					position: 'top-left',
 					side: 'left',
 					hidden: true,
 					animation: 'revealX',
-					width: 250,
+					width: '70%',
 					height: '100%',
-					html: '<nav data-action="navList" data-args="nav"></nav>',
+					html: '<nav id="side-bar-nav" data-action="navList" data-args="nav"></nav>',
 					clickToHide: true,
 					orientation: 'vertical'
 				},
 				sideButton: {
-					states: '/global/wide/normal/narrow/narrower/mobile',
+					//states: '/global/wide/normal/narrow/narrower/mobile',
+					breakpoints: ['narrower', 'mobile'],
 					position: 'top-left',
 					width: 100,
 					height: 60,
@@ -109,8 +111,14 @@
 					}
 				});
 				// Scrolly links.
-					$('.scrolly').scrolly(1000, 90);
-					$('.navscroll').scrolly(1000, 50);
+				$('.scrolly').scrolly(1000, 90);
+				$('.navscroll').scrolly(1000, 50);
+
+				// Scrolly for side panel
+				var panel = skel.plugins.layers.get('sidePanel');
+				panel.on('show', function() {
+					$('#side-bar-nav').children().children().scrolly(1000, 0);
+				});
 			});
 
 		// CSS polyfills (IE<9).
@@ -129,33 +137,33 @@
 			}
 
 		// Dropdowns.
-			$('#nav > ul').dropotron({
-				mode: 'fade',
-				noOpenerFade: true,
-				expandMode: (skel.vars.isTouch ? 'click' : 'hover')
-			});
+		$('#nav > ul').dropotron({
+			mode: 'fade',
+			noOpenerFade: true,
+			expandMode: (skel.vars.isTouch ? 'click' : 'hover')
+		});
 
 		// Header.
 		// If the header is using "alt" styling and #banner is present, use scrollwatch
 		// to revert it back to normal styling once the user scrolls past the banner.
 		// Note: This is disabled on mobile devices.
-			if (!skel.vars.isMobile
-			&&	$header.hasClass('alt')
-			&&	$banner.length > 0) {
+		if (!skel.vars.isMobile
+		&&	$header.hasClass('alt')
+		&&	$banner.length > 0) {
 
-				$window.on('load', function() {
+			$window.on('load', function() {
 
-					$banner.scrollwatch({
-						delay:		0,
-						range:		0.8,
-						anchor:		'top',
-						on:			function() { $header.addClass('alt reveal'); },
-						off:		function() { $header.removeClass('alt'); }
-					});
-
+				$banner.scrollwatch({
+					delay:		0,
+					range:		0.8,
+					anchor:		'top',
+					on:			function() { $header.addClass('alt reveal'); },
+					off:		function() { $header.removeClass('alt'); }
 				});
 
-			}
+			});
+
+		}
 
 	});
 

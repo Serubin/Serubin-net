@@ -53,8 +53,13 @@ class Mail{
 		}
 	}
 
-	function send($sender_name, $sender_email, $subject, $body){
+	function send($sender_name, $sender_email, $subject, $body) {
 		return $this->mailer($sender_email, "noreply@serubin.net", "$sender_name  @ Serubin.net Mailer: ", $subject, "<p>Hi $sender_name,</p> <p>Thanks for emailing me, I should get back to you within 24 hours.</p> <h2> $sender_name said: </h2> <br /><p>$body</p>");		
+	}
+
+	function isBanned($email) {
+		$bannedJSON = file_get_contents("./banned.json");
+		
 	}
 }
 ?>
