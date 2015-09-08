@@ -65,7 +65,7 @@
 					</header>
 					<p>A portfolio for highly skilled and experienced <br/>
 
-						<b>Programmer</b> <br />
+						<b>Developer</b> <br />
 						and <br/>
 						<b>System Administrator</b>
 
