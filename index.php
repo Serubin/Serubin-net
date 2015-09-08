@@ -90,7 +90,7 @@
 					<p>I am currently a student at <b>Rochester Institute of Technology</b> majoring in</br>
 					<b>Computer Science</b>. In the last 6 years I have developed an </br> 
 						extensive skillset in <b>Programming</b> and <b>System Administration</b><br />
-						with a particular focus in <b>Linux</b> tools and programming and <b>Web</b> technologies. <br/>
+						with a particular focus on <b>Linux</b> tools and <b>Web</b> technologies. <br/>
 					    As my education continues my interests and skills develop exponentially.
 					 </p>
 				</header>
@@ -177,7 +177,7 @@
 									<header>
 										<h3>MIT Lincoln Lab</h3>
 									</header>
-									<p>MIT Lincoln Lab is a research facility that is under contract of the US Department of Defense. I was able to work on several pieces of large scale projects during my time here. I was able to explore a large diversity of topics like machine learning and detection algorithms as well as high level parallel computing.</p>
+									<p>MIT Lincoln Lab is a research facility that is under contract of the US Department of Defense. I worked on several pieces of large scale projects during my time here. I was able to explore a large diversity of topics like machine learning and detection algorithms as well as high level parallel computing.</p>
 								</section>
 
 							</div>
@@ -188,7 +188,7 @@
 									<header>
 										<h3>RIT ITS: Client Adminstration</h3>
 									</header>
-									<p>As a part of the Client Administration team of RIT's Information Infrastructure I have been able to balance out a lot of my skills. I've been able to explore new ideas and techniques in web application design as well as expand my system administration skills to windows. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth.</p>
+									<p>As a part of the Client Administration team of RIT's Information Infrastructure I've balanced out a lot of my skills. I've explored new ideas and techniques in web application design as well as expand my system administration skills to Windows. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth.</p>
 								</section>
 
 							</div>
