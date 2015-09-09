@@ -209,7 +209,7 @@
 							<div class="4u 12u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/serubin.net.png" height="200" alt="" /></a>
+									<a href="#" class="image featured"><img src="images/projects/serunified.png" height="200" alt="" /></a>
 									<header>
 										<h3>Serunified</h3>
 									</header>
