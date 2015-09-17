@@ -186,7 +186,7 @@
 								<section>
 									<a href="#" class="image featured"><img src="images/projects/ritcat.png" height="300" alt="RIT ITS" /></a>
 									<header>
-										<h3>RIT ITS: Client Adminstration</h3>
+										<h3>RIT ITS: Client Administration</h3>
 									</header>
 									<p>As a part of the Client Administration team of RIT's Information Infrastructure I've balanced out a lot of my skills. I've explored new ideas and techniques in web application design as well as expand my system administration skills to Windows. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth.</p>
 								</section>
@@ -209,7 +209,7 @@
 							<div class="4u 12u(2)">
 							
 								<section>
-									<a href="#" class="image featured"><img src="images/projects/serubin.net.png" height="200" alt="" /></a>
+									<a href="#" class="image featured"><img src="images/projects/serunified.png" height="200" alt="" /></a>
 									<header>
 										<h3>Serunified</h3>
 									</header>
