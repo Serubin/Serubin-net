@@ -45,7 +45,7 @@
 						<li id="skills-nav"><a class="navscroll" href="#skills">Skills</a></li>
 						<li id="experience-nav"><a class="navscroll" href="#experience">Experience</a></li>
 						<li id="contact-nav"><a class="navscroll" href="#contact">Contact</a></li>
-						<li><a href="https://www.linkedin.com/in/serubin" class="button special">Linkedin</a></li>
+						<li><a href="https://github.com/Serubin" class="button special">Github</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -243,7 +243,6 @@
 
 		<!-- Contact-->
 			<section id="contact">
-			
 				<header>
 					<h2>Let's <strong>talk</strong></h2>
 					<p>Send me an email</p>
@@ -298,11 +297,17 @@
 						<input type="hidden" name="action" value="submit"> 
 					</form>
 				</footer>
-			
+
 			</section>
 
 		<!-- Footer -->
 			<footer id="footer">
+
+				<ul class="buttons">
+					<li><a href="http://github.com/Serubin" class="button special"> <strong>Github</a></li>
+					<li><a href="http://linkedin.com/in/serubin" class="button special"> <strong>LinkedIn</a></li>
+				</ul>
+				
 				<p class="copyright">
 					Copyright © 2015 Serubin.net
 					| Provided by <a href="http://Serubin.net" title="Serubin.net">Serubin.net</a>.
