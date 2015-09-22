@@ -868,7 +868,7 @@ input[type="button"].small, input[type="submit"].small, input[type="reset"].smal
 }
 
 .dropotron > li:hover > a {
-    background: #83d3c9;
+    background: #44aaee;
     color: white;
 }
 
@@ -924,7 +924,7 @@ input[type="button"].small, input[type="submit"].small, input[type="reset"].smal
     }
 }
 
-#banner, #contact, #skills {
+.banner{
     background-attachment: fixed;
     background-color: #645862;
     background-image: url("../images/fuzz-overlay.png"), url("../images/banner-overlay.svg"), linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2) !important;
@@ -937,7 +937,7 @@ input[type="button"].small, input[type="submit"].small, input[type="reset"].smal
     text-align: center;
 }
 
-#banner .inner {
+.banner .inner {
     -moz-animation: reveal-banner 1s 0.25s ease-in-out;
     -webkit-animation: reveal-banner 1s 0.25s ease-in-out;
     -o-animation: reveal-banner 1s 0.25s ease-in-out;
@@ -956,7 +956,7 @@ input[type="button"].small, input[type="submit"].small, input[type="reset"].smal
     text-align: center;
 }
 
-#banner .inner header {
+.banner .inner header {
     display: inline-block;
     border-bottom: solid 2px;
     border-top: solid 2px;
@@ -964,7 +964,7 @@ input[type="button"].small, input[type="submit"].small, input[type="reset"].smal
     padding: 3px 0 3px 0;
 }
 
-#banner .inner header h2 {
+.banner .inner header h2 {
     border-bottom: solid 2px;
     border-top: solid 2px;
     font-size: 2.5em;
@@ -976,19 +976,19 @@ input[type="button"].small, input[type="submit"].small, input[type="reset"].smal
     text-transform: uppercase;
 }
 
-#banner .inner p {
+.banner .inner p {
     letter-spacing: 0.1em;
     margin: 0;
     text-transform: uppercase;
 }
 
-#banner .inner p a {
+.banner .inner p a {
     color: inherit;
     font-weight: 400;
     text-decoration: none;
 }
 
-#banner .inner footer {
+.banner .inner footer {
     margin: 2em 0 0 0;
 }
 
@@ -1237,4 +1237,8 @@ body.index #main {
     font-size: 2.0em;
     position: relative;
     top: 0.05em;
+}
+
+#welcome {
+	padding-top: 10em;
 }

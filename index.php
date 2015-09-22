@@ -32,8 +32,7 @@
 	<body class="index">
 	
 		<!-- Header -->
-		<div id="welcome">
-			<header id="header" class="alt">
+		<header id="header" class="alt">
 				<h1 id="logo"><a href="./" class="logo"><span>S</span>olomon Rubin</a></h1>
 				<nav id="nav">
 					<ul>
@@ -48,17 +47,17 @@
 						<li><a href="https://github.com/Serubin" class="button special">Github</a></li>
 					</ul>
 				</nav>
-			</header>
+			</header>	
 
 		<!-- Banner -->		
-			<section id="banner">
+			<section id="welcome" class="banner">
 				<!--
 					".inner" is set up as an inline-block so it automatically expands
 					in both directions to fit whatever's inside it. This means it won't
 					automatically wrap lines, so be sure to use line breaks where
 					appropriate (<br />).
 				-->
-				<div class="inner">
+				<div class="inner wrapper">
 					
 					<header>
 						<h2 class="logo"><span>S</span>olomon Rubin</h2>
@@ -79,9 +78,8 @@
 				</div>
 				
 			</section>
-		</div>
 		<!-- Main -->
-			<article id="intro">
+			<article id="intro" class="wrapper">
 
 				<header class="special container" id="intro-inner">
 					<span class="icon circle serubin"></span>
@@ -99,7 +97,7 @@
 
 			</article>
 
-			<article id="skills">
+			<article id="skills" class="banner">
 				<!-- Skills -->
 				<div id="skills-inner">
 					<section class="wrapper style2 container special">
@@ -244,7 +242,7 @@
 			</article>
 
 		<!-- Contact-->
-			<section id="contact">
+			<section id="contact" class="banner wrapper">
 				<header>
 					<h2>Let's <strong>talk</strong></h2>
 					<p>Send me an email</p>

@@ -120,26 +120,26 @@
 
 /* Banner */
 
-	#banner {
+	.banner {
 		background-size: auto, cover;
 		padding: 10em 0;
 	}
 
-		#banner .inner {
+		.banner .inner {
 			background: none;
 			display: block;
 			padding: 0 1.5em;
 		}
 
-			#banner .inner header h2 {
+			.banner .inner header h2 {
 				font-size: 1.5em;
 			}
 
-			#banner .inner p {
+			.banner .inner p {
 				text-align: center;
 			}
 
-			#banner .inner br {
+			.banner .inner br {
 				display: none;
 			}
 

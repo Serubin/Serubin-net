@@ -51,7 +51,7 @@
 		var	$window = $(window),
 			$body = $('body'),
 			$header = $('#header'),
-			$banner = $('#banner');
+			$banner = $('#welcome');
 
 		// Disable animations/transitions until the page has loaded.
 			$body.addClass('is-loading');
