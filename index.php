@@ -14,7 +14,7 @@
 		
 		<meta property="og:title" content="Solomon Rubin" />
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content="serubin.net" />
+		<meta property="og:url" content="http://serubin.net/" />
 		<meta property="og:description" content="Solomon Rubin: I am currently a student at Rochester Institute of Technology majoring in Computer Science. In the last 6 years I have developed an  extensive skillset in Programming and System Administration with a particular focus on Linux tools and Web technologies. As my education continues my interests and skills develop exponentially." />
 		<meta property="og:image" content="http://serubin.net/images/preview.png" />
 		
