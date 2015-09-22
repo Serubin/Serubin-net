@@ -9,8 +9,14 @@
 		<title>Solomon Rubin</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
+		<meta name="description" content="Solomon Rubin: I am currently a student at Rochester Institute of Technology majoring in Computer Science. In the last 6 years I have developed an  extensive skillset in Programming and System Administration with a particular focus on Linux tools and Web technologies. As my education continues my interests and skills develop exponentially." />
+		<meta name="keywords" content="Solomon Rubin, Computer Science, Employment, Programming, System Administration, Development" />
+		
+		<meta property="og:title" content="Solomon Rubin" />
+		<meta property="og:type" content="website" />
+		<meta property="og:description" content="Solomon Rubin: I am currently a student at Rochester Institute of Technology majoring in Computer Science. In the last 6 years I have developed an  extensive skillset in Programming and System Administration with a particular focus on Linux tools and Web technologies. As my education continues my interests and skills develop exponentially." />
+		<meta property="og:image" content="http://serubin.net/images/preview.png" />
+		
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.dropotron.min.js"></script>
