@@ -51,7 +51,7 @@
 						<li id="skills-nav"><a class="navscroll" href="#skills">Skills</a></li>
 						<li id="experience-nav"><a class="navscroll" href="#experience">Experience</a></li>
 						<li id="contact-nav"><a class="navscroll" href="#contact">Contact</a></li>
-						<li><a href="https://github.com/Serubin" class="button special">Github</a></li>
+						<li><a href="https://github.com/Serubin" alt="Github" target="_blank" class="button special">Github</a></li>
 					</ul>
 				</nav>
 			</header>	
@@ -137,9 +137,9 @@
 									<ul>
 										<li>6+ years of experience</li>
 										<li>C, Java, Python</li>
-										<li>JavaScript & NodeJS</li>
+										<li>JavaScript, NodeJS</li>
 										<li>HTML/CSS, PHP</li>
-										<li>Version Control, Git</li>
+										<li>Git, SVN</li>
 									</ul>
 								</section>
 							
@@ -183,6 +183,7 @@
 										<h3>MIT Lincoln Lab</h3>
 									</header>
 									<p>MIT Lincoln Lab is a research facility that is under contract of the US Department of Defense. I worked on several pieces of large scale projects during my time here. I was able to explore a large diversity of topics like machine learning and detection algorithms as well as high level parallel computing.</p>
+									<p><small>Due to the nature of this work I can't provide examples of projects I worked on</small></p>
 								</section>
 
 							</div>
@@ -194,6 +195,7 @@
 										<h3>RIT ITS: Client Administration</h3>
 									</header>
 									<p>As a part of the Client Administration team of RIT's Information Infrastructure I've balanced out a lot of my skills. I've explored new ideas and techniques in web application design as well as expand my system administration skills to Windows. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth.</p>
+									<p><small>Due to the nature of this work I can't provide examples of projects I worked on</small></p>
 								</section>
 
 							</div>
@@ -208,6 +210,7 @@
 										<h3>Escapecraft</h3>
 									</header>
 									<p>Escapecraft is a Minecraft gaming community where I was able to work for 4 wonderful years. I was introduced to System Administration and helped to maintain live gaming servers with a very large player-base, experiencing working within a team on large scale projects.</p>
+									<p>Project links: <a href="https://github.com/Serubin/SeruBans" alt="SeruBans" target="_blank">SeruBans (Java)</a>, <a href="https://github.com/Serubin/HatMe/" alt="HatMe" target="_blank">Hatme (Java)</a>, <a href="https://github.com/Escapecraft/EscapePlug" alt="EscapePlug" target="_blank">EscapePlugin (Java)</a></p>
 								</section>
 
 							</div>
@@ -219,6 +222,7 @@
 										<h3>Serunified</h3>
 									</header>
 									<p>Serunified is the suite of websites I created in high school, it has been much more than a project. It's been a learning tool for many years. As I've grown it's grown. It's been the home to my PHP and JavaScript learning as ever line of code is my own.</p>
+									<p>Project Links: <a href="https://github.com/Serubin/Serubin-net" alt="Serubin.net Source" target="_blank">Serubin.net</a>, More source code coming soon.</p>
 								</section>
 
 							</div>
@@ -230,6 +234,7 @@
 										<h3>Mindcloud</h3>
 									</header>
 									<p>The Mindcloud project was one of the largest scale projects I've ever worked on. The goal of creating a social conversation framework was only a small piece. It tested everyone web techniques I have ever learned as well as pushing my time management and planning skills to a new limit.</p>
+									<p>Project links: <a href="https://github.com/Serubin/Mindcloud" alt="Mindcloud Source" target="_blank">Source code</a>, <a href="https://mindcloud.io" alt="Mindcloud Website" target="_blank">Website</a></p>
 								</section>
 
 							</div>
@@ -309,8 +314,8 @@
 			<footer id="footer">
 
 				<ul class="buttons">
-					<li><a href="http://github.com/Serubin" class="button special"> <strong>Github</a></li>
-					<li><a href="http://linkedin.com/in/serubin" class="button special"> <strong>LinkedIn</a></li>
+					<li><a href="http://github.com/Serubin" alt="Github" target="_blank" class="button special"> <strong>Github</a></li>
+					<li><a href="http://linkedin.com/in/serubin" alt="Linkedin" target="_blank" class="button special"> <strong>LinkedIn</a></li>
 				</ul>
 
 				<p class="copyright">
