@@ -86,7 +86,9 @@
 				<header class="special container" id="intro-inner">
 					<span class="icon circle serubin"></span>
 					<h2>Solomon Rubin</h2>
-					<h2>--</h2>
+					
+					<div class="rule"></div>
+
 					<p>I am currently a student at <b>Rochester Institute of Technology</b> majoring in</br>
 					<b>Computer Science</b>. In the last 6 years I have developed an </br> 
 						extensive skillset in <b>Programming</b> and <b>System Administration</b><br />
@@ -307,7 +309,7 @@
 					<li><a href="http://github.com/Serubin" class="button special"> <strong>Github</a></li>
 					<li><a href="http://linkedin.com/in/serubin" class="button special"> <strong>LinkedIn</a></li>
 				</ul>
-				
+
 				<p class="copyright">
 					Copyright © 2015 Serubin.net
 					| Provided by <a href="http://Serubin.net" title="Serubin.net">Serubin.net</a>.

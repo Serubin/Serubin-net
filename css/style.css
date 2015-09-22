@@ -610,7 +610,6 @@ input[type="button"].small, input[type="submit"].small, input[type="reset"].smal
     padding: 4em;
 }
 
-
 /* Header */
 
 @-moz-keyframes reveal-header {
@@ -1219,6 +1218,11 @@ body.index #main {
 
 
 /* SERUBIN.NET CUSTOM */
+.rule {
+	width: 60%;
+    margin: 1.4em auto;
+    border-bottom: 1px solid rgba(124, 128, 129, 0.3);
+}
 
 .logo {
     font-family: 'PT Sans', sans-serif;
