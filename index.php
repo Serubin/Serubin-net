@@ -69,11 +69,9 @@
 					<header>
 						<h2 class="logo"><span>S</span>olomon Rubin</h2>
 					</header>
-					<p>A portfolio for highly skilled and experienced <br/>
+					<p>A portfolio for a highly skilled and experienced <br/>
 
-						<b>Developer</b> <br />
-						and <br/>
-						<b>System Administrator</b>
+					<b>Developer</b> and <b>System Administrator</b>
 
 					</p>
 					<footer>
