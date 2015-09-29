@@ -1,3 +1,8 @@
+<?php
+
+$description = "Solomon Rubin: I am currently a student at Rochester Institute of Technology majoring in Computer Science. Throughout the last 6 years I have developed an  extensive skillset in Programming and System Administration with a particular focus on Linux tools and Web technologies. As my education continues my interests and skills develop exponentially.";
+
+?>
 <!DOCTYPE HTML>
 <!--
 	Twenty by HTML5 UP
@@ -9,13 +14,13 @@
 		<title>Solomon Rubin</title>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-		<meta name="description" content="Solomon Rubin: I am currently a student at Rochester Institute of Technology majoring in Computer Science. In the last 6 years I have developed an  extensive skillset in Programming and System Administration with a particular focus on Linux tools and Web technologies. As my education continues my interests and skills develop exponentially." />
+		<meta name="description" content="<?php echo $description; ?>" />
 		<meta name="keywords" content="Solomon Rubin, Computer Science, Employment, Programming, System Administration, Development" />
 		
 		<meta property="og:title" content="Solomon Rubin" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="http://serubin.net/" />
-		<meta property="og:description" content="Solomon Rubin: I am currently a student at Rochester Institute of Technology majoring in Computer Science. In the last 6 years I have developed an  extensive skillset in Programming and System Administration with a particular focus on Linux tools and Web technologies. As my education continues my interests and skills develop exponentially." />
+		<meta property="og:description" content="<?php echo $description; ?>" />
 		<meta property="og:image" content="http://serubin.net/images/preview.png" />
 		
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
@@ -93,7 +98,7 @@
 					<div class="rule"></div>
 
 					<p>I am currently a student at <b>Rochester Institute of Technology</b> majoring in</br>
-					<b>Computer Science</b>. In the last 6 years I have developed an </br> 
+					<b>Computer Science</b>. Throughout the last 6 years I have developed an </br> 
 						extensive skillset in <b>Programming</b> and <b>System Administration</b><br />
 						with a particular focus on <b>Linux</b> tools and <b>Web</b> technologies. <br/>
 					    As my education continues my interests and skills develop exponentially.
