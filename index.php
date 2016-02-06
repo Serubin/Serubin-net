@@ -301,7 +301,13 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
 							<div class="12u">
 								<textarea name="message" placeholder="Message" rows="7"></textarea>
 							</div>
-						</div>
+                        </div>
+                        <div class="row">
+                            <div class="12u">
+                                <img src="//captcha/" class="noframe" alt="" id="captchaImage" />                                                   
+                                <input type="text" placeholder="##" name="captcha" size="2" id="captchaInput"/>           
+                            </div>
+                        </div>
 						<div class="row">
 							<div class="12u">
 								<ul class="buttons">
