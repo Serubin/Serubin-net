@@ -119,6 +119,13 @@
 				panel.on('show', function() {
 					$('#side-bar-nav').children().children().scrolly(1000, 0);
 				});
+
+				// Captcha reload button
+				$('#captchaReload').click(function() {
+					var d = new Date();
+
+					$('#captchaImage').attr('src', '/captcha/?cache=' + d);
+				});
 			});
 
 		// CSS polyfills (IE<9).

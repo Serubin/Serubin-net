@@ -333,13 +333,19 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
 								<textarea name="message" placeholder="Message" rows="7"><?php echo $message; ?></textarea>
 							</div>
                         </div>
-                        <div class="row">
-                            <div class="4u 12u(3)">
+						<div class="row">
+  	                        <div class="2u 6u(3)">
 								<img src="/captcha/" class="noframe" alt="" id="captchaImage" />
 							</div>
-							<div class="8u 12u(3)">
+							<div class="7u 6u(3)">
                                 <input type="text" placeholder="Answer" name="captcha" size="2" id="captchaInput"/>
-                            </div>
+							</div>
+							<div class="2u 12u(3)">
+								<ul class="buttons">
+									<li><input style="min-width: 9em;" id="captchaReload" type="button" class="special" value="Reload?" /></li>
+								</ul>
+							</div>
+
                         </div>
 						<div class="row">
 							<div class="12u">
