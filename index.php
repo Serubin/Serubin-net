@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $description = "Solomon Rubin: I am currently a student at Rochester Institute of Technology majoring in Computer Science. Throughout the last 6 years I have developed an  extensive skillset in Programming and System Administration with a particular focus on Linux tools and Web technologies. As my education continues my interests and skills develop exponentially.";
 
@@ -197,9 +198,9 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
 								<section>
 									<a href="#" class="image featured"><img src="images/projects/ritcat.png" height="300" alt="RIT ITS" /></a>
 									<header>
-										<h3>RIT ITS: Client Administration</h3>
+										<h3>RIT ITS: End-Point Engineering</h3>
 									</header>
-									<p>As a part of the Client Administration team of RIT's Information Infrastructure I've balanced out a lot of my skills. I've explored new ideas and techniques in web application design as well as expand my system administration skills to Windows. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth.</p>
+									<p>As a part of the Endpoint Engineering team of RIT's Information Infrastructure I've balanced out a lot of my skills. I've explored new ideas and techniques in web application design as well as expand my system administration skills to Windows. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth.</p>
 									<p><small>Due to the nature of this work I can't provide examples of projects I worked on</small></p>
 								</section>
 
@@ -264,48 +265,80 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
 				</header>
 				<footer>
 					<?php
+						$name = "";
+						$email = "";
+						$subject = "";
+						$message = "";
+
+
 						if(isset($_REQUEST['action'])){
 							require_once "./mail/mail.php";
 							$mailer = new Mail();
 
 							$action=$_REQUEST['action'];
-							if ($action!="") {               /* send the submitted data */ 
-								$name=$_REQUEST['name']; 
-								$email=$_REQUEST['email']; 
+
+							$error = false;
+
+														if(isset($_REQUEST['name']))
+								$name = $_REQUEST['name']; 
+							if(isset($_REQUEST['email']))	
+								$email=$_REQUEST['email'];
+							if(isset($_REQUEST['subject']))
 								$subject=$_REQUEST['subject']; 
+							if(isset($_REQUEST['message']))
 								$message=$_REQUEST['message']; 
-								if (($name=="")||($email=="")||($subject=="")||($message=="")) { 
-									echo "All fields are required, please be sure everything is filled out correctly."; 
-								} else {         
-									$mail = $mailer->send($name, $email, $subject, $message);
-									echo "<h2>Email sent! Send another?</h2>";
-								} 
+
+							// Filled forms check
+							if ($action !="" && ($name=="")||($email=="")||($subject=="")||($message=="")) { 
+								echo "<p>All fields are required, please be sure everything is filled out correctly.</p>";
+								$error = true;
+							}
+
+							// Captcha check
+							if($action != "" && $_REQUEST['captcha'] != $_SESSION['captcha'] ) {
+								echo "<p>Captcha mismatch: Are you sure you got that problem correct?</p>";
+								$error = true;
+							}
+
+							// Mail if no error
+							if ($action != "" && !$error) {               /* send the submitted data */ 
+								$mail = $mailer->send($name, $email, $subject, $message);
+								echo "<h2>Email sent! Send another?</h2>";
+								
+								// Clear fields
+								$name = "";
+								$email = "";
+								$subject = "";
+								$message = "";
+
 							}
 						}
 					?>
 					<form action="./#contact" method="POST" enctype="multipart/form-data">
 						<div class="row 50%">
 							<div class="6u 12u(3)">
-								<input type="text" name="name" placeholder="Name" />
+							<input type="text" name="name" placeholder="Name" value="<?php echo $name ?>"/>
 							</div>
 							<div class="6u 12u(3)">
-								<input type="text" name="email" placeholder="Email" />
+								<input type="text" name="email" placeholder="Email" value="<?php echo $email; ?>"/>
 							</div>
 						</div>
 						<div class="row 50%">
 							<div class="12u">
-								<input type="text" name="subject" placeholder="Subject" />
+								<input type="text" name="subject" placeholder="Subject" value="<?php echo $subject; ?>" />
 							</div>
 						</div>
 						<div class="row 50%">
 							<div class="12u">
-								<textarea name="message" placeholder="Message" rows="7"></textarea>
+								<textarea name="message" placeholder="Message" rows="7"><?php echo $message; ?></textarea>
 							</div>
                         </div>
                         <div class="row">
-                            <div class="12u">
-                                <img src="//captcha/" class="noframe" alt="" id="captchaImage" />                                                   
-                                <input type="text" placeholder="##" name="captcha" size="2" id="captchaInput"/>           
+                            <div class="4u 12u(3)">
+								<img src="/captcha/" class="noframe" alt="" id="captchaImage" />
+							</div>
+							<div class="8u 12u(3)">
+                                <input type="text" placeholder="Answer" name="captcha" size="2" id="captchaInput"/>
                             </div>
                         </div>
 						<div class="row">
@@ -325,7 +358,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
 			<footer id="footer">
 
 				<ul class="buttons">
-					<li><a href="http://github.com/Serubin" alt="Github" target="_blank" class="button special"> <strong>Github</a></li>
+					<li style="padding:5px;"><a href="http://github.com/Serubin" alt="Github" target="_blank" class="button special"> <strong>Github</a></li>
 					<li><a href="http://linkedin.com/in/serubin" alt="Linkedin" target="_blank" class="button special"> <strong>LinkedIn</a></li>
 				</ul>
 
