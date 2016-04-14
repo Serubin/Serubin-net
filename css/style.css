@@ -49,7 +49,7 @@ a {
     -o-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
     -ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
     transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-    color: #3fb1a3;
+    color: #4ae;
     text-decoration: none;
     border-bottom: dotted 1px;
 }
@@ -208,7 +208,7 @@ input[type="text"], input[type="password"], input[type="email"], textarea {
 }
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus {
-    border-color: #83d3c9;
+    border-color: #4ae;
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
@@ -591,7 +591,7 @@ input[type="button"].small, input[type="submit"].small, input[type="reset"].smal
 .wrapper.style2 .button.special {
     background: white;
     border-color: white;
-    color: #83d3c9 !important;
+    color: #4ae !important;
 }
 
 .wrapper.style2 .button.special:hover {
@@ -927,7 +927,7 @@ input[type="button"].small, input[type="submit"].small, input[type="reset"].smal
 .banner{
     background-attachment: fixed;
     background-color: #645862;
-    background-image: url("../images/fuzz-overlay.png"), url("../images/banner-overlay.svg"), linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2) !important;
+    background-image: url("../images/fuzz-overlay.png"),url("../images/banner-overlay.svg"),linear-gradient(45deg, #4ae 5%, #0c6dff 30%, #933eaf);
     background-position: top left, top center;
     background-repeat: repeat;
     background-size: auto, cover;
@@ -1026,7 +1026,7 @@ body.index #main {
 
 #contact input[type="button"].special:hover, #contact input[type="submit"].special:hover, #contact input[type="reset"].special:hover, #contact button.special:hover {
     background: rgba(52, 27, 43, 0.3) !important;
-    border-color: #83d3c9 !important;
+    border-color: #4ae !important;
     border: solid 1px;
 }
 
