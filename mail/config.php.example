@@ -1,0 +1,6 @@
+<?php
+
+define('GUSER', 'mailer@serubin.net'); // GMail username
+define('GPWD', 'passwd'); // GMail password
+
+?>

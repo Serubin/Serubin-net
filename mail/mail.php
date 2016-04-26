@@ -23,9 +23,7 @@
  */
  
 require_once './mail/class.phpmailer.php';
-
-define('GUSER', 'noreply@serubin.net'); // GMail username
-define('GPWD', 'tntBlack!'); // GMail password
+require_once './mail/config.php';
 
 class Mail{
 	 
