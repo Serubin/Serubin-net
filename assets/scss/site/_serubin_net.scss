@@ -1,0 +1,173 @@
+/* Serubin.net SCSS
+ * == Pages ==
+ *
+ * Handles specific page/content section styling
+ */
+#serubin_net {
+    #welcome {
+        padding-top: 10em;
+        text-align: center;
+
+        .inner {
+            @include vendor('animation', 'reveal-banner 1s 0.25s ease-in-out');
+            @include vendor('animation-fill-mode', 'forwards');
+            background: rgba(52, 27, 43, 0.3);
+            color: white;
+            display: inline-block;
+            opacity: 0;
+            padding: 3em;
+            text-align: center;
+
+            header {
+                display: inline-block;
+                border-bottom: solid 2px rgba(255, 255, 255, 0.6);
+                border-top: solid 2px rgba(255, 255, 255, 0.6);
+                margin: 0 0 2em 0;
+                padding: 3px 0 3px 0;
+
+                h2 {
+                    border-bottom: solid 2px rgba(255, 255, 255, 0.6);
+                    border-top: solid 2px rgba(255, 255, 255, 0.6);
+                    font-size: 2.5em;
+                    font-weight: 900;
+                    letter-spacing: 0.2em;
+                    margin: 0;
+                    padding-left: 0.05em;
+                    position: relative;
+                    text-transform: uppercase;
+                }
+            }
+
+            p {
+                letter-spacing: 0.1em;
+                margin: 0;
+                text-transform: uppercase;
+                a {
+                    color: inherit;
+                    font-weight: 400;
+                    text-decoration: none;
+                }
+            }
+
+            footer {
+                margin: 2em 0 0 0;
+            }
+
+            .button {
+                border: solid 1px rgba(255,255,255,0.3);
+
+                .icon {
+                    font-size: 2em;
+                }
+            }
+        }
+    }
+
+    @include breakpoint(mobile) {
+        #welcome {
+            .inner {
+                background: none;
+                display: block;
+                padding: 0 1.5em;
+                header {
+                    
+                    h2 {
+                        font-size: 1.5em;
+                    }
+                }
+
+                p {
+                    text-align: center;
+                }
+
+                br {
+                    display: none;
+                }
+
+            }
+        }
+    }
+    #intro {
+        #profile {
+            width: 100%;
+
+            .image {
+                width: 150px;
+                height: 150px;
+                margin: 0 auto 2em auto;
+            }
+        }
+    }
+
+    #experience {
+        margin-top: 3em;
+    }
+
+    #personal {
+        .image-wrapper {
+            width: 100%;
+
+            .image {
+                width: 200px;
+                height: 200px;
+                margin: 2em auto .5em auto;
+            }
+        }
+
+        ul {
+            margin: 0 0 .5em 0;
+        }
+    }
+
+    #contact {
+        padding: 3em;
+
+        header {
+            margin-bottom: 2em;
+        }
+        input[type="button"], 
+        input[type="submit"], 
+        input[type="reset"], 
+        .button {
+            .special {
+                background: rgba(52, 27, 43, 0.3);
+                border: solid 1px rgba(52, 27, 43, 0);
+                color: white !important;
+
+                &:hover, &:focus {
+                    background: rgba(52, 27, 43, 0.3) !important;
+                    border-color: $primary-light !important;
+                    border: solid 1px;
+                }
+            }
+        }
+    }
+
+
+    @include breakpoint(normal) {
+        #contact {
+            padding: 4em;
+        }
+    }
+
+    @include breakpoint(narrow) {
+        #contact {
+            background-size: auto, cover;
+            padding: 3em;
+        }
+    }
+
+    @include breakpoint(narrower) {
+        #contact {
+            margin: 0;
+        }
+    }
+
+    @include breakpoint(mobile) {
+        #contact {
+            background-size: auto, cover;
+            padding: 3em 1.5em;
+        }
+    }
+
+}

@@ -1,0 +1,111 @@
+/* Serubin.net SCSS
+ * == Forms ==
+ *
+ * Handles form styling includinf buttons
+ */
+
+input[type="button"],
+input[type="submit"],
+input[type="reset"],
+.button {
+    @include vendor('appearance', 'none');
+    @include vendor('transition', (
+        'color 0.2s ease-in-out',
+        'border-color 0.2s ease-in-out', 
+        'background-color 0.2s ease-in-out'
+    ));
+    background: none;
+    border: solid 1px;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    font-weight: 900;
+    letter-spacing: 2px;
+    min-width: 18em;
+    padding: 0 0.75em;
+    line-height: 3.75em;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    &:hover {
+        background: rgba(188, 202, 206, 0.15);
+        border-color: inherit;
+    }
+
+    &.special {
+        background: $primary;
+        border-color: $primary;
+        color: white !important;
+        &:hover {
+            background: $primary-light !important;
+            border-color: $primary-light !important;
+        }
+    }
+
+    &.fit {
+        width: 100%;
+    }
+
+    &.small {
+        font-size: 0.7em;
+        min-width: 14em;
+        padding: 0.5em 0;
+    }
+}
+
+
+/* Forms */
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"], 
+textarea {
+    @include vendor('transition', ('background-color 0.2s ease-in-out', 'border-color 0.2s ease-in-out'));
+    @include vendor('appearance', 'none');
+    background: none;
+    border: solid 1px rgba(124, 128, 129, 0.2);
+    color: inherit;
+    display: block;
+    padding: 0.75em;
+    text-decoration: none;
+    width: 100%;
+    outline: 0;
+
+    &:focus {
+        border-color: $primary;
+    }
+}
+
+input[type="text"], 
+input[type="password"], 
+input[type="email"] {
+    line-height: 1em;
+}
+
+::-webkit-input-placeholder {
+    color: inherit;
+    opacity: 0.5;
+    position: relative;
+    top: 3px;
+}
+
+:-moz-placeholder {
+    color: inherit;
+    opacity: 0.5;
+}
+
+::-moz-placeholder {
+    color: inherit;
+    opacity: 0.5;
+}
+
+:-ms-input-placeholder {
+    color: inherit;
+    opacity: 0.5;
+}
+
+.formerize-placeholder {
+    color: rgba(124, 128, 129, 0.5) !important;
+}

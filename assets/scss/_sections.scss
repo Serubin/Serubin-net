@@ -1,0 +1,141 @@
+/* Serubin.net SCSS
+ * == Sections ==
+ *
+ * Handles section and article divisions
+ */
+
+section, article {
+    &.special { 
+        text-align: center;
+    }
+}
+
+header {
+    &.major {
+        padding-bottom: 2em;
+    }
+    &.special {
+        margin-bottom: 5em;
+        padding-top: 7em;
+        position: relative;
+        text-align: center;
+
+        &:before, &:after {
+            border-bottom: solid 1.5px;
+            border-top: solid 1.5px;
+            content: '';
+            height: 7px;
+            opacity: 0.1;
+            position: absolute;
+            top: 1.75em;
+            width: 43%;
+        }
+
+        &:before {
+            left: 0;
+        }
+
+        &:after {
+            right: 0;
+        }
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        h2 + p {
+            margin-bottom: 0;
+            padding-top: 1.5em;
+        }
+
+        .icon {
+            cursor: default;
+            text-align: center;
+            top: -5em;
+        }
+
+        .icon:before {
+            font-size: 3.5em;
+            opacity: 0.35;
+        }
+    }
+}
+
+footer {
+    >:last-child {
+        margin-bottom: 0;
+    }
+
+    input, textarea {
+        background: rgba(52, 27, 43, 0.3) !important; //TODO change this? not used
+    }
+
+    &.major {
+        padding-top: 3em;
+    }
+}
+
+@include keyframes('reveal-banner') {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.banner{
+    background-attachment: fixed;
+    background-color: $bg;
+    background-image: url('../images/fuzz-overlay.png'), url('../images/banner-overlay.svg'), $b-gradient;
+    background-position: top left, top center;
+    background-repeat: repeat;
+    background-size: auto, cover;
+    color: white;
+    cursor: default;
+    padding: 6em 0;
+}
+
+/* Footer */
+
+#footer {
+    background: $footer-bg;
+    color: $fg;
+
+    position: relative; // For slideout footer
+    z-index: -2;
+    #footer-inner {
+
+        width: 100%;
+        z-index: -1;
+
+        position: fixed;
+        bottom: 0;
+
+        padding: 5em 5em 2em 5em;
+        text-align: center;
+
+        .copyright {
+            font-size: 0.8em;
+            line-height: 1em;
+            a {
+                color: inherit;
+            }
+
+            li {
+                display: inline-block;
+                margin-left: 1em;
+                padding-left: 1em;
+                border-left: dotted 1px;
+                &:first-child {
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                }
+            }
+        }
+
+        .buttons {
+            &:first-child {
+                padding: 0.3em;
+            }
+        }
+    }
+}
+
