@@ -10,3 +10,5 @@ assets/css/*.css
 
 node_modules/**/*
 bower_components/**/*
+
+mail/config.php
