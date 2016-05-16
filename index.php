@@ -458,7 +458,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                 </article> <!-- End Activties -->
 
             <!-- Contact-->
-                <section id="contact" class="banner wrapper">
+                <section id="contact" class="banner wrapper last">
                     <header>
                         <h2>Let's <strong>talk</strong></h2>
                         <p>Send me an email</p>
@@ -564,6 +564,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
 
 		<!-- Footer -->
 			<footer id="footer">
+                <div id="spacer"></div>
                 <div id="footer-inner">
                     <ul class="buttons">
                         <li style="padding:5px;"><a href="http://github.com/Serubin" alt="Github" target="_blank" class="button special"> <strong>Github</a></li>

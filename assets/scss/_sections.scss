@@ -8,6 +8,10 @@ section, article {
     &.special { 
         text-align: center;
     }
+	
+	&.last {
+		margin-bottom: 0 !important;
+	}
 }
 
 header {
@@ -100,6 +104,15 @@ footer {
 
     position: relative; // For slideout footer
     z-index: -2;
+
+    #spacer { // For white bar
+		height: 60px;
+		width: 100%;
+		background-color: white;
+		position: fixed;
+		z-index: -1;
+    }
+
     #footer-inner {
 
         width: 100%;
@@ -108,7 +121,7 @@ footer {
         position: fixed;
         bottom: 0;
 
-        padding: 5em 5em 2em 5em;
+        padding: 6.5em 5em 2em 5em;
         text-align: center;
 
         .copyright {

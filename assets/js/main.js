@@ -184,6 +184,8 @@
         $.each([$("#footer"), $("#footer-inner")], function(index, value) {
             value.css("height", footerHeight + "px");
         });
+        
+        $("#footer #spacer").css("bottom", (footerHeight - 60) + "px");
 
 	});
 
