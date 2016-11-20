@@ -73,7 +73,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                         </header>
                         <p>A portfolio for a highly skilled and experienced <br/>
 
-                        <b>Developer</b> and <b>System Administrator</b>
+                        <b>Developer</b> and <b>Engineer</b>
 
                         </p>
                         <footer>
@@ -102,7 +102,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                         <p>
                             I am currently a student at <b>Rochester Institute of Technology</b> majoring in<br/>
                             <b>Computer Science</b>. Throughout the last 6 years I have developed an <br/> 
-                            extensive skillset in <b>Programming</b> and <b>System Administration</b><br />
+                            extensive skillset in <b>Development</b> and <b>Software Engineering</b><br />
                             with a particular focus on <b>Linux</b> tools and <b>Web</b> technologies. <br/>
                             As my education continues my interests and skills develop exponentially.
                         </p>
@@ -264,10 +264,10 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                             <h3>
                                                 MITRE
                                                 <br />
-                                                <small>5/2016-Future :: McLean, Va</small>
+                                                <small>5/2016-Present :: McLean, Va</small>
                                             </h3>
                                         </header>
-                                        <p> MITRE is a not-for-profit research lab that is contracted by several branches of the us government as well as many non-profit initiatives</p>
+                                        <p> MITRE is a nonprofit research enterprise that is under contract of US Government as well as private company. I've worked as a Cyber Security Software Engineer taking part in a number of projects ranging from reverse engineer to creating analytic tools.  </p>
                                     </section>
 
                                 </div>
@@ -288,25 +288,10 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
 
                             </div>
                             <div class="row">
-                                <div class="4u 12u(narrower)">
-                                    <!-- FOSS -->
-                                    <section>
-                                        <a href="#" class="image featured"><img src="assets/images/projects/magic.jpg" height="200" alt="" /></a>
-                                        <header>
-                                            <h3>
-                                                FOOS @ MAGIC
-                                                <br />
-                                                <small>8/2016 :: Rochester, Ny</small>
-                                            </h3>
-                                        </header>
-                                        <p>Projects and details coming this fall. </p>
-                                    </section>
-
-                                </div>
-                               <div class="4u 12u(narrower)">
+                              <div class="6u 12u(narrower)">
                                     <!-- RIT ITS -->
                                     <section>
-                                        <a href="#" class="image featured"><img src="assets/images/projects/ritits.jpg" height="200" alt="RIT ITS" /></a>
+                                        <a href="#" class="image featured"><img src="assets/images/projects/ritits.jpg" height="300" alt="RIT ITS" /></a>
                                         <header>
                                             <h3>
                                                 RIT End-Point Engineering
@@ -318,10 +303,10 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                     </section>
 
                                 </div>
-                                <div class="4u 12u(narrower)">
+                                <div class="6u 12u(narrower)">
                                     <!-- Escapecraft -->
                                     <section>
-                                        <a href="#" class="image featured"><img src="assets/images/projects/escapecraft.jpg" height="200" alt="" /></a>
+                                        <a href="#" class="image featured"><img src="assets/images/projects/escapecraft.jpg" height="300" alt="" /></a>
                                         <header>
                                             <h3>
                                                 Escapecraft
@@ -365,12 +350,12 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                         <a href="#" class="image featured"><img src="assets/images/projects/openshorturl.jpg" height="300" alt="" /></a>
                                         <header>
                                             <h3>
-                                                OpenShort URL
+                                                Manglr
                                                 <br />
                                             </h3>
                                         </header>
-                                        <p>More info coming soon.</p>
-                                        <p></p>
+                                        <p>A highly functional and featured, deployable URL shortener. Designed as a standalone application Manglr allows for anyone to host their own URL Shortener and track analytics and statistics on their users and shortened URLs. </p>
+                                        <p>Project links: <a href="https://github.com/Serubin/Manglr" title="Manglr Source" target="_blank">Source code</a></p>
                                     </section>
                                 </div>
                             </div>
@@ -448,7 +433,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                         <ul>
                                             <li>Personal server fleet.</li>
                                             <li>Personally Managed, High Uptime</li>
-                                            <li><a href="https://map.serubin.net" title="Server Network Map">Server Network Map (Coming soon)</a></li>
+                                            <li>2 Physical Servers. 8+ Virtual Servers</li>
                                         </ul>
                                     </blockquote>
                                 </div>
