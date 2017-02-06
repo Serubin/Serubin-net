@@ -119,6 +119,7 @@
         $('#nav > ul').dropotron({
             mode: 'fade',
             noOpenerFade: true,
+            globalOffsetY: -15,
             expandMode: (skel.vars.touch ? 'click' : 'hover')
         });
 

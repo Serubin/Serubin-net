@@ -131,8 +131,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                         </header>
                                         <ul>
                                             <li>Major: Computer Science BS</li>
-                                            <li>Minor: Networking (Not yet delcared)</li>
-                                            <li>Courses taken: Data Structures, Distributed & Parallel Systems, Python, Java, and C</li>
+                                            <li>Courses taken: Data Structures, Distributed & Parallel Systems, Python, Java, Assembly, and C</li>
                                             <li>Cumulative GPA: 3.2, CS GPA: 3.65</li>
                                         </ul>
                                     </section>
@@ -267,7 +266,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                                 <small>5/2016-Present :: McLean, Va</small>
                                             </h3>
                                         </header>
-                                        <p> MITRE is a nonprofit research enterprise that is under contract of US Government as well as private company. I've worked as a Cyber Security Software Engineer taking part in a number of projects ranging from reverse engineer to creating analytic tools.  </p>
+                                        <p> MITRE is a nonprofit research enterprise that primarily serves US Government and other private organizations. I've worked as a Cyber Security Engineer taking part in a number of projects ranging from reverse engineer to creating analytic tools. I've created low level emulation software and also worked heavily on the development of high profile cyber threat analysis tools.</p>
                                     </section>
 
                                 </div>
@@ -335,7 +334,6 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                             <h3>
                                                 Mindcloud
                                                 <br />
-                                                <small>9/2014-9/2015 :: Rochester, Ny</small>
                                             </h3>
                                         </header>
                                         <p>The Mindcloud project was one of the largest scale projects I've ever worked on. The goal of creating a social conversation framework was only a small piece. It tested everyone web techniques I have ever learned as well as pushing my time management and planning skills to a new limit.</p>
@@ -354,7 +352,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                                 <br />
                                             </h3>
                                         </header>
-                                        <p>A highly functional and featured, deployable URL shortener. Designed as a standalone application Manglr allows for anyone to host their own URL Shortener and track analytics and statistics on their users and shortened URLs. </p>
+                                        <p>A highly functional and featured, deployable URL shortener. Designed as a standalone application Manglr allows for anyone to host their own URL Shortener and track analytics and statistics on their users and shortened URLs. Work in Progress.</p>
                                         <p>Project links: <a href="https://github.com/Serubin/Manglr" title="Manglr Source" target="_blank">Source code</a></p>
                                     </section>
                                 </div>
@@ -409,8 +407,8 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                         <ul>
                                             <li>LUG is an RIT Community</li>
                                             <li><strong>My Roll:</strong></li>
-                                            <li>Vice President</li>
-                                            <li>Server Lord</li>
+                                            <li>President</li>
+                                            <li>Server Lord & Linux Wizard</li>
                                             <li><a href="http://ritlug.com" title="Linux User Group Website">RITLUG Website</a></li>
                                         </ul>
                                     </blockquote>
@@ -421,8 +419,8 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                         <ul>   
                                             <li>Foss is a Magic Center Initiative</li>
                                             <li><strong>My Roll:</strong></li>
-                                            <li>Core Member of FOSS</li>
-                                            <li>Active Projects: Coming soon</li>
+                                            <li>Student Lead</li>
+                                            <li>Project Consultant</li>
                                             <li><a href="http://foss.rit.edu" title="FOSS @ RIT Website">FOSS @ RIT Website</a></li>
                                         </ul>
                                     </blockquote>
@@ -433,7 +431,8 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                         <ul>
                                             <li>Personal server fleet.</li>
                                             <li>Personally Managed, High Uptime</li>
-                                            <li>2 Physical Servers. 8+ Virtual Servers</li>
+                                            <li>2 Physical Servers. 8+ VMs</li>
+                                            <li>10x redundant, automated backups</li>
                                         </ul>
                                     </blockquote>
                                 </div>
