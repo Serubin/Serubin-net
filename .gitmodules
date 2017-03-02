@@ -1,3 +1,6 @@
 [submodule "captcha"]
 	path = captcha
 	url = https://github.com/Serubin/Simple-PHP-Captcha.git
+[submodule "resume"]
+	path = resume
+	url = https://github.com/Serubin/Resume.git
