@@ -295,7 +295,7 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                                             <h3>
                                                 RIT End-Point Engineering
                                                 <br />
-                                                <small>9/2014-Present :: Rochester, Ny</small>
+                                                <small>9/2014-1/2017 :: Rochester, Ny</small>
                                             </h3>
                                         </header>
                                         <p>As a part of the Endpoint Engineering team of RIT's Information Infrastructure I've balanced out a lot of my skills. I've explored new ideas and techniques in web application design as well as expand my system administration skills to Windows. Being able to work on projects that are relevant to my personal learning have been a huge asset in my growth.</p>
