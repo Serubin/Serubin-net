@@ -106,6 +106,11 @@ $description = "Solomon Rubin: I am currently a student at Rochester Institute o
                             with a particular focus on <b>Linux</b> tools and <b>Web</b> technologies. <br/>
                             As my education continues my interests and skills develop exponentially.
                         </p>
+                        
+                        <div class="thirdp-links">
+                            <a href="https://github.com/Serubin"><span class="icon fa-3 fa-github"></span></a>
+                            <a href="https://linkedin.com/in/Serubin"><span class="icon fa-3 fa-linked"></span></a>
+                        </div>
                     </header>
                 </article>
 
