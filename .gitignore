@@ -10,5 +10,6 @@ assets/css/*.css
 
 node_modules/**/*
 bower_components/**/*
+_site
 
 mail/config.php
