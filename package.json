@@ -1,10 +1,14 @@
 {
   "version": "1.0.0",
   "private": true,
-  "name": "WebMobile-Proj1",
-  "description": "Serubin.net WM1 Project",
-  "repository": "https://git.serubin.net/Serubin/WM1-Website-Candidate.git",
+  "name": "Serubin-net",
+  "description": "Solomon Rubin's online portfolio and resume",
+  "repository": "https://github.com/Serubin/Serubin-net.git",
   "license": "MIT",
+  "scripts": {
+    "build": "grunt build && jekyll build -d dist/",
+    "dev": "jekyll serve --watch"
+  },
   "devDependencies": {
     "bower": "^1.7.7",
     "grunt": "^0.4.5",
