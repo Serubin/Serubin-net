@@ -32,7 +32,7 @@ module.exports = function(grunt) {
             lib: {
                 src: 'assets/js/lib/*.min.js',
                 dest: 'assets/js/lib.min.js'
-            }
+            },
         },
         watch: {
             grunt: {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
                 tasks: ['build']
             },
             sass: {
-                files: ['assets/scss/*.scss', 'assets/scss/skel/*.scss', 'assets/js/main.js'],
+                files: ['assets/scss/**/*.scss', 'assets/js/main.js'],
                 tasks: ['build']
             }
         },
@@ -53,6 +53,9 @@ module.exports = function(grunt) {
             },
             js: {
                 src: [ 'assets/js/*.min.js' ]
+            },
+            cleanup: {
+                src: [ 'assets/js/lib.min.js' ]
             }
         },
         uglify: {
@@ -61,10 +64,14 @@ module.exports = function(grunt) {
                     except: ['JQuery']
                 }
             },
-            main: {
+            lib: {
                 files: {
                     'assets/js/lib/jquery.scrollspy.min.js': ['assets/js/lib/jquery.scrollspy.js'],
-                    'assets/js/main.min.js': ['assets/js/main.js', 'assets/js/util.js']
+                }
+            },
+            bundle: {
+                files: {
+                    'assets/js/bundle.min.js': [ 'assets/js/lib.min.js', 'assets/js/main.js', 'assets/js/util.js']
                 }
             }
         }
@@ -77,7 +84,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('build', ['clean','copy','uglify','concat','sass']);
+    grunt.registerTask('build', ['clean','copy','uglify:lib','concat','uglify:bundle','sass','clean:cleanup']);
     grunt.registerTask('default', ['build','watch']);
 }
 

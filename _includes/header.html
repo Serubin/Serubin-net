@@ -1,0 +1,27 @@
+{% assign url_prefix = "" %}
+{% if page.url != "/" %}
+    {% assign url_prefix = "/" %}
+{% endif %}
+
+<header id="header">
+    <h1 id="logo"><a href="/" class="logo"><span>S</span>olomon Rubin</a></h1>
+        <nav id="nav">
+            <ul>
+                <li id="welcome-nav"><a class="navscroll" href="{{ url_prefix }}#welcome">Welcome</a>
+                    <ul>
+                        <li><a class="scrolly" href="{{ url_prefix }}#intro">Introduction</a></li>
+                    </ul>
+                </li>
+                <li id="education-nav"><a class="navscroll" href="{{ url_prefix }}#education">Education</a></li>
+                <li id="experience-nav"><a class="navscroll" href="{{ url_prefix }}#experience">Experience</a>
+                    <ul>
+                        <li id="skills-nav"><a class="navscroll" href="{{ url_prefix }}#skills">Skills</a></li>
+                        <li id="work-nav"><a class="navscroll" href="{{ url_prefix }}#work">Work</a></li>
+                        <li id="projects-nav"><a class="navscroll" href="{{ url_prefix }}#projects">Projects</a></li>
+                    </ul>
+                </li>
+                <li id="activities-nav"><a class="navscroll" href="{{ url_prefix }}#activities">Activities</a></li>
+                <li><a href="/blog/" title="Blog" class="button special">Blog</a></li>
+            </ul>
+        </nav>
+    </header>

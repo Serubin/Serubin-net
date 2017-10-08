@@ -35,14 +35,23 @@
             $body.removeClass('is-loading');
         });
 
-        
+
+        if (window.location.hash != "")
+            window.history.pushState("", document.title, window.location.pathname);
+
+
         // Section definitions
-        var sections = [
-            {'min': "#welcome", 'max': "#intro", 'offset': 0},
-            {'min': "#education", 'max': "#education", 'offset': -17},
-            {'min': "#experience", 'max': "#experience", 'offset': -73, 'postset': 20},
-            {'min': "#activities", 'max': "#activities", 'offset': 63}
-        ];
+        var sections = []
+        if (window.location.pathname == '/') {
+            sections = [
+                {'min': "#welcome", 'max': "#intro", 'offset': 0},
+                {'min': "#education", 'max': "#education", 'offset': -17},
+                {'min': "#experience", 'max': "#experience", 'offset': -73, 'postset': 20},
+                {'min': "#activities", 'max': "#activities", 'offset': 63}
+            ];
+
+            $("#header").addClass("alt");
+        }
         
         $.each(sections, function(index, item) {
             var $min = $(item.min);
