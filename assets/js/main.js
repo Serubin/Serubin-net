@@ -49,6 +49,8 @@
                 {'min': "#experience", 'max': "#experience", 'offset': -73, 'postset': 20},
                 {'min': "#activities", 'max': "#activities", 'offset': 63}
             ];
+
+            $("#header").addClass("alt");
         }
         
         $.each(sections, function(index, item) {

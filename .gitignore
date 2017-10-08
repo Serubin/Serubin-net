@@ -4,8 +4,6 @@
 **/1_jquery.min.js
 **/skel.min.js
 assets/js/lib/jquery.scrollspy.min.js
-assets/js/*.min.js
-assets/css/*.css
 
 
 node_modules/**/*

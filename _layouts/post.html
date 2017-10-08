@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<!--
+    Designed by Solomon Rubin.
+
+    Orignally: Twenty by HTML5 UP
+
+	Free for personal and commercial use under the CCA 3.0 license
+-->
+<html>
+    <body id="blog-landing">
+        
+        {% include head.html %}
+
+	    <div id="page-wrapper">
+            <!-- Header -->
+            {% include header.html %}
+
+            <article id="blog">
+                <h2 class="hide">Validation Header</h2>
+                <header class="major container">
+                    <h2><strong>{{ page.title }}</strong></h2>
+                    <div class="rule"></div>
+                    <h3>{{ site.blog_title }}</h3>
+                </header>
+
+                <!-- Education -->
+                <section id="blog-inner" class="container">
+                    <section class="wrapper style3">
+
+                        {{ content }}
+
+                    </section>
+                </section>
+            </article>
+        </div>
+        <!-- Footer -->
+        {% include footer.html %}
+        </body>
+</html>
