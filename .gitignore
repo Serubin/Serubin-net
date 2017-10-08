@@ -12,4 +12,6 @@ bower_components/**/*
 _site
 **/_site
 
+dist
+
 mail/config.php
