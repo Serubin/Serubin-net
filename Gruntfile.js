@@ -33,6 +33,10 @@ module.exports = function(grunt) {
                 src: 'assets/js/lib/*.min.js',
                 dest: 'assets/js/lib.min.js'
             },
+            bundle: {
+                src: ['assets/js/lib.min.js', 'assets/js/bundle.min.js'],
+                dest: 'assets/js/bundle.min.js'
+            },
         },
         watch: {
             grunt: {
@@ -71,7 +75,7 @@ module.exports = function(grunt) {
             },
             bundle: {
                 files: {
-                    'assets/js/bundle.min.js': [ 'assets/js/lib.min.js', 'assets/js/main.js', 'assets/js/util.js']
+                    'assets/js/bundle.min.js': [ 'assets/js/main.js', 'assets/js/util.js']
                 }
             }
         }
@@ -84,7 +88,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 
-    grunt.registerTask('build', ['clean','copy','uglify:lib','concat','uglify:bundle','sass','clean:cleanup']);
+    grunt.registerTask('build', ['clean','copy','uglify:lib','concat:lib','uglify:bundle', 'concat:bundle', 'sass','clean:cleanup']);
     grunt.registerTask('default', ['build','watch']);
 }
 
