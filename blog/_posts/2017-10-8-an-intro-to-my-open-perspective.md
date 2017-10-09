@@ -1,7 +1,6 @@
 ---
 layout: post
 title: An Introduction to my Open Perspective
-head-image: https://i.imgur.com/PwnvYvp.jpg
 ---
 
 *I originally wrote this as an intro paper to a course on writing in science - my hope is that this gives a brief insight into my background with science and tech as well as an idea of how I consume information.*
