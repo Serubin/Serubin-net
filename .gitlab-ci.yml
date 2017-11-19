@@ -1,0 +1,13 @@
+stages:
+    - deploy
+deploy:
+  variables:
+      DEST_PATH: "/var/www/serubin_net/"
+  stage: deploy
+  only:
+    - master
+  script:
+    - npm i
+    - grunt build
+    - jekyll build --incremental -d $DEST_PATH
+
