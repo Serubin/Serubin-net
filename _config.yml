@@ -1,0 +1,19 @@
+name: "Nate Levesque"
+blog_title: "Thoughts of a Tired Man"
+description: ""
+
+url: "https://serubin.net"
+# URL for open-graph things which appear not
+# to get along with https
+og_url: "http://serubin.net"
+
+paginate: 6
+paginate_path: "/blog/page/:num"
+permalink: "/blog/:year/:month/:day/:title.html"
+
+redirect_to_https: yes
+
+highligher: pygments
+
+plugins: 
+    - jekyll-paginate

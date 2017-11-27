@@ -1,9 +1,9 @@
 /* Serubin.net SCSS
- * == Pages ==
+ * == Landing Page ==
  *
  * Handles specific page/content section styling
  */
-#serubin_net {
+#landing {
     #welcome {
         padding-top: 10em;
         text-align: center;
@@ -118,56 +118,4 @@
             margin: 0 0 .5em 0;
         }
     }
-
-    #contact {
-        padding: 3em;
-
-        header {
-            margin-bottom: 2em;
-        }
-        input[type="button"], 
-        input[type="submit"], 
-        input[type="reset"], 
-        .button {
-            .special {
-                background: rgba(52, 27, 43, 0.3);
-                border: solid 1px rgba(52, 27, 43, 0);
-                color: white !important;
-
-                &:hover, &:focus {
-                    background: rgba(52, 27, 43, 0.3) !important;
-                    border-color: $primary-light !important;
-                    border: solid 1px;
-                }
-            }
-        }
-    }
-
-
-    @include breakpoint(normal) {
-        #contact {
-            padding: 4em;
-        }
-    }
-
-    @include breakpoint(narrow) {
-        #contact {
-            background-size: auto, cover;
-            padding: 3em;
-        }
-    }
-
-    @include breakpoint(narrower) {
-        #contact {
-            margin: 0;
-        }
-    }
-
-    @include breakpoint(mobile) {
-        #contact {
-            background-size: auto, cover;
-            padding: 3em 1.5em;
-        }
-    }
-
 }
