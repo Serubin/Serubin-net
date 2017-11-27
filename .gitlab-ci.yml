@@ -7,6 +7,7 @@ deploy:
   only:
     - master
   script:
+    - git pull --recurse-submodules=yes origin master && git submodule init && git submodule update
     - npm i
     - grunt build
     - jekyll build --incremental -d $DEST_PATH
