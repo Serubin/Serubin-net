@@ -14,14 +14,14 @@
 
 - title: "Dotfiles"
   img: "assets/images/projects/dotfiles.jpg"
-  desc: "The Dotfiles project is exactly what it sounds like. This dotfiles framework provides lightweight highly configured and highly configurable default configurtion. It provides a starting point for ZSH, Bash, Vim (as an IDE), tmux, and much more. Also features a very usable installer and updater."
+  desc: "This dotfiles framework provides lightweight highly configured and highly configurable default configuration. It provides a starting point for ZSH, Bash, Vim (as an IDE), tmux, and much more. Also features a very usable installer and updater."
   links:
     - title: "Source Code"
       link: "https://github.com/Serubin/Dotfiles"
 
 - title: "Mindcloud"
   img: "assets/images/projects/mindcloud.jpg"
-  desc: "Minecloud was a project born out of a business idea to better connect thinkers with doers by creating an online social conversation framework to help enable doers to respond directly to \"problems\" identified by thinkers and respond with \"solutions\". The main task was to create a scaleable social framework prototype to faciliate the \"problem\", \"solution\" framework in just under 7 months."
+  desc: "Mindcloud was a project born out of a business idea to better connect thinkers with doers by creating an online social conversation framework to help enable doers to respond directly to \"problems\" identified by thinkers and respond with \"solutions\". The main task was to create a scalable social framework prototype to facilitate the \"problem\", \"solution\" framework in just under 7 months."
   links:
     - title: "Source Code"
       link: "https://github.com/Serubin/Mindcloud"

@@ -1,12 +1,12 @@
 - title: "MITRE"
   img: "assets/images/projects/mitre.jpg"
   meta: "5/2016-Present :: McLean, Va"
-  desc: "MITRE is a not-for-profit government research enterprise that specalizes in Cyber Security and Technical innovation. I've worked as a Cyber Security and Software Engineer taking part in a a number of projects ranging from reverse engineer to creating analytic tools. I've created low level emulation software and also worked heavily on the development of high profile cyber threat analysis tools, as well as various other high profile project."
+  desc: "MITRE is a not-for-profit government research enterprise that specializes in Cyber Security and Technical innovation. I've worked as a Cyber Security and Software Engineer taking part in a number of projects ranging from reverse engineering to creating analytic tools. I created low level emulation software and have extensive experience in the development of high profile cyber threat analysis tools, as well as other high profile projects."
 
 - title: "MIT Lincoln Lab"
   img: "assets/images/projects/mitll.jpg"
   meta: "2/2014-8/2015 :: Boston, Ma"
-  desc: "MIT Lincoln Lab is a government funded military research facility in which I was introduced to real-world project flows on a huge scale as well as challenging engineering problems that tested my own knowledge. I explored a plethora of projects such as machine learning and detection algerithms, and large scale paraellel computing."
+  desc: "MIT Lincoln Lab is a government funded military research facility in where I was introduced to real-world project flows on a huge scale as well as challenging engineering problems that tested my own knowledge. I explored a plethora of projects such as machine learning and detection algorithms, and large scale parallel computing."
 
 - title: "RIT End-Point Engineering"
   img: "assets/images/projects/ritits.jpg"
@@ -16,7 +16,7 @@
 - title: "Escapecraft"
   img: "assets/images/projects/escapecraft.jpg"
   meta: "2011-2015 :: Online"
-  desc: "Escapecraft is a Minecraft gaming community where I was introduced to the foundations of System Adminastration and Programming in an environment that provided a platform for rapid, hands on team learning."
+  desc: "Escapecraft is a Minecraft gaming community where I was introduced to the foundations of System Administration and Programming in an environment that provided a platform for rapid, hands-on team learning."
   projects:
       - title: "Serubans (Java)"
         link: "https://github.com/Serubin/SeruBans"
