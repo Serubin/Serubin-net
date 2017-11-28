@@ -24,17 +24,6 @@ header {
         position: relative;
         text-align: center;
 
-        &:before, &:after {
-            border-bottom: solid 1.5px;
-            border-top: solid 1.5px;
-            content: '';
-            height: 7px;
-            opacity: 0.1;
-            position: absolute;
-            top: 1.75em;
-            width: 43%;
-        }
-
         &:before {
             left: 0;
         }
@@ -61,6 +50,20 @@ header {
         .icon:before {
             font-size: 3.5em;
             opacity: 0.35;
+        }
+    }
+
+    .buttons li a.button {
+        min-width: 12em;
+        .icon {
+            cursor: pointer;
+            text-align: center;
+            top: 0em;
+        }
+
+        .icon:before {
+            font-size: 1.5em;
+            opacity: 1;
         }
     }
 }

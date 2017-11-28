@@ -2,8 +2,14 @@
     <div id="spacer"></div>
     <div id="footer-inner">
         <ul class="buttons">
-            <li style="padding:5px;"><a href="http://github.com/Serubin" alt="Github" target="_blank" class="button special"> <strong>Github</a></li>
-            <li><a href="http://linkedin.com/in/serubin" alt="Linkedin" target="_blank" class="button special"> <strong>LinkedIn</a></li>
+            {% for link in site.data.links %}
+            <li>
+                <a href="{{ link.link }}" alt="{{ link.title }}" target="_blank" class="button special">
+                    <span class="icon {{ link.icon }}"> </span>
+                    <strong>{{ link.title }}</strong>
+                </a>
+            </li>
+            {% endfor %}
         </ul>
 
         <p class="copyright">

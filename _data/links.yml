@@ -1,0 +1,10 @@
+- title: "Resume"
+  link: "https://serubin.net/resume"
+  icon: "fa-file-text"
+- title: "Github"
+  link: "https://github.com/Serubin"
+  icon: "fa-github"
+- title: "Linkedin"
+  link: "https://linkedin.com/in/serubin"
+  icon: "fa-linkedin"
+

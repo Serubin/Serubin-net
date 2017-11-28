@@ -1,0 +1,27 @@
+- title: "PulseClient"
+  img: "assets/images/projects/pulseclient.jpg"
+  desc: "PulseClient is an Open Source alternative client for the popular SMS app PulseSMS on android. PulseClient uses Vue.js to create a lightning fast, responsive webapp to enable easier and faster SMS communication from your computer."
+  links:
+    - title: "Source Code"
+      link: "https://github.com/Serubin/PulseClient-Vue"
+
+- title: "Manglr"
+  img: "assets/images/projects/openshorturl.jpg"
+  desc: "A highly functional and featured, self-deployable URL shortener. Designed as a standalone application Manglr allows for anyone to host their own URL Shortener and track analytics and statistics on their users and shortened URLs. Work in Progress."
+  links:
+    - title: "Source Code"
+      link: "https://github.com/Serubin/Manglr"
+
+- title: "Dotfiles"
+  img: "assets/images/projects/dotfiles.jpg"
+  desc: "The Dotfiles project is exactly what it sounds like. This dotfiles framework provides lightweight highly configured and highly configurable default configurtion. It provides a starting point for ZSH, Bash, Vim (as an IDE), tmux, and much more. Also features a very usable installer and updater."
+  links:
+    - title: "Source Code"
+      link: "https://github.com/Serubin/Dotfiles"
+
+- title: "Mindcloud"
+  img: "assets/images/projects/mindcloud.jpg"
+  desc: "Minecloud was a project born out of a business idea to better connect thinkers with doers by creating an online social conversation framework to help enable doers to respond directly to \"problems\" identified by thinkers and respond with \"solutions\". The main task was to create a scaleable social framework prototype to faciliate the \"problem\", \"solution\" framework in just under 7 months."
+  links:
+    - title: "Source Code"
+      link: "https://github.com/Serubin/Mindcloud"

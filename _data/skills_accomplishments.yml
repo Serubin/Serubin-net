@@ -1,0 +1,25 @@
+- title: "Awards and Certifications"
+  icon: "fa-folder"
+  desc: 
+    - "SkillsUSA: National Bronze Web Design Champion"
+    - "OSHA - 10 Hours"
+    - "RIT: Computing Award (Scholarship)"
+- title: "Programming"
+  icon: "fa-cloud"
+  desc: 
+    - "C, Java, Python"
+    - "JavaScript, NodeJS"
+    - "HTML/CSS, PHP"
+    - "Bash, SQL, LAMP"
+    - "Grunt, Maven, Make"
+    - "Git, SVN"
+- title: "Systems & Apps"
+  icon: "fa-check"
+  desc: 
+    - "Debian, Arch"
+    - "RHEL, ESXI"
+    - "MacOS"
+    - "Android System"
+    - "Distributed Systems"
+    - "Remote Systems"
+
