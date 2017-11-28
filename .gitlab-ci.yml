@@ -1,11 +1,25 @@
 stages:
-    - deploy
-deploy:
+    - deploy_prod
+    - deploy_dev
+
+deploy_prod:
   variables:
       DEST_PATH: "/var/www/serubin_net/"
-  stage: deploy
+  stage: deploy_prod
   only:
     - master
+  script:
+    - git pull --recurse-submodules=yes origin master && git submodule init && git submodule update
+    - npm i
+    - grunt build
+    - jekyll build --incremental -d $DEST_PATH
+
+deploy_dev:
+  variables:
+      DEST_PATH: "/var/www/dev_serubin_net/"
+  stage: deploy_dev
+  only:
+    - develop
   script:
     - git pull --recurse-submodules=yes origin master && git submodule init && git submodule update
     - npm i
