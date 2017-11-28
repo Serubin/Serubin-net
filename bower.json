@@ -1,7 +1,0 @@
-{
-    "name": "serubin.net",
-    "dependencies": {
-        "skel": "^3.0.0",
-        "jquery": "^2.2.1"
-    }
-}
