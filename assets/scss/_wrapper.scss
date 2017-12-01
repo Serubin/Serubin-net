@@ -20,6 +20,10 @@
             color: white;
         }
 
+        blockquote {
+            border-left: solid 0.5em rgba(255, 255, 255, 0.2);
+        }
+
         .button{
             &:hover {
                 background: rgba(255, 255, 255, 0.15) !important;
