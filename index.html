@@ -191,41 +191,18 @@ title: Solomon Rubin
                 <h2><strong>Activities</strong></h2>
             </header>
             <div class="row 50%">
+                {% for activity in site.data.activities %}
                 <div class="4u 12u(narrower)">
-                    <h3>Linux User Group @ RIT</h3>
+                    <h3>{{ activity.title }}</h3>
                     <blockquote>
                         <ul>
-                            <li>LUG is an RIT Community</li>
-                            <li><strong>My Role:</strong></li>
-                            <li>President</li>
-                            <li>Server Lord & Linux Wizard</li>
-                            <li><a href="http://ritlug.com" title="Linux User Group Website">RITLUG Website</a></li>
+                            {% for item in activity.items %}
+                            <li>{{ item }}</li>
+                            {% endfor %}
                         </ul>
                     </blockquote>
                 </div>
-                <div class="4u 12u(narrower)">
-                    <h3>FOSS @ RIT</h3>
-                    <blockquote>
-                        <ul>   
-                            <li>Foss is a Magic Center Initiative</li>
-                            <li><strong>My Role:</strong></li>
-                            <li>Student Lead</li>
-                            <li>Project Consultant</li>
-                            <li><a href="http://foss.rit.edu" title="FOSS @ RIT Website">FOSS @ RIT Website</a></li>
-                        </ul>
-                    </blockquote>
-                </div>
-                <div class="4u 12u(narrower)">
-                    <h3>Serubin.net Server Family</h3>
-                    <blockquote>
-                        <ul>
-                            <li>Personal server fleet.</li>
-                            <li>Personally Managed, High Uptime</li>
-                            <li>2 Physical Servers. 8+ VMs</li>
-                            <li>10x redundant, automated backups</li>
-                        </ul>
-                    </blockquote>
-                </div>
+                {% endfor %}
             </div>
         </section>
     </div>
