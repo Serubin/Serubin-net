@@ -106,6 +106,16 @@ blockquote {
     padding: 1em 0 1em 2em;
 }
 
+code {
+    font-family: 'Source Code Pro', monospace;
+    vertical-align: bottom;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 75%;
+    background-color: rgba(27,31,35,0.05);
+    border-radius: 3px;
+}
+
 table {
     width: 100%;
 
