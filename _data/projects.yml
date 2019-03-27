@@ -5,23 +5,24 @@
     - title: "Source Code"
       link: "https://github.com/Serubin/PulseClient-Vue"
 
-- title: "Manglr"
-  img: "assets/images/projects/openshorturl.jpg"
-  desc: "A highly functional and featured, self-deployable URL shortener. Designed as a standalone application Manglr allows for anyone to host their own URL Shortener and track analytics and statistics on their users and shortened URLs. Work in Progress."
+- title: "Cloud.Serubin.Net"
+  img: "assets/images/projects/cloud-serubin.jpg"
+  desc: "Cloud.Serubin.Net is a complex distributed service network designed to provide self-hosted services for personal use. The system utilizes distributed computers and advanced networking techniques to provide scalability and high availability. Cloud.Serubin.Net uses KVM, Docker swarm, Tinc-vpn, Wireguard, and other advanced networking to accommodate a distributed platform hosting more than 7 services and 10 websites."
   links:
-    - title: "Source Code"
-      link: "https://github.com/Serubin/Manglr"
+    - title: "Source code - soon"
+    - link: "#"
 
 - title: "Dotfiles"
   img: "assets/images/projects/dotfiles.jpg"
-  desc: "This dotfiles framework provides lightweight highly configured and highly configurable default configuration. It provides a starting point for ZSH, Bash, Vim (as an IDE), tmux, and much more. Also features a very usable installer and updater."
+  desc: "This dotfiles framework provides lightweight highly configurable set of defaults. This framework provides a sane and well featured defaults for ZSH, Bash, Vim (as an IDE), tmux, and much more. It also features a simple yet powerful installer and updater for multiple platforms."
   links:
     - title: "Source Code"
       link: "https://github.com/Serubin/Dotfiles"
 
-- title: "Mindcloud"
-  img: "assets/images/projects/mindcloud.jpg"
-  desc: "Mindcloud was a project born out of a business idea to better connect thinkers with doers by creating an online social conversation framework to help enable doers to respond directly to \"problems\" identified by thinkers and respond with \"solutions\". The main task was to create a scalable social framework prototype to facilitate the \"problem\", \"solution\" framework in just under 7 months."
+- title: "Manglr"
+  img: "assets/images/projects/openshorturl.jpg"
+  desc: "A highly functional and featured, self-hosted URL shortener. Designed as a standalone application, Manglr allows for anyone to host their own URL Shortener and track analytics and statistics on shortened URLs. Manglr is designed as microservices to enable high scalability. Work in Progress."
   links:
     - title: "Source Code"
-      link: "https://github.com/Serubin/Mindcloud"
+      link: "https://github.com/Serubin/Manglr"
+
