@@ -19,5 +19,5 @@ redirect_to_https: yes
 
 highligher: pygments
 
-plugins: 
+plugins:
     - jekyll-paginate
