@@ -1,7 +1,7 @@
 ---
 layout: landing-page
 title: Solomon Rubin
---- 
+---
 
 <article id="intro" class="wrapper">
 
@@ -14,7 +14,7 @@ title: Solomon Rubin
                 <img src="assets/images/profile.jpg" alt="Solomon Rubin" width="150" height="150" />
             </div>
         </div>
-        
+
         <p>
             {{ site.description }}
         </p>
@@ -43,7 +43,7 @@ title: Solomon Rubin
             <div class="row 50%">
                 {% for school in site.data.education %}
                 <div class="4u 12u(narrower)">
-                
+
                     <section>
                         <span class="icon featured {{ school.icon }}"></span>
                         <header>
@@ -59,7 +59,7 @@ title: Solomon Rubin
                             {% endfor %}
                         </ul>
                     </section>
-                
+
                 </div>
                 {% endfor %}
             </div>
@@ -72,7 +72,7 @@ title: Solomon Rubin
 <article id="experience">
     <h2 class="hide">Validation Header</h2>
     <section id="experience-inner" class="container special">
-        
+
         <header class="major">
             <h2><strong>Experience</strong></h2>
         </header>
@@ -83,7 +83,7 @@ title: Solomon Rubin
             <div class="row 50%">
                 {% for skill in site.data.skills_accomplishments %}
                 <div class="4u 12u(narrower)">
-                
+
                     <section>
                         <span class="icon featured {{ skill.icon }}"></span>
                         <header>
@@ -95,7 +95,7 @@ title: Solomon Rubin
                             {% endfor %}
                         </ul>
                     </section>
-                
+
                 </div>
                 {% endfor %}
             </div>
@@ -109,7 +109,7 @@ title: Solomon Rubin
             {% assign mod = count | modulo:2 %}
             {% if mod == 0 %}
             <div class="row">
-            {% endif %}   
+            {% endif %}
                 <div class="6u 12u(narrower)">
                     <section>
                         <a class="image featured"><img src="{{ work.img }}" height="300" alt="{{ work.title }}"/></a>
@@ -122,7 +122,7 @@ title: Solomon Rubin
                         </header>
                         <p>{{ work.desc }}</p>
                         {% if work.projects %}
-                        <p>Project links: 
+                        <p>Project links:
                             {% for project in work.projects %}
                             <a href="{{ project.link }}" title="{{ project.title }}" target="_blank">{{ project.title }}</a>
                             {% endfor %}
@@ -149,7 +149,7 @@ title: Solomon Rubin
             {% assign mod = count | modulo:2 %}
             {% if mod == 0 %}
             <div class="row">
-            {% endif %}   
+            {% endif %}
                 <div class="6u 12u(narrower)">
                     <section>
                         <a class="image featured"><img src="{{ project.img }}" height="300" alt="{{ project.title }}"/></a>
@@ -161,7 +161,7 @@ title: Solomon Rubin
                         </header>
                         <p>{{ project.desc }}</p>
                         {% if project.links %}
-                        <p>Project links: 
+                        <p>Project links:
                             {% for link in project.links %}
                             <a href="{{ link.link }}" title="{{ link.title }}" target="_blank">{{ link.title }}</a>
                             {% endfor %}
@@ -184,7 +184,7 @@ title: Solomon Rubin
 <!-- Activities -->
 <article id="activities" class="banner">
     <h2 class="hide">Validation Header</h2>
-    
+
     <div id="activities-inner">
         <section class="container wrapper style2">
             <header class="major">

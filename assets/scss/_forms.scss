@@ -11,7 +11,7 @@ input[type="reset"],
     @include vendor('appearance', 'none');
     @include vendor('transition', (
         'color 0.2s ease-in-out',
-        'border-color 0.2s ease-in-out', 
+        'border-color 0.2s ease-in-out',
         'background-color 0.2s ease-in-out'
     ));
     background: none;
@@ -58,9 +58,9 @@ input[type="reset"],
 
 /* Forms */
 
-input[type="text"], 
-input[type="password"], 
-input[type="email"], 
+input[type="text"],
+input[type="password"],
+input[type="email"],
 textarea {
     @include vendor('transition', ('background-color 0.2s ease-in-out', 'border-color 0.2s ease-in-out'));
     @include vendor('appearance', 'none');
@@ -78,8 +78,8 @@ textarea {
     }
 }
 
-input[type="text"], 
-input[type="password"], 
+input[type="text"],
+input[type="password"],
 input[type="email"] {
     line-height: 1em;
 }

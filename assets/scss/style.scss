@@ -1,10 +1,10 @@
 /*
-	Serubin.net Styling
-	
-	BASED ON:
-	    Twenty by HTML5 UP
-	    html5up.net | @n33co
-	    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+    Serubin.net Styling
+
+    BASED ON:
+        Twenty by HTML5 UP
+        html5up.net | @n33co
+        Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 @import 'lib/skel';
@@ -13,48 +13,48 @@
 
 // Skel import
 @include skel-breakpoints((
-	wide: '(max-width: 1680px)',
-	normal: '(max-width: 1280px)',
-	narrow: '(max-width: 980px)',
-	narrower: '(max-width: 840px)',
-	mobile: '(max-width: 736px)'
+    wide: '(max-width: 1680px)',
+    normal: '(max-width: 1280px)',
+    narrow: '(max-width: 980px)',
+    narrower: '(max-width: 840px)',
+    mobile: '(max-width: 736px)'
 ));
 
 @include skel-layout((
-	reset: 'full',
-	boxModel: 'border',
-	grid: ( gutters: (50px, 50px) ),
-	conditionals: true,
-	containers: 1400px,
-	breakpoints: (
-		wide: (
-			containers: 1200px,
-			grid: (
-				gutters: (40px, 40px)
-			),
-		),
-		normal: (
-			containers: 960px,
-		),
-		narrow: (
-			containers: 95%,
-			grid: (
-				gutters: (30px, 30px)
-			),
-		),
-		narrower: (
-			containers: (95%, true),
+    reset: 'full',
+    boxModel: 'border',
+    grid: ( gutters: (50px, 50px) ),
+    conditionals: true,
+    containers: 1400px,
+    breakpoints: (
+        wide: (
+            containers: 1200px,
+            grid: (
+                gutters: (40px, 40px)
+            ),
+        ),
+        normal: (
+            containers: 960px,
+        ),
+        narrow: (
+            containers: 95%,
+            grid: (
+                gutters: (30px, 30px)
+            ),
+        ),
+        narrower: (
+            containers: (95%, true),
             grid: (
                 zoom: 3
             ),
-		),
-		mobile: (
-			containers: (100%, true),
+        ),
+        mobile: (
+            containers: (100%, true),
             grid: (
                 zoom: 3
             ),
-		)
-	)
+        )
+    )
 ));
 
 //TODO variablize colors

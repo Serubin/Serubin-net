@@ -1,31 +1,31 @@
 /*
-	Serubin.net - Page setup
-	Rewritten.
+    Serubin.net - Page setup
+    Rewritten.
     Original code from:
-   	html5up.net | @n33co
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+       html5up.net | @n33co
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 (function($) {
 
-	skel.breakpoints({
-		wide: '(max-width: 1680px)',
-		normal: '(max-width: 1280px)',
-		narrow: '(max-width: 980px)',
-		narrower: '(max-width: 840px)',
-		mobile: '(max-width: 736px)'
-	});
+    skel.breakpoints({
+        wide: '(max-width: 1680px)',
+        normal: '(max-width: 1280px)',
+        narrow: '(max-width: 980px)',
+        narrower: '(max-width: 840px)',
+        mobile: '(max-width: 736px)'
+    });
 
-	$(function() {
+    $(function() {
 
-	    var	$window = $(window),
-			$body = $('body'),
-			$header = $('#header'),
-			$banner = $('#welcome');
+        var    $window = $(window),
+            $body = $('body'),
+            $header = $('#header'),
+            $banner = $('#welcome');
 
-        var headerHeight = 
-            $header.height() + 
-            parseInt($header.css("margin-top").replace("px")) + 
+        var headerHeight =
+            $header.height() +
+            parseInt($header.css("margin-top").replace("px")) +
             parseInt($header.css("margin-top").replace("px"));
 
         // Disable animations/transitions until the page has loaded.
@@ -52,15 +52,15 @@
 
             $("#header").addClass("alt");
         }
-        
+
         $.each(sections, function(index, item) {
             var $min = $(item.min);
             var $max = $(item.max);
             var $nav = $(item.min + "-nav");
 
-			if(typeof item.postset == "undefined")
-				item.postset = 0;
-            
+            if(typeof item.postset == "undefined")
+                item.postset = 0;
+
             // Calculates min and max areas
             var min = (
                 $min.offset().top - (
@@ -75,7 +75,7 @@
                     parseInt($min.css("margin-bottom").replace("px"))
                     + parseInt($min.css("padding-bottom").replace("px"))
                 )
-				- item.postset
+                - item.postset
             );
 
             // Add to scroll spy watch list
@@ -93,19 +93,19 @@
 
         // Scrolly links.
         $('.scrolly').scrolly({ // Intro link
-            speed: 1000, 
+            speed: 1000,
             offset: -20
         });
         $('.navscroll').scrolly({ // Most links
-            speed: 1000, 
+            speed: 1000,
             offset: 50
         });
         $('#resume-nav .navscroll').scrolly({ // Resume fix
-            speed: 1000, 
+            speed: 1000,
             offset: 90
         }); // Fix for resume secton
         $('nav .link').scrolly({ // Mobile nav - currently not working
-            speed: 1000, 
+            speed: 1000,
             offset: 50
         });
 
@@ -172,31 +172,31 @@
         // to revert it back to normal styling once the user scrolls past the banner.
         // Note: This is disabled on mobile devices.
         if (!skel.vars.mobile
-        &&	$header.hasClass('alt')
-        &&	$banner.length > 0) {
+        &&    $header.hasClass('alt')
+        &&    $banner.length > 0) {
 
             $window.on('load', function() {
                 $banner.scrollwatch({
-                    delay:		0,
-                    range:		1,
-                    anchor:		'top',
-                    on:			function() { $header.addClass('alt reveal'); },
-                    off:		function() { $header.removeClass('alt'); }
+                    delay:        0,
+                    range:        1,
+                    anchor:        'top',
+                    on:            function() { $header.addClass('alt reveal'); },
+                    off:        function() { $header.removeClass('alt'); }
                 });
 
             });
 
         }
-        
+
         $("#footer-inner").css("position", "relative");
         var footerHeight = $("#footer").height();
         $("#footer-inner").css("position", "");
         $.each([$("#footer"), $("#footer-inner")], function(index, value) {
             value.css("height", footerHeight + "px");
         });
-        
+
         $("#footer #spacer").css("bottom", (footerHeight - 60) + "px");
 
-	});
+    });
 
-})(jQuery);
+})(jQuery); // Ew jquery...

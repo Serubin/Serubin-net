@@ -5,13 +5,13 @@
  */
 
 section, article {
-    &.special { 
+    &.special {
         text-align: center;
     }
-	
-	&.last {
-		margin-bottom: 0 !important;
-	}
+
+    &.last {
+        margin-bottom: 0 !important;
+    }
 }
 
 header {
@@ -115,11 +115,11 @@ footer {
     z-index: -2;
 
     #spacer { // For white bar
-		height: 60px;
-		width: 100%;
-		background-color: white;
-		position: fixed;
-		z-index: -1;
+        height: 60px;
+        width: 100%;
+        background-color: white;
+        position: fixed;
+        z-index: -1;
     }
 
     #footer-inner {
