@@ -1,22 +1,28 @@
 - title: "MITRE"
   img: "assets/images/projects/mitre.jpg"
   meta: "5/2016-Present :: McLean, Va"
-  desc: "MITRE is a not-for-profit government research enterprise that specializes in Cyber Security and Technical innovation. I've worked as a Cyber Security and Software Engineer taking part in a number of projects ranging from reverse engineering to creating analytic tools. I created low level emulation software and have extensive experience in the development of high profile cyber threat analysis tools, as well as other high profile projects."
+  desc: "MITRE is a government research enterprise that specializes in Cyber Security and Technical innovation where I been afforded the unique opportunity to hone two complimentary skills, Cyber Security and Software Engineering. Through a series of focused and high impact projects I've been able to lead core engineering efforts and design significant systems for our sponsors. At MITRE I've been a core engineer on a custom Digital Forensics and Incident Response tool, a Cyber Threat Analysis tool, and an advanced secure storage infrastructure. These efforts resulted in multiple awards, including a Federal Law Enforcement Award and a Directors Award."
+  projects:
+    - title: "Thumbtack Image Mounter"
+      link: "https://github.com/mitre/thumbtack"
 
 - title: "MIT Lincoln Lab"
   img: "assets/images/projects/mitll.jpg"
   meta: "2/2014-8/2015 :: Boston, Ma"
-  desc: "MIT Lincoln Lab is a government funded military research facility in where I was introduced to real-world project flows on a huge scale as well as challenging engineering problems that tested my own knowledge. I explored a plethora of projects such as machine learning and detection algorithms, and large scale parallel computing."
+  desc: "MIT Lincoln Lab is a government funded research facility where I worked within the Space Systems & Technology Group. Lincoln Lab provided me with an opportunity to step into cutting edge technical research at a very young age and gave me direct control over portions of the projects I worked on. Projects such as the Lincoln Near Earth Asteroid Research (LINEAR) project allowed me to work on challenging problems that required innovative solutions. I was able to explore a plethora of topics that I would not have otherwise access to such as machine learning, image processing, parallel computing on supercomputers, and many other areas."
+  projects:
+    - title: " Lincoln Near-Earth Asteroid Research (LINEAR)"
+      link: "https://www.ll.mit.edu/impact/watch-potentially-hazardous-asteroids"
 
 - title: "RIT End-Point Engineering"
   img: "assets/images/projects/ritits.jpg"
-  meta: "9/2014-Present :: Rochester, Ny"
-  desc: "Endpoint Engineering is a team working out of RIT's IT service which serves to manage and maintain all software and updates on all University owned machines. I helped to modernize legacy systems to user friendly, highly functional applications."
+  meta: "9/2014-1/2017 :: Rochester, Ny"
+  desc: "Endpoint Engineering at RIT is the team responsible for managing, updating all university owned computers and servers. While working within this team I managed several production applications servers, developed a multiple new tools, and modernized legacy applications. In addition I also able to assist the team by automating several key tasks into simple to use programs available to the entire university."
 
 - title: "Escapecraft"
   img: "assets/images/projects/escapecraft.jpg"
   meta: "2011-2015 :: Online"
-  desc: "Escapecraft is a Minecraft gaming community where I was introduced to the foundations of System Administration and Programming in an environment that provided a platform for rapid, hands-on team learning."
+  desc: "Escapecraft is a Minecraft gaming community where I was a volunteer System Administrator. This community provided an Environment and platform for rapid, hands-on learning with enterprise-like configurations. I was responsible for ensuring the long term functionality of the game server. I also designed and implemented tools for management and administration of the server and of in-game users."
   projects:
       - title: "Serubans (Java)"
         link: "https://github.com/Serubin/SeruBans"
