@@ -1,6 +1,6 @@
 - title: "PulseClient"
   img: "assets/images/projects/pulseclient.jpg"
-  desc: "PulseClient is an Open Source alternative client for the popular SMS app PulseSMS on android. PulseClient uses Vue.js to create a lightning fast, responsive webapp to enable easier and faster SMS communication from your computer. The project has since been accepted as the upstream for the offical PulseSMS web client providing service to more than 1 million users."
+  desc: "PulseClient is an Open Source alternative client for the popular SMS app PulseSMS on android. PulseClient uses Vue.js to create a lightning fast, responsive webapp to enable easier and faster SMS communication from your computer. The project has since been accepted as the upstream for the official PulseSMS web client providing service to more than 1 million users."
   links:
     - title: "Source Code"
       link: "https://github.com/Serubin/PulseClient-Vue"
