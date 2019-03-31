@@ -1,10 +1,17 @@
 name: "Solomon Rubin"
 blog_title: "Thoughts and Ramblings"
+
 description: "I am currently a <b>Software Systems Engineer</b> at the <b>MITRE</b> Corporation  <br />
             actively continuing my education and learning both in and out of school. <br />
             Over the last eight years I have developed an extensive technical skillset <br/>
             focusing on <b>Full-Stack Development</b> and general <b>Software Engineering</b>. <br />
             I have particular intrest in <b>Linux</b> and <b>Open Source</b> Software development."
+
+description: "I'm a <b>Software and Cyber Security Engineer</b> out of Washington DC who<br />
+              is dedicated to continuously developing my technical and professional <br />
+              skills through intensive <b>hands-on learning</b>. I have a particular focus in <br />
+              the intersection of Cyber Security and Software Engineering as well as <br />
+              signficant experience within <b>System Architecture</b>. "
 
 url: "https://serubin.net"
 # URL for open-graph things which appear not
