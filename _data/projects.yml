@@ -1,6 +1,6 @@
 - title: "PulseClient"
   img: "assets/images/projects/pulseclient.jpg"
-  desc: "PulseClient is an Open Source alternative client for the popular SMS app PulseSMS on android. PulseClient uses Vue.js to create a lightning fast, responsive webapp to enable easier and faster SMS communication from your computer."
+  desc: "PulseClient is an Open Source alternative client for the popular SMS app PulseSMS on android. PulseClient uses Vue.js to create a lightning fast, responsive webapp to enable easier and faster SMS communication from your computer. The project has since been accepted as the upstream for the offical PulseSMS web client providing service to more than 1 million users."
   links:
     - title: "Source Code"
       link: "https://github.com/Serubin/PulseClient-Vue"
@@ -14,7 +14,7 @@
 
 - title: "Dotfiles"
   img: "assets/images/projects/dotfiles.jpg"
-  desc: "This dotfiles framework provides lightweight highly configurable set of defaults. This framework provides a sane and well featured defaults for ZSH, Bash, Vim (as an IDE), tmux, and much more. It also features a simple yet powerful installer and updater for multiple platforms."
+  desc: "This dotfiles framework provides lightweight highly configurable set of defaults. It aims to define sane and well featured defaults for ZSH, Bash, Vim (as an IDE), tmux, and much more. It also features a simple yet powerful installer and updater for multiple platforms."
   links:
     - title: "Source Code"
       link: "https://github.com/Serubin/Dotfiles"
