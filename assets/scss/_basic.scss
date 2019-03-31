@@ -6,10 +6,10 @@
 
 body {
     background: $bg;
-    
+
     position: relative; // For slideout footer
     z-index: 0;
-    
+
     &.is-loading * {
         @include vendor('animation', 'none !important');
         @include vendor('transition', 'none !important');

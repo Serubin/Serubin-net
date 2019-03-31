@@ -1,21 +1,21 @@
 - title: "Rochester Institute of Technology"
   icon: "fa-paw"
   meta: "Rochester, NY :: 2014-2019"
-  desc: 
-    - "Major: Computer Science BS"
-    - "Courses taken: Data Structures, Distributed & Parallel Systems, Python, Java, Assembly, and C"
-    - "President: Linux User Group (2 years)"
+  desc:
+    - "BS, Concentration in Computer Science & Cyber Security"
+    - "Courses taken: Distributed Systems, Systems Architecture, Protocol Security, Human Factors Engineering, Web/Mobile"
+    - "President, Linux User Group"
 - title: "Northeastern University"
   icon: "fa-university"
   meta: "Boston, Ma :: 2012-2014"
-  desc: 
+  desc:
     - "Non-Degree Computer Science Program (12 Credit)"
     - "Courses taken: TCP/IP 1 & 2, Databases, Web Design"
     - "Program Pioneers, Original Cohort"
 - title: "Minuteman High School"
   icon: "fa-book"
   meta: "Lexington, Ma :: 2010-2014"
-  desc: 
+  desc:
     - "Highschool Diploma, with honors"
     - "Computer Science Vocational Certificate"
     - "Student Government: School Board & Council Representative"
