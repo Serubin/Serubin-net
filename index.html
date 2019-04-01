@@ -11,7 +11,7 @@ title: Solomon Rubin
 
         <div id="profile">
             <div class="image">
-                <img src="assets/images/profile.jpg" alt="Solomon Rubin" width="150" height="150" />
+                <img class="lazy-load" data-src="assets/images/profile.jpg" alt="Solomon Rubin" width="150" height="150" />
             </div>
         </div>
 
@@ -112,7 +112,7 @@ title: Solomon Rubin
             {% endif %}
                 <div class="6u 12u(narrower)">
                     <section>
-                        <a class="image featured"><img src="{{ work.img }}" height="300" alt="{{ work.title }}"/></a>
+                        <a class="image featured"><img class="lazy-load" data-src="{{ work.img }}" height="300" alt="{{ work.title }}"/></a>
                         <header>
                             <h3>
                                 {{ work.title }}
@@ -152,7 +152,7 @@ title: Solomon Rubin
             {% endif %}
                 <div class="6u 12u(narrower)">
                     <section>
-                        <a class="image featured"><img src="{{ project.img }}" height="300" alt="{{ project.title }}"/></a>
+                        <a class="image featured"><img class="lazy-load" data-src="{{ project.img }}" height="300" alt="{{ project.title }}"/></a>
                         <header>
                             <h3>
                                 {{ project.title }}
