@@ -28,6 +28,10 @@
             parseInt($header.css("margin-top").replace("px")) +
             parseInt($header.css("margin-top").replace("px"));
 
+        // Add solid header to blog pages... via js. This isn't pretty, I know
+        if($body.attr('id') == "blog-landing")
+            $header.removeClass('alt')
+
         // Disable animations/transitions until the page has loaded.
         $body.addClass('is-loading');
 

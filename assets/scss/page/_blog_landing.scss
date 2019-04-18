@@ -5,6 +5,10 @@
  */
 
 #blog-landing {
+    #header {
+        @include vendor('animation', 'none');
+    }
+
     #page-wrapper {
         background: #f3f6fa;
         padding-bottom: 2em;
