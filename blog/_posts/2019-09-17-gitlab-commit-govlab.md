@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Gitlab Commit 2019 - GovLab: Gitlab in the Federal Government"
+excerpt_separator: <!--excerpt_end-->
+---
+
+<p style="width: 60%;margin: 0 auto;">
+  <img src="https://about.gitlab.com/images/events/gitlab-commit/new-feature.png" style="/*! border-bottom: 3px solid #0c6dff; */margin: 0 auto;margin-left: calc(50% - 75px);" width="150">
+</p>
+
+# GovLab: Gitlab in the Federal Government
+[This](https://gitlabcommit2019brooklyn.sched.com/event/TPO6/govlab-gitlab-in-the-federal-government) talk was given on September 17th, 2019 at Gitlab Commit in New York, New York.
+
+*Slides will be posted after the talk*
+
+
+## Abstract
+Every day, the federal government tackles some of the most difficult challenges that we face as a society. From defending the country itself to ensuring law enforcement's ability to protect citizens.
+<!--excerpt_end-->
+Inevitability, at the core of all of these challenges, is code.
+
+In this talk, Solomon will take a brief look into how the federal government tackles these challenges on a daily basis including how it's evolving: how it contributes to and develops open-source, how it utilizes Innersource within and across individual agencies, and of course, how Gitlab sits at the middle of all of this.
+
+## Speaker Bio
+**Solomon Rubin**
+
+Long-time government FFRDC employee and self-proclaimed Faux-Fed, Solomon Rubin has worked at several premier research facilities, including MIT Lincoln Laboratory and the MITRE corporation over the last seven years. Over the course of his career, he has worked on a variety of cyber defense projects which have enabled advanced asteroid detection, enhanced defense against cybercriminals, and more. He has promoted the use of Open Source and InnerSource within both MITRE and United States government projects. This activism has helped streamline the process of using and contributing to open source within these organizations.
+
+## Sources and Additional Information
+
+* Gitlab's Federal Support - [https://about.gitlab.com/press/releases/2019-01-22-gitlab-announces-support-for-common-access-cards.html](https://about.gitlab.com/press/releases/2019-01-22-gitlab-announces-support-for-common-access-cards.html)
+* Gitlab Public Sector (Disclosed users) - [https://about.gitlab.com/solutions/public-sector/](https://about.gitlab.com/solutions/public-sector/)
+* Code.gov Projects - [https://code.gov/browse-projects](https://code.gov/browse-projects)
+* Code.gov Compliance - [https://code.gov/about/compliance/dashboard](https://code.gov/about/compliance/dashboard)
+* GSA Modernization Comment Oracle - [https://github.com/GSA/modernization/issues/41#issuecomment-331306263](https://github.com/GSA/modernization/issues/41#issuecomment-331306263)
