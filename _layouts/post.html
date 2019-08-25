@@ -15,12 +15,19 @@
             <!-- Header -->
             {% include header.html %}
 
+            {% assign words = content | number_of_words %}
+            {% if words < 360 %}
+                {% assign readtime = 1 %}
+            {% else %}
+                {% assign readtime = words | divided_by:180 %}
+            {% endif %}
+
             <article id="blog">
                 <h2 class="hide">Validation Header</h2>
                 <header class="major container banner">
                     <h2><strong>{{ page.title }}</strong></h2>
                     <div class="rule"></div>
-                    <h3>{{ site.blog_title }}</h3>
+                    <h3>{{ page.date | date_to_long_string }} | {{ readtime }} minute read</h3>
                 </header>
 
                 <!-- Education -->
