@@ -29,7 +29,14 @@ title: Thoughts and Ramblings
                                 <h3>
                                     {{ post.title }}
                                     <br />
-                                    <small>{{ post.date | date_to_long_string }}</small>
+                                    {% assign words = post.content | number_of_words %}
+                                    {% if words < 360 %}
+                                        {% assign readtime = 1 %}
+                                    {% else %}
+                                        {% assign readtime = words | divided_by:180 %}
+                                    {% endif %}
+
+                                    <small>{{ post.date | date_to_long_string }} | {{ readtime }} minute read</small>
                                 </h3>
                             </header>
                             <p> {{ post.excerpt | strip_html | truncate: 250 }}</p>
