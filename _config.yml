@@ -18,6 +18,7 @@ redirect_to_https: yes
 paginate: 6
 paginate_path: "/blog/page/:num"
 permalink: "/blog/:year-:month-:day/:title.html"
+future: true
 
 
 highligher: pygments
