@@ -1,5 +1,5 @@
 /* Serubin.net SCSS
- * == Blog Landing Page ==
+ * == Blog Page ==
  *
  * Handles specific page/content section styling
  */
@@ -18,4 +18,8 @@
         text-align: center;
         padding: 8em 0 3em 0;
     }
+}
+
+#blog-inner {
+    color: #535657;
 }
