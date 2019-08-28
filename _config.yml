@@ -17,7 +17,7 @@ redirect_to_https: yes
 # Blog
 paginate: 6
 paginate_path: "/blog/page/:num"
-permalink: "/blog/:year-:month-:day/:title.html"
+permalink: "/blog/:year-:month-:day/:title"
 future: true
 
 
