@@ -1,3 +1,4 @@
+# -- Site info --
 name: "Solomon Rubin"
 blog_title: "Thoughts, Talks, & More"
 
@@ -14,14 +15,21 @@ og_url: "http://serubin.net"
 redirect_to_https: yes
 
 
-# Blog
+# -- Blog --
 paginate: 6
 paginate_path: "/blog/page/:num"
 permalink: "/blog/:year-:month-:day/:title"
 future: true
 
-
+# -- Build/General config options --
 highligher: pygments
 
 plugins:
     - jekyll-paginate
+
+exclude:
+  - node_modules/
+  - Gruntfile.js
+  - package.json
+  - package-lock.json
+  - nginx.conf
