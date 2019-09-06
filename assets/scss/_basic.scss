@@ -155,3 +155,7 @@ table {
 .hide { // Display none
     display: none;
 }
+
+.container {
+    transition: width ease-in-out 0.3s;
+}
