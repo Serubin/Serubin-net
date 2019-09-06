@@ -21,19 +21,45 @@
             {% else %}
                 {% assign readtime = words | divided_by:180 %}
             {% endif %}
+            {% if page.banner %}
+                {% assign banner_class = "custom-banner" %}
+                <!-- Custom injected banner/height -->
+                <style>
+                .banner {
+                    background-image: url({{page.banner}});
+                    {% if page.height %}
+                    height: {{page.height}};
+                    {% endif %}
+                }
+                </style>
+            {% endif %}
 
-            <article id="blog">
+            <article id="blog" class="{{banner_class}}">
                 <h2 class="hide">Validation Header</h2>
                 <header class="major container banner">
-                    <h2><strong>{{ page.title }}</strong></h2>
-                    <div class="rule"></div>
-                    <h3>{{ page.date | date_to_long_string }} | {{ readtime }} minute read</h3>
+                    <div class="banner-inner">
+                        <h2><strong>{{ page.title }}</strong></h2>
+                        <div class="rule"></div>
+                        <h3>{{ page.date | date_to_long_string }} | {{ readtime }} minute read</h3>
+                    </div>
                 </header>
 
                 <!-- Education -->
                 <section id="blog-inner" class="container">
+                    {% if page.banner %}
+                    <a href="#blog-inner" class="button scrolly">
+                        <span class="icon fa-3 fa-angle-down"></span>
+                    </a>
+                    {% endif %}
                     <section class="wrapper style3">
-
+                        {% if page.banner %}
+                        <div class="post-title">
+                            <h2><strong>{{ page.title }}</strong></h2>
+                            <div class="rule"></div>
+                            <h3>{{ page.date | date_to_long_string }} | {{ readtime }} minute read</h3>
+                        </div>
+                        <br />
+                        {% endif %}
                         {{ content }}
 
                     </section>

@@ -18,6 +18,33 @@
         text-align: center;
         padding: 8em 0 3em 0;
     }
+
+    .custom-banner{
+        .button {
+            width: inherit;
+            margin: -0.5em 0;
+            border: none;
+            color: #535657;
+            font-size: 24pt;
+            position: absolute;
+        }
+
+        .button:hover {
+            background: none;
+        }
+
+        .banner {
+            background-position: top center;
+            background-repeat: no-repeat;
+        }
+
+        .banner .banner-inner {
+            opacity: 0;
+        }
+        h2, h3 {
+            text-align: center;
+        }
+    }
 }
 
 #blog-inner {
