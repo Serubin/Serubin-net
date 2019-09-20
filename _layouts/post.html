@@ -8,7 +8,20 @@
 -->
 <html>
 
-    {% include head.html %}
+    <!-- If page passes a description, use that, otherwise, excerpt -->
+    {% if page.description %}
+        {% assign description = page.description %}
+    {% else %}
+        {% assign description = page.excerpt %}
+    {% endif %}
+
+    <!-- If page passes a banner, use that, otherwise, use default -->
+    {% if page.banner%}
+        {% assign preview_img = page.banner %}
+    {% endif %}
+
+
+    {% include head.html description=description preview_img=preview_img%}
     <body id="blog-landing">
 
         <div id="page-wrapper">
