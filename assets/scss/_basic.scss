@@ -58,6 +58,13 @@ p, ul, ol, dl, table, blockquote {
     margin: 0 0 2em 0;
 }
 
+body#landing ul {
+  list-style: none;
+  ul {
+    list-style: none;
+  }
+}
+
 ul {
     list-style: disc;
 
