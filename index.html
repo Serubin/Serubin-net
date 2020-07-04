@@ -112,7 +112,9 @@ title: Solomon Rubin
             {% endif %}
                 <div class="6u 12u(narrower)">
                     <section>
-                        <a class="image featured"><img class="lazy-load" data-src="{{ work.img }}" height="300" alt="{{ work.title }}"/></a>
+                        <a class="image featured">
+                            <div class="img lazy-load" data-src="{{ work.img }}"></div>
+                        </a>
                         <header>
                             <h3>
                                 {{ work.title }}
@@ -152,7 +154,9 @@ title: Solomon Rubin
             {% endif %}
                 <div class="6u 12u(narrower)">
                     <section>
-                        <a class="image featured"><img class="lazy-load" data-src="{{ project.img }}" height="300" alt="{{ project.title }}"/></a>
+                        <a class="image featured">
+                            <div class="img lazy-load" data-src="{{ project.img }}"></div>
+                        </a>
                         <header>
                             <h3>
                                 {{ project.title }}
