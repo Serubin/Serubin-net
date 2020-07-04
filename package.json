@@ -6,7 +6,9 @@
   "repository": "https://github.com/Serubin/Serubin-net.git",
   "license": "MIT",
   "scripts": {
-    "build": "grunt build && jekyll build -d dist/",
+    "build": "yarn build:node && yarn build:static",
+    "build:static": "jekyll build -d dist/",
+    "build:node": "grunt build",
     "dev": "jekyll serve --watch"
   },
   "devDependencies": {
