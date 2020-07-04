@@ -1,28 +1,34 @@
-stages:
-    - deploy_prod
-    - deploy_dev
+image: tiangolo/docker-with-compose
 
-deploy_prod:
-  variables:
-      DEST_PATH: "/var/www/serubin_net/"
-  stage: deploy_prod
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
+stages:
+  - build
+  - deploy
+
+build-prod:
+  tags:
+    - docker
+  stage: build
+  script:
+    - docker-compose build
   only:
     - master
-  script:
-    - git pull --recurse-submodules=yes origin master && git submodule init && git submodule update
-    - npm i
-    - grunt build
-    - jekyll build --incremental -d $DEST_PATH
 
-deploy_dev:
-  variables:
-      DEST_PATH: "/var/www/dev_serubin_net/"
-  stage: deploy_dev
+deploy-prod:
+  tags:
+    - docker
+    - swarm
+  stage: deploy
+  script:
+    - docker stack deploy -c docker-compose.yml --with-registry-auth $(echo $CI_PROJECT_NAME | sed 's/-docker//')
+  environment:
+    name: production
+    url: https://serubin.net
+
   only:
-    - develop
-  script:
-    - git pull --recurse-submodules=yes origin master && git submodule init && git submodule update
-    - npm i
-    - grunt build
-    - jekyll build --incremental -d $DEST_PATH
-
+    - master
