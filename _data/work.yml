@@ -1,6 +1,16 @@
+- title: "FOSSA"
+  img: "assets/images/projects/fossa.jpg"
+  meta: "9/2019-Present :: San Francisco, Ca"
+  desc: "FOSSA is a fast growing venture-backed startup developing code analysis tools to help modern teams manage their open source dependencies. FOSSA's products helps teams track the open source used in their code and automate tasks like license scanning / compliance, vulnerability management, software inventory and more. Since then, over 3000 open source projects (Kubernetes, Webpack, Terraform, ESLint) and companies (Docker, Tesla, Mapbox, Hashicorp) rely on FOSSA's tools to ship software. If you are in the software industry today, you're now using code that runs FOSSA."
+  projects:
+    - title: "Fossa.com"
+      link: "https://fossa.com"
+    - title: "FOSSA Github"
+      link: "https://github.com/fossas"
+
 - title: "MITRE"
   img: "assets/images/projects/mitre.jpg"
-  meta: "5/2016-Present :: McLean, Va"
+  meta: "5/2016-9/1019 :: McLean, Va"
   desc: "MITRE is a government research enterprise that specializes in Cyber Security and Technical innovation. At MITRE, I been afforded the unique opportunity to hone two complimentary skills, Cyber Security and Software Engineering. Through a series of focused and high impact projects I've been able to lead core engineering efforts and design significant systems for our sponsors. I have also been a core engineer on a custom Digital Forensics and Incident Response tool, a Cyber Threat Analysis tool, and an advanced secure storage infrastructure. These efforts resulted in multiple awards, including a Federal Law Enforcement Award and a Directors Award."
   projects:
     - title: "Thumbtack Image Mounter"
@@ -13,11 +23,6 @@
   projects:
     - title: " Lincoln Near-Earth Asteroid Research (LINEAR)"
       link: "https://www.ll.mit.edu/impact/watch-potentially-hazardous-asteroids"
-
-- title: "RIT End-Point Engineering"
-  img: "assets/images/projects/ritits.jpg"
-  meta: "9/2014-1/2017 :: Rochester, Ny"
-  desc: "Endpoint Engineering is the team at RIT responsible for managing and updating all university owned computers and servers. While working within this team I managed several production applications servers, developed a multiple new tools, and modernized legacy applications. In addition I was also able to assist the team by automating several key tasks into simple to use programs available to the entire university."
 
 - title: "Escapecraft"
   img: "assets/images/projects/escapecraft.jpg"
