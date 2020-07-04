@@ -185,32 +185,10 @@ title: Solomon Rubin
     </section>
 </article> <!-- End Resume -->
 
-<!-- Activities -->
-<article id="activities" class="banner">
+<!-- Spacer -->
+<article id="section-spacer" class="banner">
     <h2 class="hide">Validation Header</h2>
-
-    <div id="activities-inner">
-        <section class="container wrapper style2">
-            <header class="major">
-                <h2><strong>Activities</strong></h2>
-            </header>
-            <div class="row 50%">
-                {% for activity in site.data.activities %}
-                <div class="4u 12u(narrower)">
-                    <h3>{{ activity.title }}</h3>
-                    <blockquote>
-                        <ul>
-                            {% for item in activity.items %}
-                            <li>{{ item }}</li>
-                            {% endfor %}
-                        </ul>
-                    </blockquote>
-                </div>
-                {% endfor %}
-            </div>
-        </section>
-    </div>
-</article> <!-- End Activties -->
+</article> <!-- End Spacer -->
 
 </div> <!-- end Page Wrapper -->
 

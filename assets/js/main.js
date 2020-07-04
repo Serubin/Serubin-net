@@ -51,7 +51,6 @@
                 {'min': "#welcome", 'max': "#intro", 'offset': 0},
                 {'min': "#education", 'max': "#education", 'offset': -17},
                 {'min': "#experience", 'max': "#experience", 'offset': -73, 'postset': 20},
-                {'min': "#activities", 'max': "#activities", 'offset': 63}
             ];
 
             $("#header").addClass("alt");
