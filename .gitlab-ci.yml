@@ -15,6 +15,7 @@ build-prod:
     - docker
   stage: build
   script:
+    - docker-compose pull
     - docker-compose build
   only:
     - master
