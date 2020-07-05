@@ -22,7 +22,7 @@ RUN yarn build:static
 # Load image
 FROM nginx:alpine
 EXPOSE 80
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY default.conf /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
 COPY --from=builder /opt/serubin-net/dist /var/www/html

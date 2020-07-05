@@ -1,6 +1,7 @@
 .*.swp
 .DS_Store
 
+assets/js/bundle.min.js
 assets/js/lib/jquery.scrollspy.min.js
 assets/css/style.css
 
