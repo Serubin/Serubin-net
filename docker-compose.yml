@@ -4,7 +4,7 @@ version: '3.7'
 
 services:
   serubin-net:
-    image: serubin/serubin-net
+    image: ${IMAGE_TAG} # Filled by docker ci
     build: .
     deploy:
       replicas: 1

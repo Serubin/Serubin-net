@@ -2,9 +2,11 @@ image: tiangolo/docker-with-compose
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+  - echo $CI_REGISTRY $IMAGE_TAG
 
 variables:
   GIT_SUBMODULE_STRATEGY: recursive
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
 
 stages:
   - build
@@ -15,8 +17,9 @@ build-prod:
     - docker
   stage: build
   script:
-    - docker-compose pull
-    - docker-compose build
+    - IMAGE_TAG=$IMAGE_TAG docker-compose pull
+    - IMAGE_TAG=$IMAGE_TAG docker-compose build
+    - docker push $IMAGE_TAG
   only:
     - master
 
