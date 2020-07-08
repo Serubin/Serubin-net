@@ -36,16 +36,16 @@ services:
       database__connection__user: root
       database__connection__password: $DB_PASSWD
       database__connection__database: ghost
-      url: https://serubin.net/blog-test/
+      url: https://serubin.net/blog-test
     volumes:
-      - /opt/data/serubin-net/blog:/var/lib/ghost/content
+      - /opt/data/serubin-net/blog/content:/var/lib/ghost/content
     networks:
       - default
       - traefik-public
     labels:
       - "traefik.enable=true"
       - "traefik.domain=serubin.net"
-      - "traefik.frontend.rule=Host: serubin.net PathPrefixStrip: /blog-test"
+      - "traefik.frontend.rule=Host: serubin.net; PathPrefix: /blog-test"
       - "traefik.tags=traefik-public"
       - "traefik.docker.network=traefik-public"
       - "traefik.port=2368"
@@ -59,7 +59,10 @@ services:
       restart_policy:
         condition: on-failure
     environment:
+      MYSQL_DATABASE: ghost
       MYSQL_ROOT_PASSWORD: $DB_PASSWD
+    volumes:
+      - /opt/data/serubin-net/blog/db:/var/lib/mysql
 
 networks:
   traefik-public:
