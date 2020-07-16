@@ -12,9 +12,8 @@
   "scripts": {
     "serve": "gulp serveSite",
     "serve:static": "jekyll serve --watch --dest dist/",
-    "build": "yarn build:node && yarn build:static",
+    "build": "yarn build:assets && yarn build:static",
     "build:static": "jekyll build -d dist/",
-    "build:node": "grunt build",
     "build:site": "gulp buildsite",
     "watch:site": "gulp watchsite",
     "build:ghost": "gulp buildghost",
