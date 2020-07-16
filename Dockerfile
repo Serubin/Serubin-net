@@ -15,17 +15,11 @@ RUN chown  -R jekyll:jekyll /opt/serubin-net
 
 USER jekyll
 
-RUN mkdir -p dist/assets/js
-
-# Build node/js/scss assets - also save bundle.min.js in /tmp/
-RUN yarn build:site && cp -r dist/assets/js /tmp/bundle
+# Build node/js/scss assets
+RUN yarn build:site
 
 # Build static site
 RUN yarn build:static
-
-# jekyll build overwrites dist - so copy and paste assets/js from /tmp/
-RUN mkdir -p dist/assets/js && mv /tmp/bundle/* dist/assets/js
-
 
 # Load image
 FROM nginx:alpine

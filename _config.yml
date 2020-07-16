@@ -26,10 +26,14 @@ highligher: pygments
 
 plugins:
     - jekyll-paginate
+destination: dist/
 
 exclude:
   - assets/scss/
-  - assets/js/
+  - assets/js/lib/ # Explicitly exclude any js that isn't the bundle (include isn't working)
+  - assets/js/dist/
+  - assets/js/main.js
+  - assets/js/util.js
   - node_modules/
   - nginx/
   - Dockerfile

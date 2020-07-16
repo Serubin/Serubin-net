@@ -1,7 +1,7 @@
 .*.swp
 .DS_Store
 
-assets/js/bundle.min.js
+assets/js/bundle.*
 assets/css/
 
 

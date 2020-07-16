@@ -44,7 +44,8 @@ const buildJsBundle = (done) => {
             'main.js',
         ]),
         concat('bundle.min.js'),
-        dest('dist/assets/js/', {sourcemaps: './'})
+        uglify({output: {comments: false }}), // Strip comments and further reduce size (marginally)
+        dest('assets/js/', {sourcemaps: './'})
     ],  handleDone(done, buildJsCleanDist));
 }
 
@@ -55,8 +56,14 @@ const buildJsCleanDist = (done) =>
         clean(),
     ], handleDone(done));
 
+const buildJsCleanBundle = (done) =>
+    pump([
+        src('assets/js/bundle.*', {read: false}),
+        clean(),
+    ], handleDone(done));
+
 // Build JS series
-const buildJs = series(buildJsUglify, buildJsCopyMinified, buildJsBundle, buildJsBundle, buildJsCleanDist);
+const buildJs = series(buildJsCleanBundle, buildJsUglify, buildJsCopyMinified, buildJsBundle, buildJsBundle, buildJsCleanDist);
 
 /* Build Scss */
 sass.compiler = require('node-sass');
@@ -96,11 +103,12 @@ const buildCss = series(css);
 
 /* Main Site */
 const buildSite = series(css, buildJs);
-const watchSite = () => watch(['assets/js/main.js', 'assets/scss/**/*.scss'], buildSite);
+const watchSite = () => watch(['assets/js/**/*.js', '!assets/js/bundle.*', '!assets/js/dist/*', 'assets/scss/**/*.scss'], buildSite);
 const siteWatcher = series(buildSite, watchSite);
 
 const shell = require('gulp-shell');
-const serveSite = parallel(shell.task('yarn serve:static'), siteWatcher);
+const serveJekyll = shell.task('yarn serve:static');
+const serveSite = parallel(serveJekyll, siteWatcher);
 
 /* Ghost Theme */
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
