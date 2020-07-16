@@ -5,21 +5,47 @@
   "description": "Solomon Rubin's online portfolio and resume",
   "repository": "https://github.com/Serubin/Serubin-net.git",
   "license": "MIT",
+  "engines": {
+    "ghost": ">=2.0.0",
+    "ghost-api": "v2"
+  },
   "scripts": {
+    "serve": "gulp serveSite",
+    "serve:static": "jekyll serve --watch --dest dist/",
     "build": "yarn build:node && yarn build:static",
     "build:static": "jekyll build -d dist/",
     "build:node": "grunt build",
-    "dev": "jekyll serve --watch"
+    "build:site": "gulp buildsite",
+    "watch:site": "gulp watchsite",
+    "build:ghost": "gulp buildghost",
+    "watch:ghost": "gulp watchghost",
+    "zip:ghost": "gulp zipghost",
+    "test": "gscan ghost/"
   },
   "devDependencies": {
-    "grunt": "^1.0.4",
-    "grunt-contrib-clean": "^0.7.0",
-    "grunt-contrib-concat": "^1.0.0",
-    "grunt-contrib-copy": "^0.7.0",
-    "grunt-contrib-uglify": "^0.11.1",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-sass": "^2.0.0",
-    "gulp-sass": "^3.1.0",
-    "node-sass": "^4.12.0"
+    "beeper": "^2.0.0",
+    "gscan": "^3.5.4",
+    "gulp": "4.0.2",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "2.6.1",
+    "gulp-livereload": "4.0.2",
+    "gulp-order2": "^2.0.5",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "4.1.0",
+    "gulp-shell": "^0.8.0",
+    "gulp-sourcemaps": "2.6.5",
+    "gulp-uglify": "3.0.2",
+    "gulp-watch": "5.0.1",
+    "gulp-zip": "5.0.2",
+    "node-sass": "4.12.0",
+    "pumpify": "^2.0.1"
+  },
+  "config": {
+    "posts_per_page": 6
+  },
+  "dependencies": {
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "skel-framework": "https://github.com/n33/skel.git"
   }
 }

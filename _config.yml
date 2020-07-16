@@ -28,8 +28,12 @@ plugins:
     - jekyll-paginate
 
 exclude:
+  - assets/scss/
+  - assets/js/
   - node_modules/
-  - Gruntfile.js
+  - nginx/
+  - Dockerfile
+  - docker-file.yml
+  - gulpfile.js
   - package.json
-  - package-lock.json
-  - nginx.conf
+  - yarn.lock
