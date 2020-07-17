@@ -101,14 +101,14 @@ const zipper = (done) => {
 /* Shared Task */
 const buildCss = series(css);
 
-/* Main Site */
-const buildSite = series(css, buildJs);
-const watchSite = () => watch(['assets/js/**/*.js', '!assets/js/bundle.*', '!assets/js/dist/*', 'assets/scss/**/*.scss'], buildSite);
-const siteWatcher = series(buildSite, watchSite);
+/* Build assets */
+const buildAssets = series(css, buildJs);
+const watchAssets = () => watch(['assets/js/**/*.js', '!assets/js/bundle.*', '!assets/js/dist/*', 'assets/scss/**/*.scss'], buildAssets);
+const assetsWatcher = series(buildAssets, watchAssets);
 
 const shell = require('gulp-shell');
 const serveJekyll = shell.task('yarn serve:static');
-const serveSite = parallel(serveJekyll, siteWatcher);
+const serveSite = parallel(serveJekyll, assetsWatcher);
 
 /* Ghost Theme */
 const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
@@ -119,8 +119,8 @@ const buildGhost = buildCss;
 const zipGhost = series(buildGhost, zipper);
 
 /* Main Export */
-exports.buildsite = buildSite;
-exports.watchsite = siteWatcher;
+exports.buildassets = buildAssets;
+exports.watchassets = assetsWatcher;
 exports.serveSite = serveSite;
 
 /* Ghost Exports */
