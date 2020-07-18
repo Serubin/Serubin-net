@@ -37,7 +37,7 @@ exclude:
   - node_modules/
   - nginx/
   - Dockerfile
-  - docker-file.yml
+  - docker-compose.yml
   - gulpfile.js
   - package.json
   - yarn.lock

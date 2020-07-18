@@ -82,24 +82,32 @@ const hbs = (done) =>
         src(['ghost/*.hbs', 'ghost/partials/**/*.hbs', '!node_modules/**/*.hbs']),
     ], handleDone(done));
 
-const zipper = (done) => {
-    var targetDir = 'dist/';
+const ghostCopyManifest = (done) => copyTask('package.json', 'ghost/dist/tmp/', done);
+const ghostCopyAssets = (done) => copyTask('assets/**', 'ghost/dist/tmp/assets/', done);
+const ghostCopyHbs = (done) => copyTask(['ghost/**', '!ghost/dist/', '!ghost/dist/**'], 'ghost/dist/tmp/', done);
+const ghostClean = (done) =>
+    pump([
+        src('ghost/dist/tmp'),
+        clean()
+    ], handleDone(done));
+
+// Bundle only hbs files - assets are served from
+const ghostZip = (done) => {
+    var targetDir = 'ghost/dist/';
     var themeName = require('./package.json').name;
     var filename = themeName + '.zip';
 
     pump([
         src([
-            'ghost/**',
+            'ghost/dist/tmp/**',
             '!node_modules', '!node_modules/**',
-            '!dist', '!dist/**'
+            '!dist', '!dist/**',
         ]),
         zip(filename),
         dest(targetDir)
     ], handleDone(done));
 }
 
-/* Shared Task */
-const buildCss = series(css);
 
 /* Build assets */
 const buildAssets = series(css, buildJs);
@@ -110,23 +118,16 @@ const shell = require('gulp-shell');
 const serveJekyll = shell.task('yarn serve:static');
 const serveSite = parallel(serveJekyll, assetsWatcher);
 
-/* Ghost Theme */
-const hbsWatcher = () => watch(['*.hbs', 'partials/**/*.hbs', '!node_modules/**/*.hbs'], hbs);
-const cssWatcher = () => watch('./assets/scss/**/**', css);
+/* Build ghost */
+const bundleGhost = series(buildAssets, ghostCopyManifest, ghostCopyHbs, ghostCopyAssets, ghostZip, ghostClean);
 
-const ghostWatcher = parallel(cssWatcher, hbsWatcher);
-const buildGhost = buildCss;
-const zipGhost = series(buildGhost, zipper);
-
-/* Main Export */
+/* Asset Exports */
 exports.buildassets = buildAssets;
 exports.watchassets = assetsWatcher;
 exports.serveSite = serveSite;
 
 /* Ghost Exports */
-exports.watchghost = ghostWatcher;
-exports.buildghost = buildGhost;
-exports.zipghost = zipGhost;
+exports.zipghost = bundleGhost;
 
 /* Shared Export */
 exports.default = serveSite;
