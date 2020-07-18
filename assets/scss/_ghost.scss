@@ -274,15 +274,6 @@ a.icon {
   color: $fg;
 }
 
-.author-box:hover {
-  color: #212931 !important;
-}
-
-.author-box:hover .author-box-name {
-  color: #212931;
-  transition: color 0.2s ease;
-}
-
 .author-box .author-profile-image {
   margin: 0;
   height: 60px;
