@@ -1,0 +1,14 @@
+
+<header id="header" class="reveal">
+  <h1 id="logo"><a href="/blog/" class="logo"><span>S</span>olomon Rubin</a></h1>
+  <nav id="nav">
+    <ul class="links">
+      {{#if @site.navigation}}
+          {{navigation}}
+      {{/if}}
+      {{#if @site.secondary_navigation}}
+          {{navigation type="secondary"}}
+      {{/if}}
+    </ul>
+  </nav>
+</header>
