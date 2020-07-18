@@ -83,7 +83,7 @@ const hbs = (done) =>
     ], handleDone(done));
 
 const ghostCopyManifest = (done) => copyTask('package.json', 'ghost/dist/tmp/', done);
-const ghostCopyAssets = (done) => copyTask('assets/**', 'ghost/dist/tmp/assets/', done);
+const ghostCopyAssets = (done) => copyTask(['assets/**', '!assets/images/projects/**'], 'ghost/dist/tmp/assets/', done);
 const ghostCopyHbs = (done) => copyTask(['ghost/**', '!ghost/dist/', '!ghost/dist/**'], 'ghost/dist/tmp/', done);
 const ghostClean = (done) =>
     pump([
