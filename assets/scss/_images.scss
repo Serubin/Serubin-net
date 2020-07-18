@@ -8,6 +8,7 @@
 .image {
     border: 0;
     position: relative;
+
     &:before {
         background: url("../images/overlay.png");
         content: '';
