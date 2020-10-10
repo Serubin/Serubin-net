@@ -86,6 +86,7 @@
                 min: min,
                 max: max,
                 onEnter: function(element, position) {
+                    plausible('Navigate-' + $nav.attr('id').replace("-nav", ""));
                     $nav.addClass('current');
                 },
                 onLeave: function(element, position) {
@@ -200,6 +201,10 @@
 
         $("#footer #spacer").css("bottom", (footerHeight - 60) + "px");
 
+    });
+
+    $('a.button').click(function(e) {
+        plausible('NavigateExt-' + e.target.href);
     });
 
     /*
