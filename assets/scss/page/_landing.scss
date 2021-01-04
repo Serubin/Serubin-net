@@ -3,7 +3,8 @@
  *
  * Handles specific page/content section styling
  */
-#landing {
+
+#landing, #fourzerofour {
     #welcome {
         padding-top: 10em;
         text-align: center;
@@ -70,7 +71,7 @@
                 display: block;
                 padding: 0 1.5em;
                 header {
-                    
+
                     h2 {
                         font-size: 1.5em;
                     }
