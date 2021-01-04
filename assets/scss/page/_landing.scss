@@ -12,7 +12,7 @@
         .inner {
             @include vendor('animation', 'reveal-banner 1s 0.25s ease-in-out');
             @include vendor('animation-fill-mode', 'forwards');
-            background: rgba(52, 27, 43, 0.3);
+            background: rgba(218, 218, 218, 0.20);
             color: white;
             display: inline-block;
             opacity: 0;
