@@ -45,7 +45,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.domain=serubin.net"
-      - "traefik.frontend.rule=Host: serubin.net; PathPrefix: /blog-test"
+      - "traefik.frontend.rule=Host: serubin.net, www.serubin.net, www.serubin.com, serub.in, www.serub.in, solomonrub.in, www.solomonrub.in, solomonrubin.com, www.solomonrubin.com; PathPrefix: /blog-test"
       - "traefik.tags=traefik-public"
       - "traefik.docker.network=traefik-public"
       - "traefik.port=2368"
