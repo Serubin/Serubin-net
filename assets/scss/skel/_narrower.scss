@@ -6,7 +6,7 @@
 @include breakpoint(narrower) {
 
     /* Basic */
-    
+
     header {
         &.major {
             padding-bottom: 0.25em;
@@ -25,12 +25,15 @@
         }
     }
 
+    .container.major.banner {
+        width: 100% !important
+    }
 
     /* Section/Article */
 
     section {
         margin: 1em 0 1em 0;
-        
+
         &:first-child {
             margin-top: 0;
         }
@@ -218,6 +221,13 @@
             #navPanel {
                 @include vendor('transform', 'translateX(0)');
             }
+        }
+    }
+
+    body#blog {
+        #posts {
+            display: grid;
+            grid-template-columns: auto;
         }
     }
 }

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<!--
+    Designed by Solomon Rubin.
+
+    Orignally: Twenty by HTML5 UP
+
+    Free for personal and commercial use under the CCA 3.0 license
+-->
+<html lang="{{@site.lang}}">
+
+  <head>
+    <meta charset="utf-8">
+    <title>{{meta_title}}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+    <meta property="og:title" content="Solomon Rubin" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://serubin.net/" />
+
+    <meta property="og:image" content="http://serubin.net/assets/images/preview.png" />
+
+    <link rel="stylesheet" href="{{asset "/css/style.css"}}" />
+    {{ghost_head}}
+  </head>
+
+  <body id="blog">
+    <div id="page-wrapper">
+      {{> "header"}}
+
+      {{{body}}}
+
+    </div>
+    {{> "footer"}}
+    
+    {{ghost_foot}}
+    <script src="{{asset "/js/bundle.min.js"}}"></script>
+  </body>
+</html>

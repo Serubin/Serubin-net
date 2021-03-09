@@ -57,8 +57,11 @@
     )
 ));
 
-//TODO variablize colors
 @import "vars";
+
+@function _size($keys...) {
+  @return val($size, $keys...);
+}
 
 // Core style import
 @import 'fonts';

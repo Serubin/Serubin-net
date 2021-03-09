@@ -16,7 +16,7 @@ RUN chown  -R jekyll:jekyll /opt/serubin-net
 USER jekyll
 
 # Build node/js/scss assets
-RUN yarn build:site
+RUN yarn build:assets
 
 # Build static site
 RUN yarn build:static

@@ -40,8 +40,12 @@
         });
 
 
-        if (window.location.hash != "")
+        if (window.location.hash != "") {
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $(window.location.hash).offset().top
+            }, 500);
             window.history.pushState("", document.title, window.location.pathname);
+        }
 
 
         // Section definitions
@@ -111,6 +115,11 @@
         $('nav .link').scrolly({ // Mobile nav - currently not working
             speed: 1000,
             offset: 50
+        });
+        var postScroll = $('#post-scroll.scrolly');
+        postScroll && postScroll.scrolly({
+            speed: 1000,
+            offset: 60
         });
 
         // CSS polyfills (IE<9).
