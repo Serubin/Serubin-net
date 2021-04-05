@@ -3,7 +3,7 @@ layout: post
 title: COVID 19 Vaccine Resources
 ---
 
-It's incredibly difficult to get vaccination appointments for COVID 19 across the United States right now. As more people become eligible appointments are becoming harder to come by for those who really need it.
+It's incredibly difficult to get vaccination appointments for COVID 19 across the United States right now. As more people become eligible appointments are becoming harder to come by for those who are at a higher risk.
 For those in the U.S. having issues finding appointments - I've been compiling some resources and trying to help eligible friends and family find availability. It's been very difficult for people I know, even if you are at the top of the eligibility list.
 
 These resources should work in just about any state, but I figured I'd compile it all for everyone to glance at.
