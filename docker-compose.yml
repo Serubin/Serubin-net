@@ -21,6 +21,7 @@ services:
       - "traefik.tags=traefik-public"
       - "traefik.docker.network=traefik-public"
       - "traefik.port=80"
+      - "traefik.webservice.frontend.entryPoints=http,https"
       - "traefik.default.protocol=http"
 
   ghost:
