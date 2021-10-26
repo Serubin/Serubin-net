@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Nunito+Sans&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  color: #7c8081;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,92 @@
+.hero {
+  position: relative;
+  z-index: 1000;
+
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(var(--hero-bg-color), var(--hero-bg-color)), url("/images/hero.jpg") fixed no-repeat center center;
+  background-blend-mode: luminosity, normal;
+  background-size: cover;
+  --hero-bg-color: #41878a8f;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  color: white;
+
+  .innerWrapper {
+    padding: 1em;
+    margin: 50% auto;
+    display: flex;
+  }
+
+  .continue {
+    position: absolute;
+    bottom: 1em;
+  }
+
+  h1 {
+    font-size: 4.5em;
+    font-weight: 200;
+    margin: 0 0 .5em 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .profileImageWrapper {
+    padding: 1.5em 0 0 2em;
+    img {
+      border-radius: 50%;
+    }
+  }
+
+  ul {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    font-size: 110%;
+
+    align-items: stretch;
+    justify-content: space-between;
+
+    li {
+      display: block;
+      list-style: none;
+    }
+  }
+}
+
+.chevronDown {
+  box-sizing: border-box;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 22px;
+  height: 22px;
+  border: 2px solid transparent;
+  border-radius: 100px;
+
+  &::after, &::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    border-bottom: 2px solid;
+  }
+
+  &::before {
+    border-bottom: none;
+  }
+
+  &::after {
+    width: 15px;
+    height: 15px;
+    border-right: 2px solid;
+    transform: rotate(45deg);
+    left: 4px;
+    top: 2px;
+  }
+}
