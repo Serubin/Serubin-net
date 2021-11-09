@@ -4,7 +4,6 @@ import getStaticContent from '../lib/contentData';
 import Hero, { HeroProps } from '../components/hero'
 import { AboutData } from '../lib/types';
 import Nav from '../components/nav'
-import About from '../components/about';
 
 const Index: NextPage = ({ staticData }): JSX.Element => {
   const { name, tags, about, links }: AboutData = staticData.about;
@@ -14,7 +13,6 @@ const Index: NextPage = ({ staticData }): JSX.Element => {
       <Nav links={links} />
       <div className={styles.container}>
           <Hero name={name} tags={tags} />
-          <About text={about} />
       </div>
     </>
   );
