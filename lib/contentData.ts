@@ -21,7 +21,7 @@ export default function getStaticContent(sections: string[]) {
 
   // If there are multiple sections named the same, they will overwrite
   // eachother
-  const reducedData = staticData.reduce((acc, curr) => ({
+  const reducedData = staticData.reduce((acc: any, curr: any) => ({
     ...acc,
     ...curr,
   }), {});
