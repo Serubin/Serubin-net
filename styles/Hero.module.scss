@@ -1,6 +1,8 @@
+@import './animations.scss';
+
 .hero {
   position: relative;
-  z-index: 1000;
+  z-index: 100;
 
   display: flex;
   height: 100vh;
@@ -9,6 +11,10 @@
   background-blend-mode: luminosity, normal;
   background-size: cover;
   --hero-bg-color: #41878a8f;
+
+  animation: fadeIn ease .3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 
   justify-content: center;
   align-items: center;
@@ -30,7 +36,7 @@
   h1 {
     font-size: 4.5em;
     font-weight: 200;
-    margin: 0 0 .5em 0;
+    margin: 0 0 0.2em -0.1em;;
   }
 
   p {

@@ -6,12 +6,12 @@ import { AboutData } from '../lib/types';
 import Nav from '../components/nav'
 import About from '../components/about';
 
-const Index: NextPage = ({ staticData }) => {
-  const { name, tags, about }: AboutData = staticData.about;
+const Index: NextPage = ({ staticData }): JSX.Element => {
+  const { name, tags, about, links }: AboutData = staticData.about;
 
   return (
     <>
-      <Nav />
+      <Nav links={links} />
       <div className={styles.container}>
           <Hero name={name} tags={tags} />
           <About text={about} />

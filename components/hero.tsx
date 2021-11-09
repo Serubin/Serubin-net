@@ -1,4 +1,6 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { fadeUp, fadeDown, fadeLeft } from '../lib/animations';
 import { c } from '../lib/utils';
 import styles from '../styles/Hero.module.scss'
 
@@ -16,18 +18,18 @@ export default function Hero({ name, tags }: HeroProps) {
     <header className={c(styles.hero)}>
       <section className={c(styles.innerWrapper)}>
         <div>
-          <p>Hi, I&apos;m</p>
-          <h1>{name}</h1>
-          <ul>
-            {tags.map((tag, idx) => (<>
-              <li key={tag}>{tag}</li>
-              {!isLast(idx, tags.length) && (<li key={idx}>|</li>)}
-            </>))}
-          </ul>
+          <motion.p {...fadeDown()}>Hi, I&apos;m</motion.p>
+          <motion.h1 {...fadeLeft()}>{name}</motion.h1>
+            <motion.ul {...fadeUp()}>
+              {tags.map((tag, idx) => (<>
+                <li key={tag}>{tag}</li>
+                {!isLast(idx, tags.length) && (<li key={idx}>|</li>)}
+              </>))}
+            </motion.ul>
         </div>
-        <div className={c(styles.profileImageWrapper)}>
+        <motion.div className={c(styles.profileImageWrapper)} {...fadeLeft()}>
           <Image alt={name} src="/images/profile.jpg" layout="intrinsic" width={150} height={150} />
-        </div>
+        </motion.div>
       </section>
       <div className={c([styles.chevronDown, styles.continue])}></div>
     </header>
