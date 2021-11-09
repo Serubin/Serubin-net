@@ -1,0 +1,23 @@
+.logo {
+  display: block;
+  width: 1.5em;
+  margin: calc((64px - 38px) / 2);
+
+  line-height: 1.5em;
+  border: 1px solid var(--fg-light);
+
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5em;
+  text-align: center;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+
+  .dark {
+    border: 1px solid var(--fg-dark);
+  }
+}
