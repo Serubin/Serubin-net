@@ -5,8 +5,14 @@ import Hero, { HeroProps } from '../components/hero'
 import { AboutData } from '../lib/types';
 import Nav from '../components/nav'
 
-const Index: NextPage = ({ staticData }): JSX.Element => {
-  const { name, tags, about, links }: AboutData = staticData.about;
+type Props = {
+  staticData: {
+    about: AboutData;
+  };
+}
+
+const Index: NextPage<Props> = ({ staticData }): JSX.Element => {
+  const { name, tags, about, links } = staticData.about;
 
   return (
     <>
