@@ -22,6 +22,6 @@ export const getStaticProps = async () => {
       ...data,
     }
   };
-}
+};
 
 export default ResumePage;
