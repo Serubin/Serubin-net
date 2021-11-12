@@ -14,7 +14,8 @@ const ResumePage: NextPage<Props> = ({ resume }) => {
 }
 
 export const getStaticProps = async () => {
-  const data = getStaticContent(['resume'], 'resume/data/');
+  // Work around for ts spread - this is not safe
+  const data: any = getStaticContent(['resume'], 'resume/data/');
 
   return {
     props: {
