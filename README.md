@@ -4,9 +4,19 @@
 
 This is the public source code for Solomon Rubin's Serubin.net. It serves as an online portfolio and resume.
 
-The site is heavily based on HTML5UP's Twenty design. It has been heavily modified to satisfy the needs of this website.
-
 Please direct questions and comments to the issues section.
+
+# Running/Viewing
+Available at https://serubin.net/resume
+
+**or**
+
+run and view:
+```shell
+yarn
+yarn dev
+# => Now browse to http://localhost:3000
+```
 
 
 ## License
