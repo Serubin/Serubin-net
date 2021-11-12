@@ -2,17 +2,17 @@ import type { NextPage, GetStaticProps } from 'next'
 import styles from '../styles/Index.module.scss'
 import getStaticContent from '../lib/contentData';
 import Hero, { HeroProps } from '../components/hero'
-import { AboutData } from '../lib/types';
+import { HeroData, NavData } from '../lib/types';
 import Nav from '../components/nav'
 
 type Props = {
-  staticData: {
-    about: AboutData;
-  };
+  hero: HeroData;
+  nav: NavData;
 }
 
-const Index: NextPage<Props> = ({ staticData }): JSX.Element => {
-  const { name, tags, about, links } = staticData.about;
+const Index: NextPage<Props> = ({ hero, nav }): JSX.Element => {
+  const { name, tags } = hero;
+  const { links } = nav;
 
   return (
     <>
@@ -25,11 +25,11 @@ const Index: NextPage<Props> = ({ staticData }): JSX.Element => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = getStaticContent(['about']);
+  const data: any = getStaticContent(['hero', 'nav']);
 
   return {
     props: {
-      staticData: data,
+      ...data,
     }
   };
 }

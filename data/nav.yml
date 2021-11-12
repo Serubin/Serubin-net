@@ -1,0 +1,12 @@
+nav:
+  links:
+    - name: Linkedin
+      icon: fab linkedin-in
+      link: https://linkedin.com/in/serubin
+    - name: Github
+      icon: fab github
+      link: https://github.com/serubin/
+    - name: Resume
+      icon: fas file-alt
+      link: /resume
+
