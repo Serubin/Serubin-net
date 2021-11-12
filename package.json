@@ -1,51 +1,28 @@
 {
-  "version": "1.0.0",
+  "name": "serubin-net-next",
+  "version": "0.1.0",
   "private": true,
-  "name": "Serubin-net",
-  "description": "Solomon Rubin's online portfolio and resume",
-  "repository": "https://github.com/Serubin/Serubin-net.git",
-  "license": "MIT",
-  "engines": {
-    "ghost": ">=2.0.0",
-    "ghost-api": "v2"
-  },
   "scripts": {
-    "serve": "gulp serveSite",
-    "serve:static": "jekyll serve --watch",
-    "build": "yarn build:assets && yarn build:static",
-    "build:static": "jekyll build",
-    "build:assets": "gulp buildassets",
-    "watch:assets": "gulp watchassets",
-    "build:ghost": "gulp buildghost",
-    "watch:ghost": "gulp watchghost",
-    "zip:ghost": "gulp zipghost",
-    "test": "gscan ghost/"
-  },
-  "devDependencies": {
-    "beeper": "^2.0.0",
-    "gscan": "^3.5.4",
-    "gulp": "4.0.2",
-    "gulp-clean": "^0.4.0",
-    "gulp-concat": "2.6.1",
-    "gulp-filter": "^6.0.0",
-    "gulp-livereload": "4.0.2",
-    "gulp-order2": "^2.0.5",
-    "gulp-print": "^5.0.2",
-    "gulp-sass": "4.1.0",
-    "gulp-shell": "^0.8.0",
-    "gulp-sourcemaps": "2.6.5",
-    "gulp-uglify": "3.0.2",
-    "gulp-watch": "5.0.1",
-    "gulp-zip": "5.0.2",
-    "node-sass": "4.12.0",
-    "pumpify": "^2.0.1"
-  },
-  "config": {
-    "posts_per_page": 6
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.5.1",
-    "skel-framework": "https://github.com/n33/skel.git"
+    "framer-motion": "^4.1.17",
+    "js-yaml": "^4.1.0",
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sharp": "^0.29.2"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.3",
+    "@types/react": "17.0.20",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "sass": "^1.41.1",
+    "typescript": "4.4.3"
   }
 }
