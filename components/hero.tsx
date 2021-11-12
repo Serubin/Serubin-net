@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeUp, fadeDown, fadeLeft } from '../lib/animations';
 import { c } from '../lib/utils';
-import styles from '../styles/Hero.module.scss'
+import styles from '../styles/Hero.module.scss';
 
 export type HeroProps = {
   name: string;
@@ -12,7 +12,7 @@ export type HeroProps = {
 
 const isLast = (idx: number, total: number) => {
   return idx === total - 1;
-}
+};
 
 export default function Hero({ name, tags }: HeroProps) {
   return (

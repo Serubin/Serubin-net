@@ -1,9 +1,10 @@
-import type { NextPage, GetStaticProps } from 'next'
-import styles from '../styles/Index.module.scss'
+import type { NextPage, GetStaticProps } from 'next';
+import Head from 'next/head';
+import styles from '../styles/Index.module.scss';
 import getStaticContent from '../lib/contentData';
-import Hero, { HeroProps } from '../components/hero'
+import Hero, { HeroProps } from '../components/hero';
 import { HeroData, NavData } from '../lib/types';
-import Nav from '../components/nav'
+import Nav from '../components/nav';
 
 type Props = {
   hero: HeroData;
@@ -32,6 +33,6 @@ export const getStaticProps: GetStaticProps = async () => {
       ...data,
     }
   };
-}
+};
 
-export default Index
+export default Index;

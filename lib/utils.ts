@@ -4,4 +4,4 @@ export const c = (cls: string | string[]) => {
   }
 
   return cls;
-}
+};
