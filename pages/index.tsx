@@ -17,13 +17,16 @@ const Index: NextPage<Props> = ({ hero, nav }): JSX.Element => {
 
   return (
     <>
+      <Head>
+        <title>Solomon Rubin</title>
+      </Head>
       <Nav links={links} />
       <div className={styles.container}>
           <Hero name={name} tags={tags} />
       </div>
     </>
   );
-}
+};
 
 export const getStaticProps: GetStaticProps = async () => {
   const data: any = getStaticContent(['hero', 'nav']);
