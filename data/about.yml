@@ -1,17 +1,1 @@
-about:
-  name: Solomon Rubin
-  tags:
-    - Engineering
-    - Security
-    - Photography
-  about: "Hello, I'm <b>Solomon Rubin</b>. <br /> I'm a <b>Software Engineer</b> based in San Francisco, California. I'm currently build world class security products at <b>FOSSA</b>. "
-  links:
-    - name: Linkedin
-      icon: fab linkedin-in
-      link: https://linkedin.com/in/serubin
-    - name: Github
-      icon: fab github
-      link: https://github.com/serubin/
-    - name: Resume
-      icon: fas file-alt
-      link: /resume
+about: "Hello, I'm <b>Solomon Rubin</b>. <br /> I'm a <b>Software Engineer</b> based in San Francisco, California. I'm currently build world class security products at <b>FOSSA</b>. "

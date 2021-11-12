@@ -1,9 +1,11 @@
-export type AboutData = {
+export type HeroData = {
   name: string;
   tags: string[];
-  about: string;
-  links: SocialLink[];
 };
+
+export type NavData = {
+  links: SocialLink[];
+}
 
 export type SocialLink = {
   name: string;
