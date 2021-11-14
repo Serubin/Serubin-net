@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { fadeUp, fadeDown, fadeLeft } from '../lib/animations';
-import { c } from '../lib/utils';
+import { c, loader } from '../lib/utils';
 import styles from '../styles/Hero.module.scss';
 
 export type HeroProps = {
@@ -29,7 +29,7 @@ export default function Hero({ name, tags }: HeroProps) {
             </motion.ul>
         </div>
         <motion.div className={c(styles.profileImageWrapper)} {...fadeLeft()}>
-          <Image alt={name} src="/images/profile.jpg" layout="intrinsic" width={150} height={150} />
+          <Image alt={name} src="/images/profile.jpg" layout="intrinsic" width={150} height={150} loader={loader} />
         </motion.div>
       </section>
       <div className={c([styles.chevronDown, styles.continue])}></div>
