@@ -1,4 +1,5 @@
 @import './animations.scss';
+@import './breakpoints.scss';
 
 .hero {
   position: relative;
@@ -33,9 +34,20 @@
   }
 
   h1 {
-    font-size: 4.5em;
     font-weight: 200;
-    margin: 0 0 0.2em -0.1em;;
+    margin: 0 0 0.2em -0.1em;
+
+
+    font-size: 4.0em;
+    @media (max-width: 525px) {
+      font-size: 11vw;
+    }
+    @media (min-width: 525px) {
+       transition: font-size ease .3s;
+    }
+    @media (min-width: $medium) {
+      font-size: 4.5em;
+    }
   }
 
   p {
@@ -44,6 +56,20 @@
 
   .profileImageWrapper {
     padding: 1.5em 0 0 2em;
+
+    div:first-child {
+      opacity: 0;
+      display: none !important;
+      transition: opacity ease .5s;
+      max-height: 150px;
+
+      @media (min-width: $medium) {
+        opacity: 1;
+        display: inherit !important;
+        margin-left: 0px;
+      }
+    }
+
     img {
       border-radius: 50%;
     }
