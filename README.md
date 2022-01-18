@@ -7,7 +7,7 @@ This is the public source code for Solomon Rubin's Serubin.net. It serves as an 
 Please direct questions and comments to the issues section.
 
 # Running/Viewing
-Available at https://serubin.net/resume
+Available at https://serub.in
 
 **or**
 
