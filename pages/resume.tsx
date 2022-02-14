@@ -12,6 +12,7 @@ const ResumePage: NextPage<Props> = ({ resume }) => {
   return (<>
     <Head>
       <title>Solomon Rubin | Resume</title>
+      <script defer data-domain="serubin.net" src="https://stats.serubin.net/js/app.js"></script>
     </Head>
     <Resume resume={resume}/>
   </>);
