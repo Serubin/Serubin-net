@@ -1,5 +1,6 @@
 import type { NextPage, GetStaticProps } from 'next';
 import Head from 'next/head';
+import Script from 'next/script';
 import styles from '../styles/Index.module.scss';
 import getStaticContent from '../lib/contentData';
 import Hero, { HeroProps } from '../components/hero';
@@ -19,8 +20,8 @@ const Index: NextPage<Props> = ({ hero, nav }): JSX.Element => {
     <>
       <Head>
         <title>Solomon Rubin</title>
-        <script defer data-domain="serubin.net" src="https://stats.serubin.net/js/app.js"></script>
       </Head>
+      <Script id="stat-js" src="https://stats.serubin.net/js/app.js" data-domain="serubin-net" strategy="lazyOnload" />
       <Nav links={links} />
       <div className={styles.container}>
           <Hero name={name} tags={tags} />
