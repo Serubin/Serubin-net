@@ -1,8 +1,8 @@
 import React from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import Image from '../lib/Image';
 import { fadeUp, fadeDown, fadeLeft } from '../lib/animations';
-import { c, loader } from '../lib/utils';
+import { c } from '../lib/utils';
 import styles from '../styles/Hero.module.scss';
 import hero from '../public/images/hero.jpg';
 import heroLqip from '../public/images/hero.base64';

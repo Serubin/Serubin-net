@@ -8,6 +8,6 @@ export const c = (cls: string | string[]) => {
   return cls;
 };
 
-export const loader = ({ src, width, quality }: ImageLoaderProps) => {
-  return `${src}?w=${width}&q=${quality}`;
+export const imageLoader = ({ src }: ImageLoaderProps) => {
+  return `${src}`;
 };
