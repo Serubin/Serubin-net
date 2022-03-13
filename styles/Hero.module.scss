@@ -19,6 +19,12 @@
 
   color: white;
 
+  span:first-child {
+    // This reduces the white border blur effect
+    // This color is roughly the average color of the image
+    background: #737061 !important;
+  }
+
   .innerWrapper {
     position: relative;
     padding: 1em;
@@ -69,9 +75,6 @@
         display: inherit !important;
         margin-left: 0px;
       }
-    }
-
-    img {
     }
   }
 
