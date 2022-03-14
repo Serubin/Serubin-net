@@ -21,7 +21,7 @@ const isLast = (idx: number, total: number) => {
 export default function Hero({ name, tags }: HeroProps) {
   return (
     <header className={c(styles.hero)}>
-      <Image src={hero} alt="background of a beach" layout="fill" objectFit="cover" objectPosition="center" placeholder="blur" blurDataURL={heroLqip.trim()} unoptimized={true}/>
+      <Image src={hero} alt="background of a beach" layout="fill" objectFit="cover" objectPosition="center" placeholder="blur" blurDataURL={heroLqip.trim()} />
       <section className={c(styles.innerWrapper)}>
         <div>
           <motion.p {...fadeDown()}>Hi, I&apos;m</motion.p>
