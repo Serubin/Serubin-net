@@ -8,8 +8,6 @@
   display: flex;
   height: 100vh;
   width: 100%;
-  background: url("/images/hero.jpg") fixed no-repeat center center;
-  background-size: cover;
 
   animation: fadeIn ease .3s;
   animation-iteration-count: 1;
@@ -21,7 +19,14 @@
 
   color: white;
 
+  span:first-child {
+    // This reduces the white border blur effect
+    // This color is roughly the average color of the image
+    background: #737061 !important;
+  }
+
   .innerWrapper {
+    position: relative;
     padding: 1em;
     margin: 50% auto;
     display: flex;
@@ -57,21 +62,19 @@
   .profileImageWrapper {
     padding: 1.5em 0 0 2em;
 
-    div:first-child {
+    span:first-child {
       opacity: 0;
       display: none !important;
       transition: opacity ease .5s;
       max-height: 150px;
+
+      border-radius: 50%;
 
       @media (min-width: $medium) {
         opacity: 1;
         display: inherit !important;
         margin-left: 0px;
       }
-    }
-
-    img {
-      border-radius: 50%;
     }
   }
 
