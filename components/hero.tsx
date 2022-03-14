@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import Image from '../lib/Image';
 import { fadeUp, fadeDown, fadeLeft } from '../lib/animations';
 import { c } from '../lib/utils';
 import styles from '../styles/Hero.module.scss';
@@ -21,7 +21,7 @@ const isLast = (idx: number, total: number) => {
 export default function Hero({ name, tags }: HeroProps) {
   return (
     <header className={c(styles.hero)}>
-      <Image src="/images/hero.jpg" alt="background of a beach" layout="fill" objectFit="cover" objectPosition="center" placeholder="blur" blurDataURL={heroLqip.trim()} />
+      <Image src={hero} alt="background of a beach" layout="fill" objectFit="cover" objectPosition="center" placeholder="blur" blurDataURL={heroLqip.trim()} />
       <section className={c(styles.innerWrapper)}>
         <div>
           <motion.p {...fadeDown()}>Hi, I&apos;m</motion.p>
