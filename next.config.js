@@ -6,4 +6,7 @@ module.exports = {
   sassOptions: {
     includePaths: [path.join(__dirname, 'styles')],
   },
+  images: {
+    minimumCacheTTL: 2678400,
+  }
 };
