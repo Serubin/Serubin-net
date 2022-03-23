@@ -1,6 +1,6 @@
 const defaultDuration = 0.5;
 const defaultIntensity = 1;
-const defaultDelay = 0.0;
+const defaultDelay = 0.15;
 const defaultEasing = 'easeIn';
 
 export const fadeUp = (speed = defaultDuration, intensity = defaultIntensity) => ({
