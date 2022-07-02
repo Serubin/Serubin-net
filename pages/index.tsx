@@ -20,6 +20,7 @@ const Index: NextPage<Props> = ({ hero, nav }): JSX.Element => {
     <>
       <Head>
         <title>Solomon Rubin</title>
+        <script defer data-domain="serubin.net" src="https://stats.serubin.net/js/script.js"></script>
       </Head>
       <Script id="stat-js" src="https://stats.serubin.net/js/app.js" data-domain="serubin-net" strategy="lazyOnload" />
       <Nav links={links} />
