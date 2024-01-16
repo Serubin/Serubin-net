@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.14 as deps
+FROM node:21-alpine3.18 as deps
 
 RUN apk update && \
     apk add --no-cache libc6-compat autoconf automake libtool make tiff jpeg zlib zlib-dev pkgconf nasm file gcc musl-dev
