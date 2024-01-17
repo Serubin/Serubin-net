@@ -21,7 +21,7 @@ const isLast = (idx: number, total: number) => {
 export default function Hero({ name, tags }: HeroProps) {
   return (
     <header className={c(styles.hero)}>
-      <Image src={hero} alt="background of a beach" layout="fill" objectFit="cover" objectPosition="center" placeholder="blur" blurDataURL={heroLqip.trim()} />
+      <Image src={hero} alt="background of a beach" fill style={{ objectFit: "cover", objectPosition: "center" }} placeholder="blur" blurDataURL={heroLqip.trim()} />
       <section className={c(styles.innerWrapper)}>
         <div>
           <motion.p {...fadeDown()}>Hi, I&apos;m</motion.p>
@@ -34,7 +34,7 @@ export default function Hero({ name, tags }: HeroProps) {
             </motion.ul>
         </div>
         <motion.div className={c(styles.profileImageWrapper)} {...fadeLeft()}>
-          <Image alt={name} src={profile} layout="intrinsic" width={150} height={150} placeholder="blur" blurDataURL={profileLqip.trim()} />
+          <Image alt={name} src={profile} width={150} height={150} placeholder="blur" blurDataURL={profileLqip.trim()} />
         </motion.div>
       </section>
       <div className={c([styles.chevronDown, styles.continue])}></div>

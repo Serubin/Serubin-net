@@ -1,4 +1,3 @@
-import { ImageLoaderProps } from 'next/image';
 
 export const c = (cls: string | string[]) => {
   if (Array.isArray(cls)) {
@@ -6,8 +5,4 @@ export const c = (cls: string | string[]) => {
   }
 
   return cls;
-};
-
-export const imageLoader = ({ src }: ImageLoaderProps) => {
-  return `${src}`;
 };
