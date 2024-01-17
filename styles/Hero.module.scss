@@ -48,7 +48,7 @@
       font-size: 11vw;
     }
     @media (min-width: 525px) {
-       transition: font-size ease .3s;
+      transition: font-size ease .3s;
     }
     @media (min-width: $medium) {
       font-size: 4.5em;
@@ -62,7 +62,7 @@
   .profileImageWrapper {
     padding: 1.5em 0 0 2em;
 
-    span:first-child {
+    img:first-child {
       opacity: 0;
       display: none !important;
       transition: opacity ease .5s;
