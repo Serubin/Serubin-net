@@ -70,6 +70,9 @@
 
       border-radius: 50%;
 
+      // The white profile image is a bit aggressive, this makes it less jarrring
+      filter: contrast(90%);
+
       @media (min-width: $medium) {
         opacity: 1;
         display: inherit !important;
