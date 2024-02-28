@@ -1,7 +1,7 @@
 name: Build and Publish Docker Image
 on:
   push:
-    branches: ['main', 'master', 'action-test']
+    branches: ['master']
 
 env:
   REGISTRY: ghcr.io
@@ -27,7 +27,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata (tags, labels) for Docker
+      - name: Extract metadata to create tags and labels
         id: meta
         uses: docker/metadata-action@v5.5.1
         with:
