@@ -35,8 +35,8 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
             type=semver,pattern={{version}}
-            type=sha,enable=true,priority=100,prefix=,suffix=,format=short,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
-            type=raw,value=latest,enable=${{ github.ref == format('refs/heads/{0}', 'master') }}
+            type=semver,pattern={{version}},value={{date 'YY.M.D' tz='America/New_York'}},enabled={{is_default_branch}}
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.1.0
