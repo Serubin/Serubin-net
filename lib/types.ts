@@ -1,3 +1,7 @@
+export interface ReactChildren {
+  children: React.ReactNode
+}
+
 export type HeroData = {
   name: string;
   tags: string[];
