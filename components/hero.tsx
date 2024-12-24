@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import Image from '../lib/Image';
+import Image from 'next/image';
 import { fadeUp, fadeDown, fadeLeft } from '../lib/animations';
 import { c } from '../lib/utils';
 import styles from '../styles/Hero.module.scss';
