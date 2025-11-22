@@ -16,3 +16,7 @@ export type SocialLink = {
   icon: string;
   link: string;
 };
+
+export type AboutData = {
+  text: string;
+};

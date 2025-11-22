@@ -1,1 +1,3 @@
-about: "Hello, I'm <b>Solomon Rubin</b>. <br /> I'm a <b>Software Engineer</b> based in San Francisco, California. I'm currently build world class security products at <b>FOSSA</b>. "
+about: 
+  text: |
+    Hello, I'm <b>Solomon Rubin</b>. <br /> I'm a <b>Senior Software Engineer</b> based in Washington, DC. I'm currently building world class cloud security products at <b>Fortinet</b>.
