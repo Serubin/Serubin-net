@@ -2,7 +2,7 @@ import React  from 'react';
 import type { NextPage, GetStaticProps, Metadata } from 'next';
 import styles from '../styles/Index.module.scss';
 import getStaticContent from '../lib/contentData';
-import Hero, { HeroProps } from '../components/hero';
+import Hero, { HeroProps } from '../components/sections/Hero';
 import { HeroData, NavData } from '../lib/types';
 import Nav from '../components/nav';
 import { type JSX } from 'react';

@@ -1,5 +1,5 @@
-import { c } from '../lib/utils';
-import styles from '../styles/About.module.scss';
+import { classNames as c } from '../../lib/utils';
+import styles from '../../styles/sections/About.module.scss';
 
 type AboutProps = {
   text: string;

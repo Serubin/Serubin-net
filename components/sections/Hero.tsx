@@ -2,13 +2,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { fadeUp, fadeDown, fadeLeft } from '../lib/animations';
-import { c } from '../lib/utils';
-import styles from '../styles/Hero.module.scss';
-import hero from '../public/images/hero.jpg';
-import heroLqip from '../public/images/hero.base64';
-import profile from '../public/images/profile.jpg';
-import profileLqip from '../public/images/profile.base64';
+import { fadeUp, fadeDown, fadeLeft } from '../../lib/animations';
+import { classNames as c } from '../../lib/utils';
+import styles from '../../styles/sections/Hero.module.scss';
+import hero from '../../public/images/hero.jpg';
+import heroLqip from '../../public/images/hero.base64';
+import profile from '../../public/images/profile.jpg';
+import profileLqip from '../../public/images/profile.base64';
 
 export type HeroProps = {
   name: string;
@@ -38,7 +38,7 @@ export default function Hero({ name, tags }: HeroProps) {
           <Image alt={name} src={profile} width={150} height={150} placeholder="blur" blurDataURL={profileLqip.trim()} />
         </motion.div>
       </section>
-      <div className={c([styles.chevronDown, styles.continue])}></div>
+      <div className={c(styles.chevronDown, styles.continue)}></div>
     </header>
   );
 }

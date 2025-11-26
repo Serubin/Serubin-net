@@ -1,7 +1,7 @@
-import { c } from '../lib/utils';
+import { classNames as c } from '../../lib/utils';
 import Link from 'next/link';
-import styles from '../styles/Nav.module.scss';
-import { SocialLink } from '../lib/types';
+import styles from '../../styles/sections/Nav.module.scss';
+import { SocialLink } from '../../lib/types';
 import Logo from './logo';
 
 type PropsType = {
