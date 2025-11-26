@@ -16,3 +16,10 @@ export type SocialLink = {
   icon: string;
   link: string;
 };
+
+
+export enum ColorMode {
+  Light = 'light',
+  Dark = 'dark',
+}
+export type ColorModeType = (typeof ColorMode)[keyof typeof ColorMode];

@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { fadeUp, fadeDown, fadeLeft } from '../../lib/animations';
@@ -9,6 +9,8 @@ import hero from '../../public/images/hero.jpg';
 import heroLqip from '../../public/images/hero.base64';
 import profile from '../../public/images/profile.jpg';
 import profileLqip from '../../public/images/profile.base64';
+import useSectionForegroundColor from '../../lib/effects/useSectionForegroundColor';
+import { ColorMode } from '../../lib/types';
 
 export type HeroProps = {
   name: string;
@@ -20,8 +22,11 @@ const isLast = (idx: number, total: number) => {
 };
 
 export default function Hero({ name, tags }: HeroProps) {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  useSectionForegroundColor(sectionRef, ColorMode.Light);
+
   return (
-    <header className={c(styles.hero)}>
+    <header ref={sectionRef} className={c(styles.hero)}>
       <Image src={hero} alt="background of a beach" fill style={{ objectFit: "cover", objectPosition: "center" }} placeholder="blur" blurDataURL={heroLqip.trim()} />
       <section className={c(styles.innerWrapper)}>
         <div>
