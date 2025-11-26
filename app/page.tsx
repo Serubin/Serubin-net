@@ -1,11 +1,11 @@
 import React  from 'react';
 import type { NextPage, GetStaticProps, Metadata } from 'next';
-import styles from '../styles/Index.module.scss';
 import getStaticContent from '../lib/contentData';
 import Hero, { HeroProps } from '../components/sections/Hero';
 import { HeroData, NavData } from '../lib/types';
 import Nav from '../components/nav';
 import { type JSX } from 'react';
+import SnapScroll from '../components/SnapScroll';
 
 type StaticContent = {
   hero: HeroData;
@@ -26,9 +26,11 @@ const Index = (): JSX.Element => {
   return (
     <>
       <Nav links={links} />
-      <div className={styles.container}>
+      <SnapScroll>
+        <SnapScroll.Section id="hero">
           <Hero name={name} tags={tags} />
-      </div>
+        </SnapScroll.Section>
+      </SnapScroll>
     </>
   );
 };
