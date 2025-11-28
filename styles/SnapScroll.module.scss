@@ -1,0 +1,15 @@
+.container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.section {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  min-height: 100vh;
+
+  > section:first-child {
+    padding: 65px 5em;
+  }
+}
