@@ -18,7 +18,7 @@ export default function Nav({ links }: PropsType) {
     <nav className={c(styles.navigation, styles[textColor])}>
       <section className={c(styles.left)}>
         <Link href="/" passHref>
-          <Logo color={textColor} />
+          <Logo />
         </Link>
       </section>
 
