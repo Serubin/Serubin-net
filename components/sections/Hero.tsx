@@ -24,7 +24,7 @@ export default function Hero({ name, tags }: HeroProps) {
     <header className={c(styles.hero)}>
       <Image src={hero} alt="background of a beach" fill style={{ objectFit: "cover", objectPosition: "center" }} placeholder="blur" blurDataURL={heroLqip.trim()} />
       <section className={c(styles.innerWrapper)}>
-        <div>
+        <div className={c(styles.textWrapper)}>
           <motion.p {...fadeDown()}>Hi, I&apos;m</motion.p>
           <motion.h1 {...fadeLeft()}>{name}</motion.h1>
             <motion.ul {...fadeUp()}>
