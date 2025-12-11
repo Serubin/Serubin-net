@@ -19,8 +19,10 @@ EXPOSE 80
 
 WORKDIR /app
 
-COPY . .
-COPY --from=deps /app/node_modules ./node_modules
+COPY --chown=node:node . .
+COPY --from=deps --chown=node:node /app/node_modules ./node_modules
+
+USER node
 
 RUN yarn build
 
