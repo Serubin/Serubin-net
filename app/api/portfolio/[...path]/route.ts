@@ -10,6 +10,9 @@ import {
 const PORTFOLIO_DIR = path.join(process.cwd(), 'images/portfolio');
 const WATERMARK_TEXT = '\u00a9 Solomon Rubin';
 const MAX_OUTPUT_WIDTH = 1920;
+/** Tiny blurred LQIP; no watermark (heavy at this size, preview is already degraded). */
+const PLACEHOLDER_MAX_WIDTH = 40;
+const PLACEHOLDER_BLUR_SIGMA = 4;
 
 const MIME_TYPES: Record<string, string> = {
   '.jpg': 'image/jpeg',
@@ -62,6 +65,26 @@ export async function GET(
 
   if (!mimeType || !fs.existsSync(filePath)) {
     return new NextResponse('Not found', { status: 404 });
+  }
+
+  const isPlaceholder = request.nextUrl.searchParams.get('p') === '1';
+  if (isPlaceholder) {
+    const buffer = await sharp(filePath)
+      .rotate()
+      .resize(PLACEHOLDER_MAX_WIDTH, undefined, {
+        fit: 'inside',
+        withoutEnlargement: true,
+      })
+      .blur(PLACEHOLDER_BLUR_SIGMA)
+      .webp({ quality: 65 })
+      .toBuffer();
+
+    return new NextResponse(new Uint8Array(buffer), {
+      headers: {
+        'Content-Type': 'image/webp',
+        'Cache-Control': 'no-store',
+      },
+    });
   }
 
   const cookieOk = await verifyPortfolioViewCookie(

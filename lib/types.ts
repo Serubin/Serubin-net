@@ -19,6 +19,7 @@ export type SocialLink = {
 
 export type Photo = {
   src: string;
+  placeholderSrc: string;
   alt: string;
 };
 
@@ -26,6 +27,7 @@ export type Album = {
   name: string;
   slug: string;
   cover: string;
+  coverPlaceholder: string;
   photos: Photo[];
 };
 
