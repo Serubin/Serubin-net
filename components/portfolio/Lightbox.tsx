@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Photo } from '../../lib/types';
@@ -30,6 +30,34 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
   const photo = photos[currentIndex];
   const hasPrev = currentIndex > 0;
   const hasNext = currentIndex < photos.length - 1;
+
+  // Track which photos have been visited to keep them in DOM
+  const [visitedIndices, setVisitedIndices] = useState<ReadonlySet<number>>(
+    () => new Set([currentIndex])
+  );
+
+  useEffect(() => {
+    setVisitedIndices(prev => {
+      if (prev.has(currentIndex)) return prev; // already mounted — no re-render
+      return new Set(prev).add(currentIndex);  // first visit — mount new ProgressiveImage
+    });
+  }, [currentIndex]);
+
+  // Prefetch adjacent photos (next and previous) to speed up navigation
+  useEffect(() => {
+    setVisitedIndices(prev => {
+      let updated = prev;
+      // Prefetch previous photo
+      if (currentIndex > 0 && !prev.has(currentIndex - 1)) {
+        updated = new Set(updated).add(currentIndex - 1);
+      }
+      // Prefetch next photo
+      if (currentIndex < photos.length - 1 && !prev.has(currentIndex + 1)) {
+        updated = new Set(updated).add(currentIndex + 1);
+      }
+      return updated === prev ? prev : updated;
+    });
+  }, [currentIndex, photos.length]);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') onClose();
@@ -86,23 +114,30 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
         )}
 
         <div className={styles.lightboxContent}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              className={styles.lightboxImageWrapper}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-            >
-              <ProgressiveImage
-                variant="contain"
-                src={photo.src}
-                placeholderSrc={photo.placeholderSrc}
-                alt={photo.alt}
-              />
-            </motion.div>
-          </AnimatePresence>
+          <div className={styles.lightboxImageStack}>
+            {Array.from(visitedIndices).map(index => {
+              const p = photos[index];
+              const isActive = index === currentIndex;
+              return (
+                <div
+                  key={index}
+                  className={styles.lightboxImageWrapper}
+                  style={{
+                    opacity: isActive ? 1 : 0,
+                    pointerEvents: isActive ? 'auto' : 'none',
+                    transition: 'opacity 0.2s ease',
+                  }}
+                >
+                  <ProgressiveImage
+                    variant="contain"
+                    src={p.src}
+                    placeholderSrc={p.placeholderSrc}
+                    alt={p.alt}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {photo.alt && (
