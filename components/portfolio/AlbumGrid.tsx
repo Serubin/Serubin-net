@@ -1,7 +1,5 @@
 "use client";
-import React from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { Album } from '../../lib/types';
 import { stagger, fadeIn } from '../../lib/animations';
 import styles from '../../styles/sections/Portfolio.module.scss';
@@ -28,13 +26,12 @@ export default function AlbumGrid({ albums, onSelectAlbum }: AlbumGridProps) {
           whileHover={{ y: -4 }}
           transition={{ duration: 0.2 }}
         >
-          <Image
+          <img
             className={styles.albumCardImage}
             src={album.cover}
             alt={album.name}
-            fill
-            style={{ objectFit: 'cover' }}
-            sizes="(max-width: 600px) 50vw, (max-width: 900px) 50vw, 33vw"
+            decoding="async"
+            loading="lazy"
           />
           <div className={styles.albumCardLabel}>
             <h3>{album.name}</h3>
