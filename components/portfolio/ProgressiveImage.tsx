@@ -8,6 +8,7 @@ type ProgressiveImageProps = {
   alt: string;
   variant: 'cover' | 'contain';
   wrapperClassName?: string;
+  onLoad?: () => void;
 };
 
 export default function ProgressiveImage({
@@ -16,6 +17,7 @@ export default function ProgressiveImage({
   alt,
   variant,
   wrapperClassName,
+  onLoad,
 }: ProgressiveImageProps) {
   const [loaded, setLoaded] = useState(false);
   const fullRef = useRef<HTMLImageElement>(null);
@@ -25,8 +27,9 @@ export default function ProgressiveImage({
     const el = fullRef.current;
     if (el?.complete && el.naturalWidth > 0) {
       setLoaded(true);
+      onLoad?.();
     }
-  }, [src]);
+  }, [src, onLoad]);
 
   if (variant === 'cover') {
     return (
@@ -50,7 +53,10 @@ export default function ProgressiveImage({
           loading="lazy"
           decoding="async"
           fetchPriority="low"
-          onLoad={() => setLoaded(true)}
+          onLoad={() => {
+            setLoaded(true);
+            onLoad?.();
+          }}
           style={{ opacity: loaded ? 1 : 0 }}
         />
       </div>
@@ -78,7 +84,10 @@ export default function ProgressiveImage({
         loading="lazy"
         decoding="async"
         fetchPriority="low"
-        onLoad={() => setLoaded(true)}
+        onLoad={() => {
+          setLoaded(true);
+          onLoad?.();
+        }}
         style={{ opacity: loaded ? 1 : 0 }}
       />
     </div>
