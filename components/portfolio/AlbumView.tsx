@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Album } from '../../lib/types';
 import { stagger, fadeIn } from '../../lib/animations';
 import Lightbox from './Lightbox';
+import ProgressiveImage from './ProgressiveImage';
 import styles from '../../styles/sections/Portfolio.module.scss';
 
 type AlbumViewProps = {
@@ -40,12 +41,11 @@ export default function AlbumView({ album, onBack }: AlbumViewProps) {
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
           >
-            <img
-              className={styles.photoThumbImage}
+            <ProgressiveImage
+              variant="cover"
               src={photo.src}
+              placeholderSrc={photo.placeholderSrc}
               alt={photo.alt}
-              decoding="async"
-              loading="lazy"
             />
           </motion.div>
         ))}
