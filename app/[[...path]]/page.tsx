@@ -18,6 +18,8 @@ export const metadata: Metadata = {
   title: 'Solomon Rubin',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function Page({ params }: PageProps) {
   const { path: segments } = await params;
 

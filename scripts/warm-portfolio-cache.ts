@@ -1,6 +1,8 @@
 import { warmPortfolioImageCache } from '../lib/portfolioImageCache';
+import { loadScriptEnv } from './loadScriptEnv';
 
 async function main() {
+  loadScriptEnv();
   try {
     await warmPortfolioImageCache();
     process.exit(0);
