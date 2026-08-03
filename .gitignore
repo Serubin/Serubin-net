@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# fetched portfolio originals (see PORTFOLIO_SOURCE_ZIP_URL)
+/images/portfolio/
+
 # generated portfolio renders (rebuilt at server start)
 /.cache/
 
