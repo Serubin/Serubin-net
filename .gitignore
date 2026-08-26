@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# fetched portfolio originals (see PORTFOLIO_SOURCE_ZIP_URL)
+/images/portfolio/
+
 # generated portfolio renders (rebuilt at server start)
 /.cache/
 
@@ -29,6 +32,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env
 .env.local
 .env.development.local
 .env.test.local

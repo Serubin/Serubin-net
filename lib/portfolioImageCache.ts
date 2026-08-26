@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
+import { PORTFOLIO_DIR } from './portfolioPaths';
 
-export const PORTFOLIO_DIR = path.join(process.cwd(), 'images/portfolio');
+export { PORTFOLIO_DIR };
 export const CACHE_ROOT = path.join(process.cwd(), '.cache/portfolio-rendered');
 
 const WATERMARK_TEXT = '\u00a9 Solomon Rubin';
@@ -146,7 +147,7 @@ export async function warmPortfolioImageCache(): Promise<void> {
 
 let warmupPromise: Promise<void> | null = null;
 
-/** Dev-only background warm; production uses `npm run warm:portfolio` via prestart before `next start`. */
+/** Dev-only background warm; `predev` / `prestart` already run `prepare:portfolio` (fetch + warm) before the server. */
 export function ensurePortfolioCacheWarmup(): void {
   if (warmupPromise !== null) return;
   warmupPromise = warmPortfolioImageCache().catch((err) => {
