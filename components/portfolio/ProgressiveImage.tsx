@@ -40,6 +40,7 @@ export default function ProgressiveImage({
           className={styles.progressivePlaceholderCover}
           loading="lazy"
           decoding="async"
+          style={{ opacity: loaded ? 0 : 1 }}
         />
         <img
           ref={fullRef}
@@ -67,6 +68,7 @@ export default function ProgressiveImage({
         className={styles.progressivePlaceholderIntrinsic}
         loading="lazy"
         decoding="async"
+        style={{ opacity: loaded ? 0 : 1 }}
       />
       <img
         ref={fullRef}

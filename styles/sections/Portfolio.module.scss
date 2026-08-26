@@ -215,6 +215,7 @@
   object-fit: cover;
   display: block;
   z-index: 0;
+  transition: opacity 0.35s ease;
 }
 
 .progressiveFullCover {
@@ -293,6 +294,7 @@
   object-fit: contain;
   object-position: center;
   z-index: 0;
+  transition: opacity 0.2s ease;
 }
 
 .progressiveFullIntrinsic {
