@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { Album } from '../../lib/types';
 import { stagger, fadeIn } from '../../lib/animations';
+import ProgressiveImage from './ProgressiveImage';
 import styles from '../../styles/sections/Portfolio.module.scss';
 
 type AlbumGridProps = {
@@ -26,12 +27,11 @@ export default function AlbumGrid({ albums, onSelectAlbum }: AlbumGridProps) {
           whileHover={{ y: -4 }}
           transition={{ duration: 0.2 }}
         >
-          <img
-            className={styles.albumCardImage}
+          <ProgressiveImage
+            variant="cover"
             src={album.cover}
+            placeholderSrc={album.coverPlaceholder}
             alt={album.name}
-            decoding="async"
-            loading="lazy"
           />
           <div className={styles.albumCardLabel}>
             <h3>{album.name}</h3>
