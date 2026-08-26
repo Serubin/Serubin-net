@@ -1,6 +1,11 @@
 import PlausibleProvider from "next-plausible";
+import { ensurePortfolioCacheWarmup } from "../lib/portfolioImageCache";
 import { ReactChildren } from "../lib/types";
 import "../styles/globals.scss";
+
+if (process.env.NODE_ENV === "development") {
+  ensurePortfolioCacheWarmup();
+}
 
 export default function RootLayout({ children }: ReactChildren) {
   return (

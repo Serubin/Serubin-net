@@ -1,18 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import path from 'path';
 import fs from 'fs';
-import sharp from 'sharp';
+import {
+  PORTFOLIO_DIR,
+  ensurePortfolioCacheWarmup,
+  portfolioCachePaths,
+  renderMainWebP,
+  renderPlaceholderWebP,
+  renderWatermarkedWebP,
+} from '../../../../lib/portfolioImageCache';
 import {
   PORTFOLIO_VIEW_COOKIE,
   verifyPortfolioViewCookie,
 } from '../../../../lib/portfolioViewCookie';
 
-const PORTFOLIO_DIR = path.join(process.cwd(), 'images/portfolio');
-const WATERMARK_TEXT = '\u00a9 Solomon Rubin';
-const MAX_OUTPUT_WIDTH = 1920;
-/** Tiny blurred LQIP; no watermark (heavy at this size, preview is already degraded). */
-const PLACEHOLDER_MAX_WIDTH = 40;
-const PLACEHOLDER_BLUR_SIGMA = 4;
+if (process.env.NODE_ENV === 'development') {
+  ensurePortfolioCacheWarmup();
+}
 
 const MIME_TYPES: Record<string, string> = {
   '.jpg': 'image/jpeg',
@@ -21,25 +25,6 @@ const MIME_TYPES: Record<string, string> = {
   '.webp': 'image/webp',
 };
 
-function createWatermarkSvg(width: number, height: number): Buffer {
-  const fontSize = Math.max(Math.floor(Math.min(width, height) / 12), 24);
-  const spacing = fontSize * 4;
-  const rows = Math.ceil(height / spacing) + 2;
-  const cols = Math.ceil(width / spacing) + 2;
-
-  let texts = '';
-  for (let r = -1; r < rows; r++) {
-    for (let c = -1; c < cols; c++) {
-      const x = c * spacing;
-      const y = r * spacing;
-      texts += `<text x="${x}" y="${y}" font-size="${fontSize}" font-family="sans-serif" fill="white" opacity="0.3" transform="rotate(-30, ${x}, ${y})">${WATERMARK_TEXT}</text>`;
-    }
-  }
-
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">${texts}</svg>`;
-  return Buffer.from(svg);
-}
-
 /**
  * Same-origin <img src="/api/portfolio/..."> sends Sec-Fetch-Dest: image.
  * Opening that URL in a new tab is a top-level navigation (typically document), so we watermark
@@ -47,6 +32,16 @@ function createWatermarkSvg(width: number, height: number): Buffer {
  */
 function isEmbeddedImageRequest(request: NextRequest): boolean {
   return request.headers.get('Sec-Fetch-Dest') === 'image';
+}
+
+async function readFileOrNull(filePath: string): Promise<Buffer | null> {
+  try {
+    return await fs.promises.readFile(filePath);
+  } catch (e: unknown) {
+    const code = e && typeof e === 'object' && 'code' in e ? (e as NodeJS.ErrnoException).code : undefined;
+    if (code === 'ENOENT') return null;
+    throw e;
+  }
 }
 
 export async function GET(
@@ -67,17 +62,13 @@ export async function GET(
     return new NextResponse('Not found', { status: 404 });
   }
 
+  const cachePaths = portfolioCachePaths(segments);
   const isPlaceholder = request.nextUrl.searchParams.get('p') === '1';
+
   if (isPlaceholder) {
-    const buffer = await sharp(filePath)
-      .rotate()
-      .resize(PLACEHOLDER_MAX_WIDTH, undefined, {
-        fit: 'inside',
-        withoutEnlargement: true,
-      })
-      .blur(PLACEHOLDER_BLUR_SIGMA)
-      .webp({ quality: 65 })
-      .toBuffer();
+    let buffer =
+      (await readFileOrNull(cachePaths.placeholder)) ??
+      (await renderPlaceholderWebP(filePath));
 
     return new NextResponse(new Uint8Array(buffer), {
       headers: {
@@ -93,31 +84,16 @@ export async function GET(
   const shouldWatermark =
     !cookieOk || !isEmbeddedImageRequest(request);
 
-  const resized = await sharp(filePath)
-    .rotate()
-    .resize(MAX_OUTPUT_WIDTH, undefined, {
-      fit: 'inside',
-      withoutEnlargement: true,
-    })
-    .toBuffer();
-
-  let buffer: Buffer;
-  if (shouldWatermark) {
-    const meta = await sharp(resized).metadata();
-    const watermarkSvg = createWatermarkSvg(
-      meta.width ?? 800,
-      meta.height ?? 600
-    );
-    buffer = await sharp(resized)
-      .composite([{ input: watermarkSvg, top: 0, left: 0 }])
-      .toBuffer();
-  } else {
-    buffer = resized;
-  }
+  const cacheFile = shouldWatermark ? cachePaths.watermarked : cachePaths.main;
+  let buffer =
+    (await readFileOrNull(cacheFile)) ??
+    (shouldWatermark
+      ? await renderWatermarkedWebP(filePath)
+      : await renderMainWebP(filePath));
 
   return new NextResponse(new Uint8Array(buffer), {
     headers: {
-      'Content-Type': mimeType,
+      'Content-Type': 'image/webp',
       'Cache-Control': 'no-store',
     },
   });
