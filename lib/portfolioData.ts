@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { Album, PortfolioData } from './types';
 
-const PORTFOLIO_DIR = path.join(process.cwd(), 'public/images/portfolio');
+const PORTFOLIO_DIR = path.join(process.cwd(), 'images/portfolio');
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 
 function isImage(fileName: string): boolean {
@@ -14,6 +14,10 @@ function slugToTitle(slug: string): string {
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ');
+}
+
+function portfolioImageUrl(albumDir: string, fileName: string): string {
+  return `/api/portfolio/${encodeURIComponent(albumDir)}/${encodeURIComponent(fileName)}`;
 }
 
 export default function getPortfolioData(): PortfolioData {
@@ -35,15 +39,16 @@ export default function getPortfolioData(): PortfolioData {
 
       if (files.length === 0) return null;
 
-      const coverFile = files.find((f) => path.parse(f).name.toLowerCase() === 'cover') ?? files[0];
-      const publicBase = `/images/portfolio/${dir.name}`;
-
+      const coverFile =
+        files.find((f) => path.parse(f).name.toLowerCase() === 'cover') ??
+        files[0];
+      const name = slugToTitle(dir.name);
       return {
-        name: slugToTitle(dir.name),
+        name,
         slug: dir.name,
-        cover: `${publicBase}/${coverFile}`,
+        cover: portfolioImageUrl(dir.name, coverFile),
         photos: files.map((f) => ({
-          src: `${publicBase}/${f}`,
+          src: portfolioImageUrl(dir.name, f),
           alt: path.parse(f).name.replace(/[-_]/g, ' '),
         })),
       };

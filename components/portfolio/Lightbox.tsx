@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 import { Photo } from '../../lib/types';
+import { blockContextMenu } from './blockContextMenu';
 import styles from '../../styles/sections/Portfolio.module.scss';
 
 type LightboxProps = {
@@ -54,6 +54,7 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
         onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
+        onContextMenu={blockContextMenu}
       >
         <div className={styles.lightboxCounter}>
           {currentIndex + 1} / {photos.length}
@@ -93,14 +94,10 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <Image
+              <img
                 src={photo.src}
                 alt={photo.alt}
-                width={1200}
-                height={800}
-                style={{ maxWidth: '90vw', maxHeight: '85vh', width: 'auto', height: 'auto', objectFit: 'contain' }}
-                sizes="90vw"
-                priority
+                decoding="async"
               />
             </motion.div>
           </AnimatePresence>

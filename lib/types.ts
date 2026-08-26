@@ -17,7 +17,6 @@ export type SocialLink = {
   link: string;
 };
 
-
 export type Photo = {
   src: string;
   alt: string;
