@@ -1,6 +1,5 @@
 "use client";
-import { useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { useRef, useState, useEffect } from 'react';
 import { Album, PortfolioData, ColorMode } from '../../lib/types';
 import useSectionForegroundColor from '../../lib/effects/useSectionForegroundColor';
 import AlbumGrid from '../portfolio/AlbumGrid';
@@ -8,18 +7,20 @@ import AlbumView from '../portfolio/AlbumView';
 import { blockContextMenu } from '../portfolio/blockContextMenu';
 import styles from '../../styles/sections/Portfolio.module.scss';
 
-const slideTransition = (x: number) => ({
-  initial: { opacity: 0, x },
-  animate: { opacity: 1, x: 0 },
-  exit: { opacity: 0, x: -x },
-  transition: { duration: 0.3, ease: 'easeInOut' },
-});
-
-const flexFill = { flex: 1, minHeight: 0, display: 'flex' } as const;
-
 export default function Portfolio({ title, albums }: PortfolioData) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [selectedAlbum, setSelectedAlbum] = useState<Album | null>(null);
+  const [visitedAlbumSlugs, setVisitedAlbumSlugs] = useState<ReadonlySet<string>>(
+    () => new Set()
+  );
+
+  useEffect(() => {
+    if (selectedAlbum) {
+      setVisitedAlbumSlugs(prev =>
+        prev.has(selectedAlbum.slug) ? prev : new Set(prev).add(selectedAlbum.slug)
+      );
+    }
+  }, [selectedAlbum]);
 
   useSectionForegroundColor(sectionRef, ColorMode.Dark);
 
@@ -27,18 +28,36 @@ export default function Portfolio({ title, albums }: PortfolioData) {
     <div ref={sectionRef} className={styles.portfolio}>
       <h2 className={styles.sectionTitle}>{title}</h2>
 
-      <div style={flexFill} onContextMenu={blockContextMenu}>
-        <AnimatePresence mode="wait">
-          {selectedAlbum ? (
-            <motion.div key={selectedAlbum.slug} style={flexFill} {...slideTransition(30)}>
-              <AlbumView album={selectedAlbum} onBack={() => setSelectedAlbum(null)} />
-            </motion.div>
-          ) : (
-            <motion.div key="grid" style={flexFill} {...slideTransition(-30)}>
-              <AlbumGrid albums={albums} onSelectAlbum={setSelectedAlbum} />
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <div style={{ flex: 1, minHeight: 0, position: 'relative' }} onContextMenu={blockContextMenu}>
+        {/* AlbumGrid — always mounted */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          display: 'flex',
+          opacity: selectedAlbum ? 0 : 1,
+          pointerEvents: selectedAlbum ? 'none' : 'auto',
+          transition: 'opacity 0.3s ease',
+        }}>
+          <AlbumGrid albums={albums} onSelectAlbum={setSelectedAlbum} />
+        </div>
+
+        {/* AlbumView — one per visited album, kept mounted */}
+        {Array.from(visitedAlbumSlugs).map(slug => {
+          const album = albums.find(a => a.slug === slug)!;
+          const isActive = selectedAlbum?.slug === slug;
+          return (
+            <div key={slug} style={{
+              position: 'absolute',
+              inset: 0,
+              display: 'flex',
+              opacity: isActive ? 1 : 0,
+              pointerEvents: isActive ? 'auto' : 'none',
+              transition: 'opacity 0.3s ease',
+            }}>
+              <AlbumView album={album} onBack={() => setSelectedAlbum(null)} isActive={isActive} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
