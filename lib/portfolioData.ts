@@ -20,6 +20,12 @@ function portfolioImageUrl(albumDir: string, fileName: string): string {
   return `/api/portfolio/${encodeURIComponent(albumDir)}/${encodeURIComponent(fileName)}`;
 }
 
+function portfolioPlaceholderSrc(imageUrl: string): string {
+  const u = new URL(imageUrl, 'https://portfolio.placeholder');
+  u.searchParams.set('p', '1');
+  return `${u.pathname}${u.search}`;
+}
+
 export default function getPortfolioData(): PortfolioData {
   if (!fs.existsSync(PORTFOLIO_DIR)) {
     return { title: 'Photography', albums: [] };
@@ -43,14 +49,20 @@ export default function getPortfolioData(): PortfolioData {
         files.find((f) => path.parse(f).name.toLowerCase() === 'cover') ??
         files[0];
       const name = slugToTitle(dir.name);
+      const coverUrl = portfolioImageUrl(dir.name, coverFile);
       return {
         name,
         slug: dir.name,
-        cover: portfolioImageUrl(dir.name, coverFile),
-        photos: files.map((f) => ({
-          src: portfolioImageUrl(dir.name, f),
-          alt: path.parse(f).name.replace(/[-_]/g, ' '),
-        })),
+        cover: coverUrl,
+        coverPlaceholder: portfolioPlaceholderSrc(coverUrl),
+        photos: files.map((f) => {
+          const src = portfolioImageUrl(dir.name, f);
+          return {
+            src,
+            placeholderSrc: portfolioPlaceholderSrc(src),
+            alt: path.parse(f).name.replace(/[-_]/g, ' '),
+          };
+        }),
       };
     })
     .filter((album): album is Album => album !== null);

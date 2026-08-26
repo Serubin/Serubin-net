@@ -87,19 +87,13 @@
     );
   }
 
-  &:hover .albumCardImage {
+  &:hover .progressiveWrapCover {
     transform: scale(1.15);
   }
 }
 
-.albumCardImage {
+.albumCard .progressiveWrapCover {
   transform: scale(1.1);
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
   transition: transform 0.4s ease;
 }
 
@@ -195,20 +189,43 @@
     padding-bottom: 100%;
   }
 
-  &:hover .photoThumbImage {
+  &:hover .progressiveWrapCover {
     transform: scale(1.15);
   }
 }
 
-.photoThumbImage {
+.photoThumb .progressiveWrapCover {
   transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+.progressiveWrapCover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.progressivePlaceholderCover {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.progressiveFullCover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  z-index: 1;
+  transition: opacity 0.35s ease;
 }
 
 // Lightbox
@@ -241,22 +258,47 @@
   justify-self: center;
   align-self: stretch;
   width: min(100%, 90vw, 1920px);
+  height: 100%;
   min-width: 0;
   min-height: 0;
   max-height: 100%;
   display: flex;
-  align-items: center;
+  /* stretch so the child gets a real height (absolutely positioned imgs do not size the flex item) */
+  align-items: stretch;
   justify-content: center;
+}
 
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    display: block;
-  }
+.progressiveWrapIntrinsic {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: min(90vw, 1920px);
+  max-height: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.progressivePlaceholderIntrinsic {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 0;
+}
+
+.progressiveFullIntrinsic {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  z-index: 1;
+  transition: opacity 0.2s ease;
 }
 
 .lightboxClose {
