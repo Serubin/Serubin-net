@@ -16,7 +16,8 @@
     "next": "^15.1.9",
     "next-plausible": "^3.12.5",
     "react": "^19.0.0-rc.1",
-    "react-dom": "^19.0.0-rc.1"
+    "react-dom": "^19.0.0-rc.1",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.3",

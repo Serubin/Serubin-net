@@ -18,6 +18,9 @@ yarn dev
 # => Now browse to http://localhost:3000
 ```
 
+## Environment
+
+- **`PORTFOLIO_COOKIE_SECRET`** — Secret used to sign the HttpOnly `portfolio_view` cookie set by [middleware.ts](middleware.ts). Browsers that receive this cookie get unwatermarked portfolio images from `/api/portfolio/...`; requests without a valid cookie (e.g. hotlinking) are watermarked. Required in production. In development, a non-secure default is used if unset. Copy [.env.example](.env.example) to `.env.local` and set a long random value.
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FSerubin%2FSerubin-net.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FSerubin%2FSerubin-net?ref=badge_large)
