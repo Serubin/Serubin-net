@@ -36,15 +36,20 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
     () => new Set([currentIndex])
   );
 
+  // Track whether the primary photo has finished loading
+  const [primaryLoaded, setPrimaryLoaded] = useState(false);
+
   useEffect(() => {
+    setPrimaryLoaded(false); // reset when navigating to a new photo
     setVisitedIndices(prev => {
       if (prev.has(currentIndex)) return prev; // already mounted — no re-render
       return new Set(prev).add(currentIndex);  // first visit — mount new ProgressiveImage
     });
   }, [currentIndex]);
 
-  // Prefetch adjacent photos (next and previous) to speed up navigation
+  // Prefetch adjacent photos after primary photo loads
   useEffect(() => {
+    if (!primaryLoaded) return; // wait for primary photo to finish loading
     setVisitedIndices(prev => {
       let updated = prev;
       // Prefetch previous photo
@@ -57,7 +62,7 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
       }
       return updated === prev ? prev : updated;
     });
-  }, [currentIndex, photos.length]);
+  }, [primaryLoaded, currentIndex, photos.length]);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') onClose();
@@ -133,6 +138,7 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
                     src={p.src}
                     placeholderSrc={p.placeholderSrc}
                     alt={p.alt}
+                    onLoad={isActive ? () => setPrimaryLoaded(true) : undefined}
                   />
                 </div>
               );
