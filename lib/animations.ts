@@ -50,3 +50,18 @@ export const fadeLeft = (speed = defaultDuration, intensity = defaultIntensity) 
     ease: defaultEasing,
   }
 });
+
+export const stagger = (delay: number) => ({
+  hidden: {},
+  visible: { transition: { staggerChildren: delay } },
+});
+
+export const fadeIn = ({ y = 0, scale = 1 }: { y?: number; scale?: number } = {}) => ({
+  hidden: { opacity: 0, y, scale },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.35, ease: 'easeOut' },
+  },
+});
