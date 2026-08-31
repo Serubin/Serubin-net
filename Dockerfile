@@ -1,4 +1,4 @@
-FROM node:21-alpine AS deps
+FROM node:22-alpine AS deps
 
 RUN apk update && \
     apk add --no-cache libc6-compat autoconf automake libtool make tiff jpeg zlib zlib-dev pkgconf nasm file gcc musl-dev
@@ -11,7 +11,7 @@ WORKDIR /app
 COPY package.json yarn.lock ./
 RUN yarn install
 
-FROM node:21-alpine
+FROM node:22-alpine
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 ENV PORT=80
