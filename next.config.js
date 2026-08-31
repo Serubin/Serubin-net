@@ -1,19 +1,17 @@
 /** @type {import('next').NextConfig} */
-const path = require('path');
-const { withPlausibleProxy } = require('next-plausible')
+const { withPlausibleProxy } = require('next-plausible');
 
 const nextConfig = {
   reactStrictMode: true,
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  },
-}
+  // `next dev` otherwise writes an AGENTS.md and a CLAUDE.md into the repo on every run.
+  agentRules: false,
+};
 
 const plausibleConfig = {
   customDomain: 'https://analytics.serubin.net',
   selfHosted: true,
   trackOutboundLinks: true,
   taggedEvents: true,
-}
+};
 
 module.exports = withPlausibleProxy(plausibleConfig)(nextConfig);
