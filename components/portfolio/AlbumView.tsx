@@ -65,6 +65,7 @@ export default function AlbumView({ album, onBack, isActive }: AlbumViewProps) {
 
       {lightboxIndex !== null && (
         <Lightbox
+          albumName={album.name}
           photos={album.photos}
           currentIndex={lightboxIndex}
           onClose={() => setLightboxIndex(null)}

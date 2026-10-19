@@ -8,6 +8,7 @@ import ProgressiveImage from './ProgressiveImage';
 import styles from '../../styles/sections/Portfolio.module.scss';
 
 type LightboxProps = {
+  albumName: string;
   photos: Photo[];
   currentIndex: number;
   onClose: () => void;
@@ -26,7 +27,7 @@ const ICON_PREV = "M15 18L9 12L15 6";
 const ICON_NEXT = "M9 18L15 12L9 6";
 const ICON_CLOSE = "M18 6L6 18M6 6L18 18";
 
-export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: LightboxProps) {
+export default function Lightbox({ albumName, photos, currentIndex, onClose, onNavigate }: LightboxProps) {
   const photo = photos[currentIndex];
   const hasPrev = currentIndex > 0;
   const hasNext = currentIndex < photos.length - 1;
@@ -80,8 +81,11 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
         onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
         onContextMenu={blockContextMenu}
       >
-        <div className={styles.lightboxCounter}>
-          {currentIndex + 1} / {photos.length}
+        <div className={styles.lightboxHeader}>
+          <span className={styles.lightboxAlbum}>{albumName}</span>
+          <span className={styles.lightboxCounter}>
+            {currentIndex + 1} / {photos.length}
+          </span>
         </div>
 
         <button className={styles.lightboxClose} onClick={onClose} aria-label="Close">
@@ -136,8 +140,8 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
           </div>
         </div>
 
-        {(photo.title ?? photo.alt) && (
-          <div className={styles.lightboxCaption}>{photo.title ?? photo.alt}</div>
+        {photo.title && (
+          <div className={styles.lightboxCaption}>{photo.title}</div>
         )}
       </motion.div>
     </AnimatePresence>,

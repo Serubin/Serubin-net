@@ -372,11 +372,21 @@
   max-width: 80%;
 }
 
-.lightboxCounter {
+.lightboxHeader {
   position: absolute;
   top: 1.5em;
   left: 1.5em;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
   color: var(--fg-light);
-  font-size: 0.85em;
+  font-size: 0.85rem;
+}
+
+.lightboxAlbum {
+  opacity: 0.8;
+}
+
+.lightboxCounter {
   opacity: 0.6;
 }
