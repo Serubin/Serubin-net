@@ -19,7 +19,7 @@ function buildUrl(section: Section, albumSlug: string | null): string {
   return `/`;
 }
 
-function parseUrl(pathname: string): { section: Section; albumSlug: string | null } {
+export function parseUrl(pathname: string): { section: Section; albumSlug: string | null } {
   const segments = pathname.split('/').filter(Boolean);
   if (segments[0] === 'photography') {
     return {

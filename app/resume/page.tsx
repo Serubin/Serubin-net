@@ -9,6 +9,7 @@ type Props = {
 
 export const metadata: Metadata = {
   title: 'Solomon Rubin | Resume',
+  robots: { index: false },
 };
 
 const ResumePage = () => {

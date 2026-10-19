@@ -33,33 +33,24 @@ export default function Nav({ links }: PropsType) {
   const { ink, scrolling, goToSection } = useNavInk();
   const current = sectionFromPath(pathname);
   const textColor = ink ?? (current === 'hero' ? ColorMode.Light : ColorMode.Dark);
-  // The resume's global stylesheet would outlive a client-side exit, so leave it with full loads.
-  const fullLoadOnly = current === 'resume';
-  const expanded = current !== 'hero';
+  const expanded = current === 'photography' || current === 'projects';
   // The logo holds its form mid-scroll and changes once the scroll settles.
   const [logoExpanded, setLogoExpanded] = useState(expanded);
   if (!scrolling && logoExpanded !== expanded) setLogoExpanded(expanded);
 
   return (
-    <nav className={c(styles.navigation, styles[textColor], fullLoadOnly ? styles.document : '')}>
+    <nav className={c(styles.navigation, styles[textColor], current === 'resume' ? styles.document : '')}>
       <section className={c(styles.left)}>
-        {fullLoadOnly ? (
-          // eslint-disable-next-line @next/next/no-html-link-for-pages -- deliberate full load, see fullLoadOnly
-          <a href="/" className={styles.logoLink}>
-            <Logo expanded={logoExpanded} />
-          </a>
-        ) : (
-          <Link href="/" className={styles.logoLink} onClick={sectionClick(goToSection, 'hero')}>
-            <Logo expanded={logoExpanded} />
-          </Link>
-        )}
+        <Link href="/" className={styles.logoLink} onClick={sectionClick(goToSection, 'hero')}>
+          <Logo expanded={logoExpanded} />
+        </Link>
       </section>
 
       <section className={c(styles.right)}>
         <ul className={c(styles.linkList)}>
           {links.map((link: SocialLink) => (
             <li key={link.name} className={link.section === current ? styles.active : undefined}>
-              {link.section && !link.fullLoad && !fullLoadOnly ? (
+              {link.section ? (
                 <Link
                   href={link.link}
                   aria-current={link.section === current ? 'page' : undefined}
@@ -67,10 +58,6 @@ export default function Nav({ links }: PropsType) {
                 >
                   {link.name}
                 </Link>
-              ) : link.section ? (
-                <a href={link.link} aria-current={link.section === current ? 'page' : undefined}>
-                  {link.name}
-                </a>
               ) : (
                 <a href={link.link} target="_blank" rel="noopener noreferrer">
                   {link.name}
