@@ -1,5 +1,5 @@
-@import '../animations.scss';
-@import '../breakpoints.scss';
+@use '../animations';
+@use '../breakpoints';
 
 .hero {
   position: relative;
@@ -54,7 +54,7 @@
     @media (min-width: 525px) {
       transition: font-size ease .3s;
     }
-    @media (min-width: $medium) {
+    @media (min-width: breakpoints.$medium) {
       font-size: 4.5em;
     }
   }
@@ -77,7 +77,7 @@
       // The white profile image is a bit aggressive, this makes it less jarrring
       filter: contrast(90%);
 
-      @media (min-width: $medium) {
+      @media (min-width: breakpoints.$medium) {
         opacity: 1;
         display: inherit !important;
         margin-left: 0px;
