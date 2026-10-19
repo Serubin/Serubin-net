@@ -19,30 +19,40 @@
 .sectionTitle {
   font-size: 2em;
   font-weight: 200;
-  margin: 0 0 0.8em 0;
+  margin: 0 0 0.2em 0;
   text-align: center;
   flex-shrink: 0;
 
   @media (max-width: breakpoints.$small) {
     font-size: 1.5em;
-    margin-bottom: 0.5em;
+  }
+}
+
+// Fills its box with --cols x --rows equal cells (see lib/fillGrid.ts); never scrolls.
+%fillGrid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--rows), minmax(0, 1fr));
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  // Room for the hover lift and focus ring, which overflow would clip.
+  padding: 8px;
+
+  @media (orientation: portrait) {
+    grid-template-columns: repeat(var(--cols-p), minmax(0, 1fr));
+    grid-template-rows: repeat(var(--rows-p), minmax(0, 1fr));
   }
 }
 
 // Album Grid
 .albumGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.2em;
-  padding: 1em 0 0 0;
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  padding-bottom: 1em;
+  @extend %fillGrid;
+  gap: 24px;
 
   @media (max-width: breakpoints.$small) {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 0.8em;
+    gap: 12px;
   }
 }
 
@@ -58,66 +68,62 @@
 }
 
 .albumCard {
-  @extend %imageCard;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:hover .albumTitle,
+  &:focus-visible .albumTitle {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--fg-dark-strong);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--fg-dark-strong);
+    outline-offset: 2px;
+    border-radius: var(--radius-card);
+  }
+}
+
+.albumCover {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
   border-radius: var(--radius-card);
-
-  &::before {
-    padding-bottom: 75%;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.55) 0%,
-      rgba(0, 0, 0, 0.1) 40%,
-      transparent 100%
-    );
-    transition: background 0.3s ease;
-  }
-
-  &:hover::after {
-    background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.65) 0%,
-      rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 0.05) 100%
-    );
-  }
-
-  &:hover .progressiveWrapCover {
-    transform: scale(1.15);
-  }
 }
 
-.albumCard .progressiveWrapCover {
-  transform: scale(1.1);
-  transition: transform 0.4s ease;
+.albumMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
 }
 
-.albumCardLabel {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 1em 1.2em;
-  z-index: 1;
-  color: var(--fg-light);
+.albumTitle {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--fg-dark-strong);
+}
 
-  h3 {
-    margin: 0;
-    font-size: 1.1em;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-  }
-
-  p {
-    margin: 0.2em 0 0 0;
-    font-size: 0.8em;
-    opacity: 0.8;
-  }
+.albumCount {
+  font-size: 0.8rem;
+  font-weight: 200;
+  color: var(--fg-dark-strong);
+  white-space: nowrap;
 }
 
 // Album View (inline expanded)
@@ -170,6 +176,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 0.6em;
+  align-content: start;
   flex: 1;
   min-height: 0;
   overflow-y: auto;
