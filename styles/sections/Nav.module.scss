@@ -15,7 +15,7 @@
   display: flex;
 
   width: 100%;
-  height: 4em;
+  height: var(--nav-height);
 
   color: var(--nav-fg-color);
   border-color: var(--nav-fg-color);
@@ -56,7 +56,7 @@
     }
 
     a {
-      border-bottom: 1px solid rgba(255, 255, 255, 0);
+      border-bottom: 1px solid transparent;
       transition: border-bottom 0.3s ease;
 
       &:hover {

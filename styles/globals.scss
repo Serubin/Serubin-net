@@ -1,11 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Nunito+Sans&display=swap');
-
-
-:root {
-  --fg-dark: #7c8081;
-  --fg-light: white;
-  --bg-light: #ebe6dc;
-}
+@use 'tokens';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 html,
 body {
@@ -14,7 +8,7 @@ body {
 
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
-  color: #7c8081;
+  color: var(--fg-dark);
   background-color: var(--bg-light);
   min-width: 349px;
 }

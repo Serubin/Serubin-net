@@ -17,12 +17,12 @@
   align-items: center;
   flex-direction: column;
 
-  color: white;
+  color: var(--fg-light);
 
   span:first-child {
     // This reduces the white border blur effect
     // This color is roughly the average color of the image
-    background: #737061 !important;
+    background: var(--hero-scrim) !important;
   }
 
   .innerWrapper {
@@ -72,7 +72,7 @@
       transition: opacity ease .5s;
       max-height: 150px;
 
-      border-radius: 50%;
+      border-radius: var(--radius-round);
 
       // The white profile image is a bit aggressive, this makes it less jarrring
       filter: contrast(90%);
