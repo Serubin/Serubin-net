@@ -46,7 +46,7 @@ export default function AlbumView({ album, onBack, isActive }: AlbumViewProps) {
             key={photo.src}
             type="button"
             className={styles.photoThumb}
-            aria-label={`Open photo ${index + 1} of ${album.photos.length}`}
+            aria-label={photo.title ? `Open ${photo.title}` : `Open photo ${index + 1} of ${album.photos.length}`}
             variants={fadeIn({ scale: 0.9 })}
             onClick={() => setLightboxIndex(index)}
             whileHover={{ y: -2 }}
@@ -57,6 +57,7 @@ export default function AlbumView({ album, onBack, isActive }: AlbumViewProps) {
               src={photo.src}
               placeholderSrc={photo.placeholderSrc}
               alt=""
+              objectPosition={photo.focus}
             />
           </motion.button>
         ))}
