@@ -1,15 +1,15 @@
 "use client";
-import { type JSX } from 'react';
-import { Album, HeroData, NavData, PortfolioData } from '../lib/types';
+import { type JSX, useEffect } from 'react';
+import { Album, HeroData, PortfolioData } from '../lib/types';
 import useRouteSync from '../lib/effects/useRouteSync';
-import Nav from './nav';
+import useSectionInk from '../lib/effects/useNavForground';
+import { useNavInk } from './nav/NavInkContext';
 import SnapScroll from './SnapScroll';
 import Hero from './sections/Hero';
 import Portfolio from './sections/Portfolio';
 
 type MainPageProps = {
   heroData: HeroData;
-  navData: NavData;
   portfolioData: PortfolioData;
   initialSection: "hero" | "portfolio";
   initialAlbumSlug: string | null;
@@ -17,7 +17,6 @@ type MainPageProps = {
 
 export default function MainPage({
   heroData,
-  navData,
   portfolioData,
   initialSection,
   initialAlbumSlug,
@@ -28,30 +27,38 @@ export default function MainPage({
     updateSectionFromScroll,
     selectAlbum,
     deselectAlbum,
+    goToSection,
   } = useRouteSync(initialSection, initialAlbumSlug);
+  const { setInk, registerSectionHandler } = useNavInk();
+
+  useSectionInk(setInk);
+
+  useEffect(() => registerSectionHandler((section) => {
+    if (section === 'hero') goToSection('hero');
+    else if (section === 'photography') goToSection('portfolio');
+    else return false;
+    return true;
+  }), [registerSectionHandler, goToSection]);
 
   return (
-    <>
-      <Nav links={navData.links} />
-      <SnapScroll
-        initialSectionId={initialSection}
-        scrollTarget={scrollTarget}
-        onSectionChange={updateSectionFromScroll}
-      >
-        <SnapScroll.Section id="hero">
-          <Hero name={heroData.name} tags={heroData.tags} />
-        </SnapScroll.Section>
-        <SnapScroll.Section id="portfolio">
-          <Portfolio
-            title={portfolioData.title}
-            albums={portfolioData.albums}
-            selectedAlbumSlug={currentAlbumSlug}
-            onSelectAlbum={(album: Album) => selectAlbum(album.slug)}
-            onBack={deselectAlbum}
-            initiallyVisible={initialSection === 'portfolio'}
-          />
-        </SnapScroll.Section>
-      </SnapScroll>
-    </>
+    <SnapScroll
+      initialSectionId={initialSection}
+      scrollTarget={scrollTarget}
+      onSectionChange={updateSectionFromScroll}
+    >
+      <SnapScroll.Section id="hero">
+        <Hero name={heroData.name} tags={heroData.tags} />
+      </SnapScroll.Section>
+      <SnapScroll.Section id="portfolio">
+        <Portfolio
+          title={portfolioData.title}
+          albums={portfolioData.albums}
+          selectedAlbumSlug={currentAlbumSlug}
+          onSelectAlbum={(album: Album) => selectAlbum(album.slug)}
+          onBack={deselectAlbum}
+          initiallyVisible={initialSection === 'portfolio'}
+        />
+      </SnapScroll.Section>
+    </SnapScroll>
   );
 }

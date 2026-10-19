@@ -11,10 +11,16 @@ export type NavData = {
   links: SocialLink[];
 }
 
+export type NavSection = 'photography' | 'projects' | 'resume';
+
 export type SocialLink = {
   name: string;
   icon: string;
   link: string;
+  /** In-app section this link targets; omitted for external links. */
+  section?: NavSection;
+  /** Navigate with a full page load instead of client-side routing. */
+  fullLoad?: boolean;
 };
 
 export type Photo = {

@@ -6,7 +6,7 @@ import { JSX, useEffect } from 'react';
 // This is fine for this site because there are only two pages
 const NotFound = (): JSX.Element => {
   const { push } = useRouter();
-  useEffect(() => push('/'));
+  useEffect(() => push('/'), [push]);
 
   return <></>;
 };

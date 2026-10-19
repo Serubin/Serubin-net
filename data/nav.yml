@@ -1,12 +1,18 @@
 nav:
   links:
-    - name: Linkedin
-      icon: fab linkedin-in
-      link: https://linkedin.com/in/serubin
-    - name: Github
-      icon: fab github
-      link: https://github.com/serubin/
+    - name: Photography
+      icon: fas camera
+      link: /photography
+      section: photography
     - name: Resume
       icon: fas file-alt
       link: /resume
-
+      section: resume
+      # The resume's stylesheet is global; a client-side visit would leave it applied to the home page.
+      fullLoad: true
+    - name: Github
+      icon: fab github
+      link: https://github.com/serubin/
+    - name: Linkedin
+      icon: fab linkedin-in
+      link: https://linkedin.com/in/serubin
