@@ -1,25 +1,16 @@
 .logo {
   display: block;
-  width: 1.5em;
+  flex-shrink: 0;
+  width: auto;
+  height: 38px;
   margin: calc((64px - 38px) / 2);
 
-  line-height: 1.5em;
-  border: 1px solid;
-
-  // Logo color is set by the parent component via the --nav-fg-color variable
-  border-color: var(--nav-fg-color);
+  // Logo color is set by the parent component via the --nav-fg-color variable;
+  // the SVG paints with currentColor.
   color: var(--nav-fg-color);
 
-  font-family: "Poppins", sans-serif;
-  font-size: 1.5em;
-  text-align: center;
-
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+  user-select: none;
 
-  transition: border-color ease .3s, color ease .3s;
+  transition: color ease .3s;
 }
