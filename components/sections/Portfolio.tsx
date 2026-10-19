@@ -32,13 +32,9 @@ export default function Portfolio({
   );
   const [hasBeenVisible, setHasBeenVisible] = useState(initiallyVisible);
 
-  useEffect(() => {
-    if (selectedAlbumSlug) {
-      setVisitedAlbumSlugs(prev =>
-        prev.has(selectedAlbumSlug) ? prev : new Set(prev).add(selectedAlbumSlug)
-      );
-    }
-  }, [selectedAlbumSlug]);
+  if (selectedAlbumSlug && !visitedAlbumSlugs.has(selectedAlbumSlug)) {
+    setVisitedAlbumSlugs(new Set(visitedAlbumSlugs).add(selectedAlbumSlug));
+  }
 
   useEffect(() => {
     if (hasBeenVisible) return;

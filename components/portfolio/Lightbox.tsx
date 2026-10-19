@@ -36,33 +36,23 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
     () => new Set([currentIndex])
   );
 
-  // Track whether the primary photo has finished loading
-  const [primaryLoaded, setPrimaryLoaded] = useState(false);
+  // Track which photos have finished loading
+  const [loadedIndices, setLoadedIndices] = useState<ReadonlySet<number>>(() => new Set());
 
-  useEffect(() => {
-    setPrimaryLoaded(false); // reset when navigating to a new photo
-    setVisitedIndices(prev => {
-      if (prev.has(currentIndex)) return prev; // already mounted — no re-render
-      return new Set(prev).add(currentIndex);  // first visit — mount new ProgressiveImage
-    });
-  }, [currentIndex]);
+  const markLoaded = useCallback((index: number) => {
+    setLoadedIndices(prev => (prev.has(index) ? prev : new Set(prev).add(index)));
+  }, []);
 
-  // Prefetch adjacent photos after primary photo loads
-  useEffect(() => {
-    if (!primaryLoaded) return; // wait for primary photo to finish loading
-    setVisitedIndices(prev => {
-      let updated = prev;
-      // Prefetch previous photo
-      if (currentIndex > 0 && !prev.has(currentIndex - 1)) {
-        updated = new Set(updated).add(currentIndex - 1);
-      }
-      // Prefetch next photo
-      if (currentIndex < photos.length - 1 && !prev.has(currentIndex + 1)) {
-        updated = new Set(updated).add(currentIndex + 1);
-      }
-      return updated === prev ? prev : updated;
-    });
-  }, [primaryLoaded, currentIndex, photos.length]);
+  // Mount the current photo now, and prefetch its neighbours once it has loaded
+  const wanted = [currentIndex];
+  if (loadedIndices.has(currentIndex)) {
+    if (hasPrev) wanted.push(currentIndex - 1);
+    if (hasNext) wanted.push(currentIndex + 1);
+  }
+  const missing = wanted.filter(i => !visitedIndices.has(i));
+  if (missing.length > 0) {
+    setVisitedIndices(new Set(Array.from(visitedIndices).concat(missing)));
+  }
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
     if (e.key === 'Escape') onClose();
@@ -138,7 +128,7 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
                     src={p.src}
                     placeholderSrc={p.placeholderSrc}
                     alt={p.alt}
-                    onLoad={isActive ? () => setPrimaryLoaded(true) : undefined}
+                    onLoad={() => markLoaded(index)}
                   />
                 </div>
               );

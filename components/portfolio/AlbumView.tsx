@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Album } from '../../lib/types';
 import { stagger, fadeIn } from '../../lib/animations';
@@ -15,10 +15,12 @@ type AlbumViewProps = {
 
 export default function AlbumView({ album, onBack, isActive }: AlbumViewProps) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [wasActive, setWasActive] = useState(isActive);
 
-  useEffect(() => {
+  if (isActive !== wasActive) {
+    setWasActive(isActive);
     if (!isActive) setLightboxIndex(null);
-  }, [isActive]);
+  }
 
   return (
     <div className={styles.albumViewWrapper}>
