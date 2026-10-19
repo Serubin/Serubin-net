@@ -6,13 +6,13 @@
   flex-direction: column;
   height: 100vh;
   width: 100%;
-  padding: 65px 5em;
+  padding: var(--section-padding);
   background-color: var(--bg-light);
   color: var(--fg-dark);
   overflow: hidden;
 
   @media (max-width: breakpoints.$small) {
-    padding: 65px 1.5em;
+    padding: var(--section-padding-small);
   }
 }
 
@@ -59,7 +59,7 @@
 
 .albumCard {
   @extend %imageCard;
-  border-radius: 8px;
+  border-radius: var(--radius-card);
 
   &::before {
     padding-bottom: 75%;
@@ -104,7 +104,7 @@
   right: 0;
   padding: 1em 1.2em;
   z-index: 1;
-  color: white;
+  color: var(--fg-light);
 
   h3 {
     margin: 0;
@@ -146,12 +146,12 @@
   color: var(--fg-dark);
   cursor: pointer;
   padding: 0.4em;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   transition: background-color 0.2s ease;
   font-size: 1.2em;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.08);
+    background-color: var(--hover-tint);
   }
 
   svg {
@@ -183,7 +183,7 @@
 
 .photoThumb {
   @extend %imageCard;
-  border-radius: 4px;
+  border-radius: var(--radius-thumb);
 
   &::before {
     padding-bottom: 100%;
@@ -234,7 +234,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgba(0, 0, 0, 0.9);
+  background: var(--overlay-lightbox);
   backdrop-filter: blur(8px);
 }
 
@@ -316,7 +316,7 @@
   z-index: 10;
   background: none;
   border: none;
-  color: white;
+  color: var(--fg-light);
   cursor: pointer;
   padding: 0.5em;
   opacity: 0.7;
@@ -338,12 +338,12 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--glass);
   border: none;
-  color: white;
+  color: var(--fg-light);
   cursor: pointer;
   padding: 0.8em;
-  border-radius: 50%;
+  border-radius: var(--radius-round);
   opacity: 0.6;
   transition: opacity 0.2s ease, background-color 0.2s ease;
   display: flex;
@@ -352,7 +352,7 @@
 
   &:hover {
     opacity: 1;
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--glass-hover);
   }
 
   svg {
@@ -374,7 +374,7 @@
   bottom: 1.5em;
   left: 50%;
   transform: translateX(-50%);
-  color: white;
+  color: var(--fg-light);
   font-size: 0.9em;
   opacity: 0.7;
   text-align: center;
@@ -385,7 +385,7 @@
   position: absolute;
   top: 1.5em;
   left: 1.5em;
-  color: white;
+  color: var(--fg-light);
   font-size: 0.85em;
   opacity: 0.6;
 }
