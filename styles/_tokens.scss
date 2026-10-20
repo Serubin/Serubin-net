@@ -15,8 +15,6 @@
   --radius-round: 50%;
 
   --nav-height: 64px;
-  // Under 600px the nav links wrap onto a second row below the logo.
-  --nav-height-wrapped: 100px;
   --section-padding: 65px 80px;
-  --section-padding-small: calc(var(--nav-height-wrapped) + 1px) 24px;
+  --section-padding-small: calc(var(--nav-height) + 1px) 24px;
 }

@@ -1,23 +1,26 @@
 "use client";
 import { type JSX, useEffect, useState } from 'react';
-import { Album, HeroData, PortfolioData } from '../lib/types';
-import useRouteSync, { parseUrl } from '../lib/effects/useRouteSync';
+import { Album, HeroData, PortfolioData, Project } from '../lib/types';
+import useRouteSync, { parseUrl, type Section } from '../lib/effects/useRouteSync';
 import useSectionInk from '../lib/effects/useNavForground';
 import { useNavInk } from './nav/NavInkContext';
 import SnapScroll from './SnapScroll';
 import Hero from './sections/Hero';
 import Portfolio from './sections/Portfolio';
+import Projects from './sections/Projects';
 
 type MainPageProps = {
   heroData: HeroData;
   portfolioData: PortfolioData;
-  initialSection: "hero" | "portfolio";
+  projects: Project[];
+  initialSection: Section;
   initialAlbumSlug: string | null;
 };
 
 export default function MainPage({
   heroData,
   portfolioData,
+  projects,
   initialSection,
   initialAlbumSlug,
 }: MainPageProps): JSX.Element {
@@ -28,8 +31,9 @@ export default function MainPage({
     if (typeof window === 'undefined') return fromProps;
     const segments = window.location.pathname.split('/').filter(Boolean);
     const { section, albumSlug } = parseUrl(window.location.pathname);
-    const servable = segments.length === 0 || (segments[0] === 'photography' && (segments.length === 1 ||
-      (segments.length === 2 && portfolioData.albums.some((album) => album.slug === albumSlug))));
+    const servable = segments.length === 0 || (segments[0] === 'projects' && segments.length === 1) ||
+      (segments[0] === 'photography' && (segments.length === 1 ||
+        (segments.length === 2 && portfolioData.albums.some((album) => album.slug === albumSlug))));
     return servable ? { section, albumSlug } : fromProps;
   });
   const {
@@ -47,6 +51,7 @@ export default function MainPage({
   useEffect(() => registerSectionHandler((section) => {
     if (section === 'hero') goToSection('hero');
     else if (section === 'photography') goToSection('portfolio');
+    else if (section === 'projects') goToSection('projects');
     else return false;
     return true;
   }), [registerSectionHandler, goToSection]);
@@ -59,6 +64,9 @@ export default function MainPage({
     >
       <SnapScroll.Section id="hero">
         <Hero name={heroData.name} tags={heroData.tags} />
+      </SnapScroll.Section>
+      <SnapScroll.Section id="projects">
+        <Projects projects={projects} />
       </SnapScroll.Section>
       <SnapScroll.Section id="portfolio">
         <Portfolio

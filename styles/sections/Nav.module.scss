@@ -63,7 +63,7 @@
     padding: 0;
     margin: 0;
 
-    @media (min-width: breakpoints.$small) {
+    @media (min-width: breakpoints.$medium) {
       font-size: 20px;
     }
 
@@ -85,25 +85,75 @@
     }
   }
 
-  @media (max-width: breakpoints.$small) {
-    flex-wrap: wrap;
-    height: auto;
-    min-height: var(--nav-height);
+  .moreItem {
+    display: none;
+    position: relative;
+  }
 
-    .right {
-      flex-basis: 100%;
+  .more {
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition: border-bottom 0.3s ease;
+
+    &:hover,
+    &.moreActive {
+      border-bottom: 1px solid var(--nav-fg-color);
     }
 
-    // One row of links under the logo keeps the nav at --nav-height-wrapped.
-    .linkList {
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      white-space: nowrap;
-      padding: 0 0 8px 12px;
+    &:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 2px;
+    }
+  }
 
-      li {
-        padding: 0 12px 0 0;
+  // Paper and dark ink regardless of the nav's ink, so it reads over the hero photo too.
+  .linkList .morePanel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 160px;
+    margin: 12px 0 0;
+    padding: 8px 0;
+    list-style: none;
+    background-color: var(--bg-light);
+    border: 1px solid var(--fg-dark);
+    color: var(--fg-dark-strong);
+
+    &[hidden] {
+      display: none;
+    }
+
+    li {
+      padding: 8px 16px;
+    }
+
+    a {
+      border-bottom-color: transparent;
+
+      &:hover,
+      &:focus-visible {
+        border-bottom-color: currentColor;
       }
+    }
+
+    .active a {
+      border-bottom-color: currentColor;
+    }
+  }
+
+  // The full text row needs about 730px beside the logo; below medium, only Resume stays inline.
+  @media (width < breakpoints.$medium) {
+    .collapsible {
+      display: none;
+    }
+
+    .moreItem {
+      display: block;
     }
   }
 

@@ -1,5 +1,9 @@
 nav:
   links:
+    - name: Projects
+      icon: fas code
+      link: /projects
+      section: projects
     - name: Photography
       icon: fas camera
       link: /photography
