@@ -1,5 +1,5 @@
 "use client";
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Album } from '../../lib/types';
 import { stagger, fadeIn } from '../../lib/animations';
@@ -23,8 +23,24 @@ export default function AlbumView({ album, onBack, isActive }: AlbumViewProps) {
     if (!isActive) setLightboxIndex(null);
   }
 
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const listening = isActive && lightboxIndex === null;
+
+  // Escape returns to the album list, unless the nav has the key or the album is scrolled out of view.
+  useEffect(() => {
+    if (!listening) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape' || (e.target instanceof Element && e.target.closest('nav'))) return;
+      const box = wrapperRef.current?.getBoundingClientRect();
+      if (!box || box.top > innerHeight / 2 || box.bottom < innerHeight / 2) return;
+      onBack();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [listening, onBack]);
+
   return (
-    <div className={styles.albumViewWrapper}>
+    <div ref={wrapperRef} className={styles.albumViewWrapper}>
       <div className={styles.albumHeader}>
         <button className={styles.backButton} onClick={onBack} aria-label="Back to albums">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
