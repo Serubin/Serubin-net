@@ -16,6 +16,15 @@
   @include meta.load-css('../resume/styles/main');
   @media print { @include meta.load-css('../resume/styles/print'); }
   @include meta.load-css('../resume/styles/custom');
+
+  // Narrow screens get the 850px sheet scaled down to fit, gutters included.
+  @media screen and (max-width: 880px) {
+    @supports (zoom: calc(100vw / 850px)) {
+      #page-wrapper {
+        zoom: calc((100vw - 32px) / 850px);
+      }
+    }
+  }
 }
 
 @media print {
