@@ -1,5 +1,5 @@
 "use client";
-import { useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import styles from '../../styles/sections/Portfolio.module.scss';
 
 type ProgressiveImageProps = {
@@ -20,16 +20,17 @@ export default function ProgressiveImage({
   onLoad,
 }: ProgressiveImageProps) {
   const [loaded, setLoaded] = useState(false);
-  const fullRef = useRef<HTMLImageElement>(null);
+  const [loadedSrc, setLoadedSrc] = useState(src);
 
-  useLayoutEffect(() => {
+  if (src !== loadedSrc) {
+    setLoadedSrc(src);
     setLoaded(false);
-    const el = fullRef.current;
-    if (el?.complete && el.naturalWidth > 0) {
-      setLoaded(true);
-      onLoad?.();
-    }
-  }, [src, onLoad]);
+  }
+
+  // An image that finished loading before hydration never fires onLoad.
+  const fullRef = useCallback((el: HTMLImageElement | null) => {
+    if (el?.complete && el.naturalWidth > 0) setLoaded(true);
+  }, []);
 
   if (variant === 'cover') {
     return (
