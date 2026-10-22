@@ -12,6 +12,9 @@
 /.next/
 /out/
 
+# generated portfolio renders (rebuilt at server start)
+/.cache/
+
 # production
 /build
 
