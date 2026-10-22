@@ -1,0 +1,14 @@
+@use '../breakpoints';
+
+// Leaves room above the sheet for the nav, which scrolls away with the page here.
+.resumePage {
+  padding-top: calc(var(--nav-height) + 32px);
+
+  @media (max-width: breakpoints.$small) {
+    padding-top: calc(var(--nav-height-wrapped) + 32px);
+  }
+
+  @media print {
+    padding-top: 0;
+  }
+}

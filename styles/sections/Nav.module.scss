@@ -27,10 +27,31 @@
 
   transition: border-color ease .3s, color ease .3s;
 
+  // On document pages the nav takes its own space and scrolls away instead of covering the text.
+  &.document {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  // The resume's global stylesheet colours every link with !important.
+  a {
+    color: var(--nav-fg-color) !important;
+  }
+
+  a:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
   .left {
     flex-grow: 1;
 
     display: flex;
+  }
+
+  .logoLink {
+    display: block;
   }
 
   .right {
@@ -63,5 +84,35 @@
         border-bottom: 1px solid var(--nav-fg-color);
       }
     }
+
+    .active a {
+      border-bottom: 1px solid var(--nav-fg-color);
+    }
+  }
+
+  @media (max-width: breakpoints.$small) {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: var(--nav-height);
+
+    .right {
+      flex-basis: 100%;
+    }
+
+    // One row of links under the logo keeps the nav at --nav-height-wrapped.
+    .linkList {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 0 0 8px 12px;
+
+      li {
+        padding: 0 12px 0 0;
+      }
+    }
+  }
+
+  @media print {
+    display: none;
   }
 }

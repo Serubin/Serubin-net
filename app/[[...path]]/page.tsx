@@ -2,12 +2,11 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import getStaticContent from '../../lib/contentData';
 import getPortfolioData from '../../lib/portfolioData';
-import { HeroData, NavData } from '../../lib/types';
+import { HeroData } from '../../lib/types';
 import MainPage from '../../components/MainPage';
 
 type StaticContent = {
   hero: HeroData;
-  nav: NavData;
 };
 
 type PageProps = {
@@ -38,8 +37,7 @@ export default async function Page({ params }: PageProps) {
 
   const {
     hero: { name, tags },
-    nav: { links },
-  } = getStaticContent(['hero', 'nav']) as StaticContent;
+  } = getStaticContent(['hero']) as StaticContent;
 
   const portfolioData = getPortfolioData();
 
@@ -54,7 +52,6 @@ export default async function Page({ params }: PageProps) {
   return (
     <MainPage
       heroData={{ name, tags }}
-      navData={{ links }}
       portfolioData={portfolioData}
       initialSection={initialSection}
       initialAlbumSlug={initialAlbumSlug}
