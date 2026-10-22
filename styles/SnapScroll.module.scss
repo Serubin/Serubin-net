@@ -4,13 +4,24 @@
   // dvh: iOS Safari's 100vh is the toolbar-hidden height, taller than what's visible.
   height: 100vh;
   height: 100dvh;
+
+  // Reach under iOS Safari's floating toolbar so a section's background can show there.
+  @supports (height: 100lvh) {
+    height: 100lvh;
+  }
 }
 
 .section {
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   scroll-snap-stop: always;
   min-height: 100vh;
   min-height: 100dvh;
+
+  // Each slot fills the container; the padding is the strip under the toolbar.
+  @supports (height: 100lvh) {
+    min-height: 100lvh;
+    padding-bottom: calc(100lvh - 100dvh);
+  }
 
   > section:first-child {
     padding: var(--section-padding);
