@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useCallback, useState } from 'react';
+import { useEffect, useCallback, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Photo } from '../../lib/types';
@@ -61,6 +61,22 @@ export default function Lightbox({ albumName, photos, currentIndex, onClose, onN
     if (e.key === 'ArrowRight' && hasNext) onNavigate(currentIndex + 1);
   }, [onClose, onNavigate, currentIndex, hasPrev, hasNext]);
 
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const [opener] = useState(() => document.activeElement as HTMLElement | null);
+
+  // The page scrolls in its own container, so locking body overflow doesn't stop keys from scrolling it.
+  useEffect(() => {
+    const background = Array.from(document.body.children)
+      .filter((el): el is HTMLElement => el instanceof HTMLElement && !el.inert && !el.contains(overlayRef.current));
+    background.forEach((el) => { el.inert = true; });
+    closeRef.current?.focus();
+    return () => {
+      background.forEach((el) => { el.inert = false; });
+      opener?.focus({ preventScroll: true });
+    };
+  }, [opener]);
+
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
     document.body.style.overflow = 'hidden';
@@ -73,6 +89,10 @@ export default function Lightbox({ albumName, photos, currentIndex, onClose, onN
   return createPortal(
     <AnimatePresence>
       <motion.div
+        ref={overlayRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={albumName}
         className={styles.lightboxOverlay}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -88,7 +108,7 @@ export default function Lightbox({ albumName, photos, currentIndex, onClose, onN
           </span>
         </div>
 
-        <button className={styles.lightboxClose} onClick={onClose} aria-label="Close">
+        <button ref={closeRef} className={styles.lightboxClose} onClick={onClose} aria-label="Close">
           <Icon d={ICON_CLOSE} />
         </button>
 
