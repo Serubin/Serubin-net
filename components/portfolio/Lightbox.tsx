@@ -4,6 +4,7 @@ import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Photo } from '../../lib/types';
 import { blockContextMenu } from './blockContextMenu';
+import ProgressiveImage from './ProgressiveImage';
 import styles from '../../styles/sections/Portfolio.module.scss';
 
 type LightboxProps = {
@@ -94,10 +95,11 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.2 }}
             >
-              <img
+              <ProgressiveImage
+                variant="contain"
                 src={photo.src}
+                placeholderSrc={photo.placeholderSrc}
                 alt={photo.alt}
-                decoding="async"
               />
             </motion.div>
           </AnimatePresence>
