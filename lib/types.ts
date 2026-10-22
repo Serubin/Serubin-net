@@ -21,6 +21,10 @@ export type Photo = {
   src: string;
   placeholderSrc: string;
   alt: string;
+  /** Display title from album.yml; overrides the file-derived `alt` in the lightbox. */
+  title?: string;
+  /** CSS object-position ("x% y%") for cropped views, from album.yml. */
+  focus?: string;
 };
 
 export type Album = {
@@ -28,6 +32,7 @@ export type Album = {
   slug: string;
   cover: string;
   coverPlaceholder: string;
+  coverFocus?: string;
   photos: Photo[];
 };
 

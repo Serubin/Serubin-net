@@ -41,6 +41,7 @@ export default function AlbumGrid({ albums, onSelectAlbum }: AlbumGridProps) {
               src={album.cover}
               placeholderSrc={album.coverPlaceholder}
               alt=""
+              objectPosition={album.coverFocus}
             />
           </div>
           <div className={styles.albumMeta}>

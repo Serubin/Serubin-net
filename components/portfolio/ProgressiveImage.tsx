@@ -8,6 +8,8 @@ type ProgressiveImageProps = {
   alt: string;
   variant: 'cover' | 'contain';
   wrapperClassName?: string;
+  /** object-position for the cover variant; the stylesheet default applies when omitted. */
+  objectPosition?: string;
   onLoad?: () => void;
 };
 
@@ -17,6 +19,7 @@ export default function ProgressiveImage({
   alt,
   variant,
   wrapperClassName,
+  objectPosition,
   onLoad,
 }: ProgressiveImageProps) {
   const [loaded, setLoaded] = useState(false);
@@ -44,7 +47,7 @@ export default function ProgressiveImage({
           className={styles.progressivePlaceholderCover}
           loading="lazy"
           decoding="async"
-          style={{ opacity: loaded ? 0 : 1 }}
+          style={{ opacity: loaded ? 0 : 1, objectPosition }}
         />
         <img
           ref={fullRef}
@@ -58,7 +61,7 @@ export default function ProgressiveImage({
             setLoaded(true);
             onLoad?.();
           }}
-          style={{ opacity: loaded ? 1 : 0 }}
+          style={{ opacity: loaded ? 1 : 0, objectPosition }}
         />
       </div>
     );

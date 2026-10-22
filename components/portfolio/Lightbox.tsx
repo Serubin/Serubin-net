@@ -127,7 +127,7 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
                     variant="contain"
                     src={p.src}
                     placeholderSrc={p.placeholderSrc}
-                    alt={p.alt}
+                    alt={p.title ?? p.alt}
                     onLoad={() => markLoaded(index)}
                   />
                 </div>
@@ -136,8 +136,8 @@ export default function Lightbox({ photos, currentIndex, onClose, onNavigate }: 
           </div>
         </div>
 
-        {photo.alt && (
-          <div className={styles.lightboxCaption}>{photo.alt}</div>
+        {(photo.title ?? photo.alt) && (
+          <div className={styles.lightboxCaption}>{photo.title ?? photo.alt}</div>
         )}
       </motion.div>
     </AnimatePresence>,

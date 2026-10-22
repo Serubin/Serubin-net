@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { PORTFOLIO_DIR } from './portfolioPaths';
+import { readAlbumMeta } from './albumMeta';
 import { Album, PortfolioData } from './types';
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 
@@ -36,7 +37,7 @@ export default function getPortfolioData(): PortfolioData {
     .sort((a, b) => a.name.localeCompare(b.name));
 
   const albums: Album[] = albumDirs
-    .map((dir) => {
+    .map((dir): Album | null => {
       const albumPath = path.join(PORTFOLIO_DIR, dir.name);
       const files = fs.readdirSync(albumPath)
         .filter(isImage)
@@ -49,17 +50,20 @@ export default function getPortfolioData(): PortfolioData {
         files[0];
       const name = slugToTitle(dir.name);
       const coverUrl = portfolioImageUrl(dir.name, coverFile);
+      const meta = readAlbumMeta(albumPath, files);
       return {
         name,
         slug: dir.name,
         cover: coverUrl,
         coverPlaceholder: portfolioPlaceholderSrc(coverUrl),
+        coverFocus: meta.get(coverFile)?.focus,
         photos: files.map((f) => {
           const src = portfolioImageUrl(dir.name, f);
           return {
             src,
             placeholderSrc: portfolioPlaceholderSrc(src),
             alt: path.parse(f).name.replace(/[-_]/g, ' '),
+            ...meta.get(f),
           };
         }),
       };
