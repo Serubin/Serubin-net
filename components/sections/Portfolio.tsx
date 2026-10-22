@@ -7,23 +7,41 @@ import AlbumView from '../portfolio/AlbumView';
 import { blockContextMenu } from '../portfolio/blockContextMenu';
 import styles from '../../styles/sections/Portfolio.module.scss';
 
-export default function Portfolio({ title, albums }: PortfolioData) {
+type PortfolioProps = PortfolioData & {
+  selectedAlbumSlug: string | null;
+  onSelectAlbum: (album: Album) => void;
+  onBack: () => void;
+  initiallyVisible?: boolean;
+};
+
+export default function Portfolio({
+  title,
+  albums,
+  selectedAlbumSlug,
+  onSelectAlbum,
+  onBack,
+  initiallyVisible = false,
+}: PortfolioProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [selectedAlbum, setSelectedAlbum] = useState<Album | null>(null);
+  const selectedAlbum = selectedAlbumSlug
+    ? albums.find(a => a.slug === selectedAlbumSlug) ?? null
+    : null;
+
   const [visitedAlbumSlugs, setVisitedAlbumSlugs] = useState<ReadonlySet<string>>(
-    () => new Set()
+    () => new Set(selectedAlbumSlug ? [selectedAlbumSlug] : [])
   );
-  const [hasBeenVisible, setHasBeenVisible] = useState(false);
+  const [hasBeenVisible, setHasBeenVisible] = useState(initiallyVisible);
 
   useEffect(() => {
-    if (selectedAlbum) {
+    if (selectedAlbumSlug) {
       setVisitedAlbumSlugs(prev =>
-        prev.has(selectedAlbum.slug) ? prev : new Set(prev).add(selectedAlbum.slug)
+        prev.has(selectedAlbumSlug) ? prev : new Set(prev).add(selectedAlbumSlug)
       );
     }
-  }, [selectedAlbum]);
+  }, [selectedAlbumSlug]);
 
   useEffect(() => {
+    if (hasBeenVisible) return;
     const el = sectionRef.current;
     if (!el) return;
     const scrollContainer = el.closest<HTMLElement>('[data-scroll-container]');
@@ -42,7 +60,7 @@ export default function Portfolio({ title, albums }: PortfolioData) {
     scrollContainer.addEventListener('scroll', checkVisible, { passive: true });
     checkVisible();
     return () => scrollContainer.removeEventListener('scroll', checkVisible);
-  }, []);
+  }, [hasBeenVisible]);
 
   useSectionForegroundColor(sectionRef, ColorMode.Dark);
 
@@ -61,7 +79,7 @@ export default function Portfolio({ title, albums }: PortfolioData) {
           transition: 'opacity 0.3s ease',
         }}>
           {hasBeenVisible && (
-            <AlbumGrid albums={albums} onSelectAlbum={setSelectedAlbum} />
+            <AlbumGrid albums={albums} onSelectAlbum={onSelectAlbum} />
           )}
         </div>
 
@@ -78,7 +96,7 @@ export default function Portfolio({ title, albums }: PortfolioData) {
               pointerEvents: isActive ? 'auto' : 'none',
               transition: 'opacity 0.3s ease',
             }}>
-              <AlbumView album={album} onBack={() => setSelectedAlbum(null)} isActive={isActive} />
+              <AlbumView album={album} onBack={onBack} isActive={isActive} />
             </div>
           );
         })}
