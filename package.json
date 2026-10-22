@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "predev": "npm run prepare:portfolio",
+    "predev": "yarn prepare:portfolio",
     "build": "next build",
-    "prepare:portfolio": "npm run fetch:portfolio && npm run warm:portfolio",
-    "prestart": "npm run prepare:portfolio",
+    "prepare:portfolio": "yarn fetch:portfolio && yarn warm:portfolio",
+    "prestart": "yarn prepare:portfolio",
     "start": "next start",
     "fetch:portfolio": "tsx scripts/fetch-portfolio-sources.ts",
     "warm:portfolio": "tsx scripts/warm-portfolio-cache.ts",
