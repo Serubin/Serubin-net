@@ -13,6 +13,7 @@ export default function Portfolio({ title, albums }: PortfolioData) {
   const [visitedAlbumSlugs, setVisitedAlbumSlugs] = useState<ReadonlySet<string>>(
     () => new Set()
   );
+  const [hasBeenVisible, setHasBeenVisible] = useState(false);
 
   useEffect(() => {
     if (selectedAlbum) {
@@ -22,6 +23,27 @@ export default function Portfolio({ title, albums }: PortfolioData) {
     }
   }, [selectedAlbum]);
 
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const scrollContainer = el.closest<HTMLElement>('[data-scroll-container]');
+    if (!scrollContainer) return;
+
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const checkVisible = () => {
+      const rect = el.getBoundingClientRect();
+      const isVisible = rect.top < containerRect.bottom && rect.bottom > containerRect.top;
+      if (isVisible) {
+        setHasBeenVisible(true);
+        scrollContainer.removeEventListener('scroll', checkVisible);
+      }
+    };
+
+    scrollContainer.addEventListener('scroll', checkVisible, { passive: true });
+    checkVisible();
+    return () => scrollContainer.removeEventListener('scroll', checkVisible);
+  }, []);
+
   useSectionForegroundColor(sectionRef, ColorMode.Dark);
 
   return (
@@ -29,7 +51,7 @@ export default function Portfolio({ title, albums }: PortfolioData) {
       <h2 className={styles.sectionTitle}>{title}</h2>
 
       <div style={{ flex: 1, minHeight: 0, position: 'relative' }} onContextMenu={blockContextMenu}>
-        {/* AlbumGrid — always mounted */}
+        {/* AlbumGrid — mounted only after section enters viewport */}
         <div style={{
           position: 'absolute',
           inset: 0,
@@ -38,7 +60,9 @@ export default function Portfolio({ title, albums }: PortfolioData) {
           pointerEvents: selectedAlbum ? 'none' : 'auto',
           transition: 'opacity 0.3s ease',
         }}>
-          <AlbumGrid albums={albums} onSelectAlbum={setSelectedAlbum} />
+          {hasBeenVisible && (
+            <AlbumGrid albums={albums} onSelectAlbum={setSelectedAlbum} />
+          )}
         </div>
 
         {/* AlbumView — one per visited album, kept mounted */}
