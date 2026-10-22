@@ -18,6 +18,23 @@ export type SocialLink = {
 };
 
 
+export type Photo = {
+  src: string;
+  alt: string;
+};
+
+export type Album = {
+  name: string;
+  slug: string;
+  cover: string;
+  photos: Photo[];
+};
+
+export type PortfolioData = {
+  title: string;
+  albums: Album[];
+};
+
 export enum ColorMode {
   Light = 'light',
   Dark = 'dark',
