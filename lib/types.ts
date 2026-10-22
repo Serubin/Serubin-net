@@ -50,6 +50,12 @@ export type Project = {
   description: string;
   tags: string[];
   href: string;
+  /** Cover image path under /images/projects/. */
+  image?: string;
+  /** CSS object-position ("x% y%") for the cropped cover. */
+  focus?: string;
+  /** Centred portrait cover, used instead of `image` on portrait viewports. */
+  portrait?: string;
 };
 
 export enum ColorMode {
