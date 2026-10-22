@@ -1,5 +1,5 @@
 'use client';
-import type { MouseEvent } from 'react';
+import { useState, type MouseEvent } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { classNames as c } from '../../lib/utils';
@@ -30,11 +30,15 @@ function sectionClick(goToSection: SectionHandler, section: NavSection | 'hero')
 
 export default function Nav({ links }: PropsType) {
   const pathname = usePathname() ?? '/';
-  const { ink, goToSection } = useNavInk();
+  const { ink, scrolling, goToSection } = useNavInk();
   const current = sectionFromPath(pathname);
   const textColor = ink ?? (current === 'hero' ? ColorMode.Light : ColorMode.Dark);
   // The resume's global stylesheet would outlive a client-side exit, so leave it with full loads.
   const fullLoadOnly = current === 'resume';
+  const expanded = current !== 'hero';
+  // The logo holds its form mid-scroll and changes once the scroll settles.
+  const [logoExpanded, setLogoExpanded] = useState(expanded);
+  if (!scrolling && logoExpanded !== expanded) setLogoExpanded(expanded);
 
   return (
     <nav className={c(styles.navigation, styles[textColor], fullLoadOnly ? styles.document : '')}>
@@ -42,11 +46,11 @@ export default function Nav({ links }: PropsType) {
         {fullLoadOnly ? (
           // eslint-disable-next-line @next/next/no-html-link-for-pages -- deliberate full load, see fullLoadOnly
           <a href="/" className={styles.logoLink}>
-            <Logo />
+            <Logo expanded={logoExpanded} />
           </a>
         ) : (
           <Link href="/" className={styles.logoLink} onClick={sectionClick(goToSection, 'hero')}>
-            <Logo />
+            <Logo expanded={logoExpanded} />
           </Link>
         )}
       </section>

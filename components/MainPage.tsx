@@ -29,9 +29,9 @@ export default function MainPage({
     deselectAlbum,
     goToSection,
   } = useRouteSync(initialSection, initialAlbumSlug);
-  const { setInk, registerSectionHandler } = useNavInk();
+  const { setInk, setScrolling, registerSectionHandler } = useNavInk();
 
-  useSectionInk(setInk);
+  useSectionInk(setInk, setScrolling);
 
   useEffect(() => registerSectionHandler((section) => {
     if (section === 'hero') goToSection('hero');

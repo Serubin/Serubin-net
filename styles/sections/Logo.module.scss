@@ -1,8 +1,11 @@
+$open-curve: cubic-bezier(.2, .7, .2, 1);
+
 .logo {
+  position: relative;
   display: block;
   flex-shrink: 0;
-  width: auto;
   height: 40px;
+  overflow: hidden;
   margin: calc((var(--nav-height) - 40px) / 2);
 
   // Logo color is set by the parent component via the --nav-fg-color variable;
@@ -12,5 +15,80 @@
   -webkit-touch-callout: none; /* iOS Safari */
   user-select: none;
 
-  transition: color ease .3s;
+  svg {
+    display: block;
+  }
+}
+
+.edge {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.letters {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+// Each state declares the transition used when arriving at it.
+.logo[data-state='mark'] {
+  width: 38px;
+  transition: color .3s ease, width 250ms ease-in;
+
+  .edge {
+    transform: scaleY(1);
+    transition: transform 200ms ease-out 200ms;
+  }
+
+  .letters {
+    clip-path: inset(0 94px 0 26px);
+    transition: clip-path 250ms ease-in;
+  }
+}
+
+.logo[data-state='full'] {
+  width: 120px;
+  transition: color .3s ease, width 350ms $open-curve;
+
+  .edge {
+    transform: scaleY(0);
+    transition: transform 200ms ease-out;
+  }
+
+  .letters {
+    clip-path: inset(0 0 0 26px);
+    transition: clip-path 350ms $open-curve;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo[data-state='mark'],
+  .logo[data-state='full'] {
+    transition: color .3s ease;
+
+    .edge,
+    .letters {
+      transition: none;
+    }
+  }
+
+  // Distinct names so swapping state restarts the crossfade.
+  .logo[data-state='mark'] {
+    animation: fadeMark 150ms ease;
+  }
+
+  .logo[data-state='full'] {
+    animation: fadeFull 150ms ease;
+  }
+}
+
+@keyframes fadeMark {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeFull {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

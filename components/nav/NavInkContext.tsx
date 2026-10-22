@@ -9,6 +9,9 @@ type NavInkState = {
   /** Ink set by the page under the nav, or null to fall back to the route's default. */
   ink: ColorModeType | null;
   setInk: (ink: ColorModeType | null) => void;
+  /** True while the page under the nav is scrolling. */
+  scrolling: boolean;
+  setScrolling: (scrolling: boolean) => void;
   /** Registers the page's in-place section scroller; the returned cleanup unregisters it. */
   registerSectionHandler: (handler: SectionHandler) => () => void;
   goToSection: SectionHandler;
@@ -18,6 +21,7 @@ const NavInkContext = createContext<NavInkState | null>(null);
 
 export function NavInkProvider({ children }: ReactChildren) {
   const [ink, setInk] = useState<ColorModeType | null>(null);
+  const [scrolling, setScrolling] = useState(false);
   const handlerRef = useRef<SectionHandler | null>(null);
 
   const registerSectionHandler = useCallback((handler: SectionHandler) => {
@@ -33,8 +37,8 @@ export function NavInkProvider({ children }: ReactChildren) {
   );
 
   const value = useMemo(
-    () => ({ ink, setInk, registerSectionHandler, goToSection }),
-    [ink, registerSectionHandler, goToSection]
+    () => ({ ink, setInk, scrolling, setScrolling, registerSectionHandler, goToSection }),
+    [ink, scrolling, registerSectionHandler, goToSection]
   );
 
   return <NavInkContext.Provider value={value}>{children}</NavInkContext.Provider>;
