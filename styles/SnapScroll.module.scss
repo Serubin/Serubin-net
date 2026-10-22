@@ -1,13 +1,16 @@
 .container {
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
+  // dvh: iOS Safari's 100vh is the toolbar-hidden height, taller than what's visible.
   height: 100vh;
+  height: 100dvh;
 }
 
 .section {
   scroll-snap-align: center;
   scroll-snap-stop: always;
   min-height: 100vh;
+  min-height: 100dvh;
 
   > section:first-child {
     padding: var(--section-padding);
