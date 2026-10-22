@@ -1,8 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+import { PORTFOLIO_DIR } from './portfolioPaths';
 import { Album, PortfolioData } from './types';
-
-const PORTFOLIO_DIR = path.join(process.cwd(), 'images/portfolio');
 const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 
 function isImage(fileName: string): boolean {
