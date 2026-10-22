@@ -1,8 +1,8 @@
-import {
-  fetchAndInstallPortfolioSources,
-  isPortfolioFetchDebug,
-} from './fetchPortfolioZip';
+import { fetchAndInstallPortfolioSources } from './fetchPortfolioZip';
 import { loadScriptEnv } from './loadScriptEnv';
+import { logger } from '../lib/log';
+
+const log = logger('fetch-portfolio-sources');
 
 async function main() {
   loadScriptEnv();
@@ -10,10 +10,7 @@ async function main() {
     await fetchAndInstallPortfolioSources();
     process.exit(0);
   } catch (err) {
-    console.error('[fetch-portfolio-sources]', err);
-    if (isPortfolioFetchDebug() && err instanceof Error && err.stack) {
-      console.error(err.stack);
-    }
+    log.error('portfolio source fetch failed', { err });
     process.exit(1);
   }
 }

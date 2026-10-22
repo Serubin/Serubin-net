@@ -5,9 +5,9 @@ import path from 'path';
 import type { ReadableStream } from 'node:stream/web';
 import { Readable } from 'stream';
 import { pipeline } from 'stream/promises';
+import { logger } from '../lib/log';
+import { gauge } from '../lib/metrics';
 import { PORTFOLIO_DIR } from '../lib/portfolioPaths';
-
-const PREFIX = '[fetch-portfolio]';
 
 export function isPortfolioFetchDebug(): boolean {
   return (
@@ -16,15 +16,14 @@ export function isPortfolioFetchDebug(): boolean {
   );
 }
 
-function log(kind: 'info' | 'debug', message: string, detail?: Record<string, unknown>): void {
-  if (kind === 'debug' && !isPortfolioFetchDebug()) return;
-  const tag = kind === 'debug' ? `${PREFIX}:debug` : PREFIX;
-  if (detail) {
-    console.log(tag, message, detail);
-  } else {
-    console.log(tag, message);
-  }
-}
+const log = logger('portfolio-fetch', { forceDebug: isPortfolioFetchDebug });
+
+const fetchTimestampGauge = gauge(
+  'portfolio_source_fetch_timestamp_seconds',
+  'Unix time of the last successful portfolio source ZIP install.'
+);
+const sourceBytesGauge = gauge('portfolio_source_bytes', 'Size of the last downloaded portfolio source ZIP.');
+const sourceFilesGauge = gauge('portfolio_source_files', 'Files extracted from the last portfolio source ZIP.');
 
 /** Log URL without query (avoids leaking presigned tokens). */
 export function safeUrlForLog(urlStr: string): string {
@@ -77,7 +76,7 @@ async function extractAdmZipToPortfolioDir(zip: AdmZip): Promise<ExtractStats> {
   let skippedMacosx = 0;
 
   const entries = zip.getEntries();
-  log('debug', 'zip entries', { total: entries.length });
+  log.debug('zip entries', { total: entries.length });
 
   let loggedSamples = 0;
   for (const entry of entries) {
@@ -90,16 +89,16 @@ async function extractAdmZipToPortfolioDir(zip: AdmZip): Promise<ExtractStats> {
     if (!target) {
       if (zipEntryTopSegment(rawName) === '__MACOSX') {
         skippedMacosx += 1;
-        log('debug', 'skipped __MACOSX entry', { entryName: rawName });
+        log.debug('skipped __MACOSX entry', { entryName: rawName });
       } else {
         skippedUnsafe += 1;
-        console.warn(`${PREFIX} skipped unsafe path: ${rawName}`);
+        log.warn('skipped unsafe zip entry', { entryName: rawName });
       }
       continue;
     }
 
     if (isPortfolioFetchDebug() && loggedSamples < 12) {
-      log('debug', 'extract', { entryName: rawName, target });
+      log.debug('extract', { entryName: rawName, target });
       loggedSamples += 1;
     }
 
@@ -152,7 +151,7 @@ async function hoistSingleTopLevelWrappers(
     }
     await fs.promises.rm(inner, { recursive: true, force: true });
     hoisted += 1;
-    log('info', 'hoisted single top-level directory', { wrapperName, step: hoisted });
+    log.info('hoisted single top-level directory', { wrapperName, step: hoisted });
   }
   return hoisted;
 }
@@ -165,7 +164,7 @@ async function hoistSingleTopLevelWrappers(
 export async function fetchAndInstallPortfolioSources(): Promise<void> {
   const url = process.env.PORTFOLIO_SOURCE_ZIP_URL?.trim();
   if (!url) {
-    log('info', 'PORTFOLIO_SOURCE_ZIP_URL not set, skipping remote fetch');
+    log.info('PORTFOLIO_SOURCE_ZIP_URL not set, skipping remote fetch');
     return;
   }
 
@@ -176,7 +175,7 @@ export async function fetchAndInstallPortfolioSources(): Promise<void> {
   }
 
   const t0 = Date.now();
-  log('info', 'starting download', {
+  log.info('starting download', {
     url: safeUrlForLog(url),
     portfolioDir: PORTFOLIO_DIR,
     cwd: process.cwd(),
@@ -187,7 +186,7 @@ export async function fetchAndInstallPortfolioSources(): Promise<void> {
   const res = await fetch(url, init);
   const ct = res.headers.get('content-type');
   const cl = res.headers.get('content-length');
-  log('info', 'response', {
+  log.info('response', {
     ok: res.ok,
     status: res.status,
     statusText: res.statusText,
@@ -196,9 +195,10 @@ export async function fetchAndInstallPortfolioSources(): Promise<void> {
   });
 
   if (!res.ok) {
+    // Debug only: S3 signature errors echo the canonical request, credential scope included.
     const bodyPreview = await readBodyPreviewForError(res);
     if (bodyPreview) {
-      log('info', 'error response body (preview)', { preview: bodyPreview });
+      log.debug('error response body (preview)', { preview: bodyPreview });
     }
     throw new Error(`Portfolio ZIP fetch failed: ${res.status} ${res.statusText}`);
   }
@@ -208,36 +208,39 @@ export async function fetchAndInstallPortfolioSources(): Promise<void> {
   }
 
   const tmpZip = path.join(os.tmpdir(), `portfolio-${process.pid}-${Date.now()}.zip`);
-  log('debug', 'streaming to temp file', { tmpZip });
+  log.debug('streaming to temp file', { tmpZip });
 
   const nodeReadable = Readable.fromWeb(res.body as ReadableStream);
   await pipeline(nodeReadable, fs.createWriteStream(tmpZip));
 
   const stat = await fs.promises.stat(tmpZip);
-  log('info', 'download complete', { bytes: stat.size, tmpZip });
+  log.info('download complete', { bytes: stat.size, tmpZip });
 
   try {
-    log('info', 'replacing portfolio directory', { PORTFOLIO_DIR });
+    log.info('replacing portfolio directory', { PORTFOLIO_DIR });
     await fs.promises.rm(PORTFOLIO_DIR, { recursive: true, force: true });
     await fs.promises.mkdir(PORTFOLIO_DIR, { recursive: true });
 
     const zip = new AdmZip(tmpZip);
     const counts = await extractAdmZipToPortfolioDir(zip);
     const hoistSteps = await hoistSingleTopLevelWrappers(PORTFOLIO_DIR, 8);
-    log('info', 'extract complete', {
+    log.info('extract complete', {
       ...counts,
       hoistSteps,
       ms: Date.now() - t0,
     });
 
     if (counts.filesWritten === 0) {
-      console.warn(
-        `${PREFIX} no files were extracted — check ZIP layout (expect album folders at zip root with images inside) and PORTFOLIO_FETCH_DEBUG=1`
+      log.warn(
+        'no files were extracted; expected album folders at the zip root with images inside (set PORTFOLIO_FETCH_DEBUG=1 for entry paths)'
       );
     }
+    sourceBytesGauge.set(undefined, stat.size);
+    sourceFilesGauge.set(undefined, counts.filesWritten);
+    fetchTimestampGauge.set(undefined, Date.now() / 1000);
   } finally {
     await fs.promises.unlink(tmpZip).catch(() => undefined);
-    log('debug', 'removed temp zip');
+    log.debug('removed temp zip');
   }
 }
 

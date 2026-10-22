@@ -1,7 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
+import { logger } from './log';
+import { counter, gauge, histogram } from './metrics';
 import { PORTFOLIO_DIR } from './portfolioPaths';
+
+const log = logger('portfolio-cache');
 
 export { PORTFOLIO_DIR };
 export const CACHE_ROOT = path.join(process.cwd(), '.cache/portfolio-rendered');
@@ -140,20 +144,65 @@ async function writeImageCaches(job: {
   await fs.promises.writeFile(placeholder, placeholderBuf);
 }
 
-export async function warmPortfolioImageCache(): Promise<void> {
+export type PortfolioImageVariant = 'placeholder' | 'main' | 'watermarked';
+
+export const portfolioImageRequests = counter(
+  'portfolio_image_requests_total',
+  'Portfolio image requests by variant and whether the rendered cache had the file.',
+  ['variant', 'cache']
+);
+export const portfolioImageRenderSeconds = histogram(
+  'portfolio_image_render_seconds',
+  'Time to render a portfolio image on request after a cache miss.',
+  ['variant'],
+  [0.05, 0.1, 0.25, 0.5, 1, 2, 5, 10]
+);
+const albumsGauge = gauge('portfolio_albums', 'Albums with at least one image at the last cache warm.');
+const imagesGauge = gauge('portfolio_images', 'Source images found at the last cache warm.');
+const warmDurationGauge = gauge('portfolio_cache_warm_duration_seconds', 'Duration of the last cache warm.');
+const warmFailuresGauge = gauge('portfolio_cache_warm_failures', 'Images that failed to render in the last cache warm.');
+const warmCompletedGauge = gauge('portfolio_cache_warm_completed', 'Images processed so far in the current or last cache warm.');
+
+const WARM_CONCURRENCY = 3;
+
+export type WarmResult = { images: number; rendered: number; failed: string[]; ms: number };
+
+/** Renders every source image into the cache; a failed image is logged and counted, never thrown. */
+export async function warmPortfolioImageCache(): Promise<WarmResult> {
   const jobs = listPortfolioImageJobs();
-  await runPool(jobs, 3, writeImageCaches);
-}
+  const albums = new Set(jobs.map((j) => j.albumDir)).size;
+  albumsGauge.set(undefined, albums);
+  imagesGauge.set(undefined, jobs.length);
+  log.info('cache warm started', { albums, images: jobs.length, concurrency: WARM_CONCURRENCY });
 
-let warmupPromise: Promise<void> | null = null;
-
-/** Dev-only background warm; `predev` / `prestart` already run `prepare:portfolio` (fetch + warm) before the server. */
-export function ensurePortfolioCacheWarmup(): void {
-  if (warmupPromise !== null) return;
-  warmupPromise = warmPortfolioImageCache().catch((err) => {
-    console.error('[portfolioImageCache] warmup failed', err);
-    warmupPromise = null;
+  const t0 = Date.now();
+  const failed: string[] = [];
+  let rendered = 0;
+  warmCompletedGauge.set(undefined, 0);
+  await runPool(jobs, WARM_CONCURRENCY, async (job) => {
+    const image = `${job.albumDir}/${job.fileName}`;
+    const started = Date.now();
+    try {
+      await writeImageCaches(job);
+      rendered += 1;
+      log.debug('cached image', { image, ms: Date.now() - started });
+    } catch (err) {
+      failed.push(image);
+      log.error('failed to cache image', { image, err });
+    }
+    warmCompletedGauge.set(undefined, rendered + failed.length);
   });
+
+  const ms = Date.now() - t0;
+  warmDurationGauge.set(undefined, ms / 1000);
+  warmFailuresGauge.set(undefined, failed.length);
+  const summary = { images: jobs.length, rendered, failed: failed.length, ms };
+  if (failed.length > 0) {
+    log.warn('cache warm finished with failures', { ...summary, failedImages: failed });
+  } else {
+    log.info('cache warm finished', summary);
+  }
+  return { images: jobs.length, rendered, failed, ms };
 }
 
 export async function renderPlaceholderWebP(absSourcePath: string): Promise<Buffer> {

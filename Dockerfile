@@ -16,6 +16,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 ENV PORT=80
 EXPOSE 80
+EXPOSE 9464
 
 WORKDIR /app
 
@@ -28,4 +29,5 @@ USER node
 
 RUN yarn build
 
-CMD [ "yarn", "start", "-p", "80"]
+# node as PID 1 so SIGTERM reaches the server; yarn does not forward signals.
+CMD ["node", "--import", "tsx", "server.ts"]
