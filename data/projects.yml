@@ -2,26 +2,26 @@ projects:
   - name: Fortinet (Lacework)
     description: Staff engineer on the vulnerability data services behind FortiCNAPP, running 800M evaluations a day.
     tags: [Security, Data pipelines]
-    href: https://linkedin.com/in/serubin
+    href: https://serub.in/s/linkedin
     image: /images/projects/lacework.webp
   - name: Mira
     description: Free, open-source firmware for the Spotify Car Thing, with a Connect observer daemon, a React UI and on-device voice control.
     tags: [Go, React, Embedded Linux]
-    href: https://github.com/mira-thing
+    href: https://serub.in/s/mira
     image: /images/projects/mira.webp
     portrait: /images/projects/mira-portrait.webp
     focus: 45% 50%
   - name: WallSpan
     description: A macOS app that spans one wallpaper across several displays with bezel compensation, and cycles a folder on an interval.
     tags: [Swift, macOS]
-    href: https://github.com/Serubin/WallSpan
+    href: https://serub.in/s/wallspan
     image: /images/projects/wallspan.webp
     portrait: /images/projects/wallspan-portrait.webp
     focus: 93% 50%
   - name: Pulse SMS Web
     description: The official web app for Pulse SMS, the original provider of texting from the browser.
     tags: [Vue, JavaScript]
-    href: https://github.com/Serubin/pulse-sms-web
+    href: https://serub.in/s/pulse
     image: /images/projects/pulse-sms.webp
     portrait: /images/projects/pulse-sms-portrait.webp
     focus: 80% 50%
