@@ -5,7 +5,7 @@ import styles from '../styles/SnapScroll.module.scss';
 
 type SnapScrollProps = {
   children: React.ReactNode;
-  /** Section to scroll to on initial mount (instant, no animation) */
+  /** Section to scroll to on initial mount (no smooth scroll) */
   initialSectionId?: string;
   /** When set, triggers a programmatic smooth scroll. Change `key` to re-trigger. */
   scrollTarget?: { section: string; key: number } | null;
@@ -70,7 +70,7 @@ const SnapScroll = ({ children, initialSectionId, scrollTarget, onSectionChange 
   useEffect(() => {
     if (initialSectionId && initialSectionId !== 'hero') {
       requestAnimationFrame(() => {
-        scrollToSection(initialSectionId, 'instant');
+        scrollToSection(initialSectionId, 'auto');
       });
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
