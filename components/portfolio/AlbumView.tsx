@@ -1,7 +1,6 @@
 "use client";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import { Album } from '../../lib/types';
 import { stagger, fadeIn } from '../../lib/animations';
 import Lightbox from './Lightbox';
@@ -41,13 +40,12 @@ export default function AlbumView({ album, onBack }: AlbumViewProps) {
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
           >
-            <Image
+            <img
               className={styles.photoThumbImage}
               src={photo.src}
               alt={photo.alt}
-              fill
-              style={{ objectFit: 'cover' }}
-              sizes="(max-width: 600px) 50vw, (max-width: 900px) 33vw, 25vw"
+              decoding="async"
+              loading="lazy"
             />
           </motion.div>
         ))}

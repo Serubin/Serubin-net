@@ -1,11 +1,11 @@
 "use client";
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Album, PortfolioData, ColorMode } from '../../lib/types';
-import { classNames as c } from '../../lib/utils';
 import useSectionForegroundColor from '../../lib/effects/useSectionForegroundColor';
 import AlbumGrid from '../portfolio/AlbumGrid';
 import AlbumView from '../portfolio/AlbumView';
+import { blockContextMenu } from '../portfolio/blockContextMenu';
 import styles from '../../styles/sections/Portfolio.module.scss';
 
 const slideTransition = (x: number) => ({
@@ -24,20 +24,22 @@ export default function Portfolio({ title, albums }: PortfolioData) {
   useSectionForegroundColor(sectionRef, ColorMode.Dark);
 
   return (
-    <div ref={sectionRef} className={c(styles.portfolio)}>
-      <h2 className={c(styles.sectionTitle)}>{title}</h2>
+    <div ref={sectionRef} className={styles.portfolio}>
+      <h2 className={styles.sectionTitle}>{title}</h2>
 
-      <AnimatePresence mode="wait">
-        {selectedAlbum ? (
-          <motion.div key={selectedAlbum.slug} style={flexFill} {...slideTransition(30)}>
-            <AlbumView album={selectedAlbum} onBack={() => setSelectedAlbum(null)} />
-          </motion.div>
-        ) : (
-          <motion.div key="grid" style={flexFill} {...slideTransition(-30)}>
-            <AlbumGrid albums={albums} onSelectAlbum={setSelectedAlbum} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div style={flexFill} onContextMenu={blockContextMenu}>
+        <AnimatePresence mode="wait">
+          {selectedAlbum ? (
+            <motion.div key={selectedAlbum.slug} style={flexFill} {...slideTransition(30)}>
+              <AlbumView album={selectedAlbum} onBack={() => setSelectedAlbum(null)} />
+            </motion.div>
+          ) : (
+            <motion.div key="grid" style={flexFill} {...slideTransition(-30)}>
+              <AlbumGrid albums={albums} onSelectAlbum={setSelectedAlbum} />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
