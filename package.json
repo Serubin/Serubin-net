@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "predev": "yarn prepare:portfolio",
+    "dev": "tsx server.ts",
     "build": "next build",
     "prepare:portfolio": "yarn fetch:portfolio && yarn warm:portfolio",
-    "prestart": "yarn prepare:portfolio",
-    "start": "next start",
+    "start": "NODE_ENV=production tsx server.ts",
     "fetch:portfolio": "tsx scripts/fetch-portfolio-sources.ts",
     "warm:portfolio": "tsx scripts/warm-portfolio-cache.ts",
     "lint": "eslint ."
