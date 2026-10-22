@@ -1,7 +1,7 @@
 "use client";
-import { type JSX, useEffect } from 'react';
+import { type JSX, useEffect, useState } from 'react';
 import { Album, HeroData, PortfolioData } from '../lib/types';
-import useRouteSync from '../lib/effects/useRouteSync';
+import useRouteSync, { parseUrl } from '../lib/effects/useRouteSync';
 import useSectionInk from '../lib/effects/useNavForground';
 import { useNavInk } from './nav/NavInkContext';
 import SnapScroll from './SnapScroll';
@@ -21,6 +21,17 @@ export default function MainPage({
   initialSection,
   initialAlbumSlug,
 }: MainPageProps): JSX.Element {
+  // Back into a pushState entry restores this page with the props of the URL it was pushed from.
+  // Arrivals from other routes render before the URL updates, so only a URL the server would render is trusted.
+  const [initial] = useState(() => {
+    const fromProps = { section: initialSection, albumSlug: initialAlbumSlug };
+    if (typeof window === 'undefined') return fromProps;
+    const segments = window.location.pathname.split('/').filter(Boolean);
+    const { section, albumSlug } = parseUrl(window.location.pathname);
+    const servable = segments.length === 0 || (segments[0] === 'photography' && (segments.length === 1 ||
+      (segments.length === 2 && portfolioData.albums.some((album) => album.slug === albumSlug))));
+    return servable ? { section, albumSlug } : fromProps;
+  });
   const {
     currentAlbumSlug,
     scrollTarget,
@@ -28,7 +39,7 @@ export default function MainPage({
     selectAlbum,
     deselectAlbum,
     goToSection,
-  } = useRouteSync(initialSection, initialAlbumSlug);
+  } = useRouteSync(initial.section, initial.albumSlug);
   const { setInk, setScrolling, registerSectionHandler } = useNavInk();
 
   useSectionInk(setInk, setScrolling);
@@ -42,7 +53,7 @@ export default function MainPage({
 
   return (
     <SnapScroll
-      initialSectionId={initialSection}
+      initialSectionId={initial.section}
       scrollTarget={scrollTarget}
       onSectionChange={updateSectionFromScroll}
     >
@@ -56,7 +67,7 @@ export default function MainPage({
           selectedAlbumSlug={currentAlbumSlug}
           onSelectAlbum={(album: Album) => selectAlbum(album.slug)}
           onBack={deselectAlbum}
-          initiallyVisible={initialSection === 'portfolio'}
+          initiallyVisible={initial.section === 'portfolio'}
         />
       </SnapScroll.Section>
     </SnapScroll>

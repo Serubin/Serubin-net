@@ -34,11 +34,6 @@
     left: 0;
   }
 
-  // The resume's global stylesheet colours every link with !important.
-  a {
-    color: var(--nav-fg-color) !important;
-  }
-
   a:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 2px;

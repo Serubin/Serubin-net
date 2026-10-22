@@ -8,8 +8,6 @@ nav:
       icon: fas file-alt
       link: /resume
       section: resume
-      # The resume's stylesheet is global; a client-side visit would leave it applied to the home page.
-      fullLoad: true
     - name: Github
       icon: fab github
       link: https://github.com/serubin/
