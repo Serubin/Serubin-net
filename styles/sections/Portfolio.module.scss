@@ -56,17 +56,6 @@
   }
 }
 
-%imageCard {
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-
-  &::before {
-    content: '';
-    display: block;
-  }
-}
-
 .albumCard {
   display: flex;
   flex-direction: column;
@@ -173,37 +162,29 @@
 }
 
 .photoGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 0.6em;
-  align-content: start;
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  padding-bottom: 1em;
+  @extend %fillGrid;
+  gap: 10px;
 
   @media (max-width: breakpoints.$small) {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 0.4em;
+    gap: 6px;
   }
 }
 
 .photoThumb {
-  @extend %imageCard;
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  overflow: hidden;
   border-radius: var(--radius-thumb);
+  cursor: pointer;
 
-  &::before {
-    padding-bottom: 100%;
+  &:focus-visible {
+    outline: 2px solid var(--fg-dark-strong);
+    outline-offset: 2px;
   }
-
-  &:hover .progressiveWrapCover {
-    transform: scale(1.15);
-  }
-}
-
-.photoThumb .progressiveWrapCover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
 }
 
 .progressiveWrapCover {

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Album } from '../../lib/types';
 import { stagger, fadeIn } from '../../lib/animations';
+import { fillGridVars } from '../../lib/fillGrid';
 import Lightbox from './Lightbox';
 import ProgressiveImage from './ProgressiveImage';
 import styles from '../../styles/sections/Portfolio.module.scss';
@@ -35,14 +36,17 @@ export default function AlbumView({ album, onBack, isActive }: AlbumViewProps) {
 
       <motion.div
         className={styles.photoGrid}
+        style={fillGridVars(album.photos.length)}
         variants={stagger(0.04)}
         initial="hidden"
         animate="visible"
       >
         {album.photos.map((photo, index) => (
-          <motion.div
+          <motion.button
             key={photo.src}
+            type="button"
             className={styles.photoThumb}
+            aria-label={`Open photo ${index + 1} of ${album.photos.length}`}
             variants={fadeIn({ scale: 0.9 })}
             onClick={() => setLightboxIndex(index)}
             whileHover={{ y: -2 }}
@@ -52,9 +56,9 @@ export default function AlbumView({ album, onBack, isActive }: AlbumViewProps) {
               variant="cover"
               src={photo.src}
               placeholderSrc={photo.placeholderSrc}
-              alt={photo.alt}
+              alt=""
             />
-          </motion.div>
+          </motion.button>
         ))}
       </motion.div>
 
