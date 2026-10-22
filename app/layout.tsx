@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import PlausibleProvider from "next-plausible";
 import { ensurePortfolioCacheWarmup } from "../lib/portfolioImageCache";
 import getStaticContent from "../lib/contentData";
@@ -9,6 +10,16 @@ import "../styles/globals.scss";
 if (process.env.NODE_ENV === "development") {
   ensurePortfolioCacheWarmup();
 }
+
+export const metadata: Metadata = {
+  metadataBase: new URL("https://serubin.net"),
+  openGraph: {
+    type: "website",
+    siteName: "Solomon Rubin",
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: "Solomon" }],
+  },
+  twitter: { card: "summary_large_image" },
+};
 
 export default function RootLayout({ children }: ReactChildren) {
   const { nav } = getStaticContent(['nav']) as { nav: NavData };
