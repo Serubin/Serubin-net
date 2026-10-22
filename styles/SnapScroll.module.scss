@@ -10,6 +10,6 @@
   min-height: 100vh;
 
   > section:first-child {
-    padding: 65px 5em;
+    padding: var(--section-padding);
   }
 }

@@ -1,0 +1,20 @@
+// Design-system tokens. Ink under 24px on paper must use --fg-dark-strong (--fg-dark is only 3.2:1).
+:root {
+  --bg-light: #ebe6dc;
+  --fg-dark: #7c8081;
+  --fg-dark-strong: #626667;
+  --fg-light: #ffffff;
+  --hero-scrim: #737061;
+  --hover-tint: rgba(0, 0, 0, 0.08);
+  --overlay-lightbox: rgba(0, 0, 0, 0.9);
+  --glass: rgba(255, 255, 255, 0.1);
+  --glass-hover: rgba(255, 255, 255, 0.2);
+
+  --radius-card: 8px;
+  --radius-thumb: 4px;
+  --radius-round: 50%;
+
+  --nav-height: 64px;
+  --section-padding: 65px 80px;
+  --section-padding-small: 65px 24px;
+}

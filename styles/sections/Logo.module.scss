@@ -3,7 +3,7 @@
   flex-shrink: 0;
   width: auto;
   height: 40px;
-  margin: calc((64px - 40px) / 2);
+  margin: calc((var(--nav-height) - 40px) / 2);
 
   // Logo color is set by the parent component via the --nav-fg-color variable;
   // the SVG paints with currentColor.
