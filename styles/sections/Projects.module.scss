@@ -1,0 +1,120 @@
+@use '../breakpoints';
+@use '../section';
+
+.projects {
+  @extend %paperSection;
+}
+
+.sectionTitle {
+  @extend %sectionTitle;
+}
+
+.projectGrid {
+  @extend %fillGrid;
+  gap: 32px;
+
+  @media (max-width: breakpoints.$small) {
+    gap: 16px;
+  }
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-height: 0;
+  min-width: 0;
+  container-type: size;
+  color: var(--fg-dark-strong);
+  text-decoration: none;
+
+  &:hover .projectName,
+  &:focus-visible .projectName {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--fg-dark-strong);
+    outline-offset: 2px;
+  }
+}
+
+// Stands in for a cover image, so it takes whatever height the cell leaves.
+.projectFrame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  padding: 16px;
+  border: 1px solid var(--fg-dark);
+  color: var(--fg-dark);
+  container-type: size;
+
+  span {
+    font-size: min(40px, 12cqi);
+    font-weight: 200;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+}
+
+.projectMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.projectName {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.projectDescription {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.projectTags {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// Short cells (a phone on its side) drop the frame, then trim the text, rather than overlap.
+@container (max-height: 220px) {
+  .projectFrame {
+    display: none;
+  }
+
+  .projectDescription {
+    -webkit-line-clamp: 1;
+  }
+}
+
+@container (max-height: 80px) {
+  .projectDescription {
+    display: none;
+  }
+}

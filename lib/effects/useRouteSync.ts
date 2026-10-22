@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-type Section = "hero" | "portfolio";
+export type Section = "hero" | "portfolio" | "projects";
 
 interface RouteState {
   currentAlbumSlug: string | null;
@@ -16,6 +16,7 @@ interface RouteState {
 function buildUrl(section: Section, albumSlug: string | null): string {
   if (section === "portfolio" && albumSlug) return `/photography/${encodeURIComponent(albumSlug)}`;
   if (section === "portfolio") return `/photography`;
+  if (section === "projects") return `/projects`;
   return `/`;
 }
 
@@ -27,6 +28,7 @@ export function parseUrl(pathname: string): { section: Section; albumSlug: strin
       albumSlug: segments[1] ? decodeURIComponent(segments[1]) : null,
     };
   }
+  if (segments[0] === 'projects') return { section: 'projects', albumSlug: null };
   return { section: 'hero', albumSlug: null };
 }
 

@@ -1,0 +1,13 @@
+projects:
+  - name: Serubin-net
+    description: Source for this site, with the photography portfolio and resume.
+    tags: [Next.js, TypeScript, Sass]
+    href: https://github.com/Serubin/Serubin-net
+  - name: Resume
+    description: My resume, kept as YAML and rendered with Next.js to a printable page.
+    tags: [Next.js, YAML]
+    href: https://github.com/Serubin/Resume
+  - name: Simple PHP Captcha
+    description: A PHP script that draws a small arithmetic captcha image and checks the answer from the session.
+    tags: [PHP]
+    href: https://github.com/Serubin/Simple-PHP-Captcha

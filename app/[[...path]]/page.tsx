@@ -2,11 +2,13 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import getStaticContent from '../../lib/contentData';
 import getPortfolioData from '../../lib/portfolioData';
-import { HeroData } from '../../lib/types';
+import { HeroData, Project } from '../../lib/types';
+import type { Section } from '../../lib/effects/useRouteSync';
 import MainPage from '../../components/MainPage';
 
 type StaticContent = {
   hero: HeroData;
+  projects: Project[];
 };
 
 type PageProps = {
@@ -22,22 +24,26 @@ export const dynamic = 'force-dynamic';
 export default async function Page({ params }: PageProps) {
   const { path: segments } = await params;
 
-  let initialSection: "hero" | "portfolio" = "hero";
+  let initialSection: Section = "hero";
   let initialAlbumSlug: string | null = null;
 
   if (segments && segments.length > 0) {
-    if (segments[0] !== 'photography' || segments.length > 2) {
+    if (segments[0] === 'projects' && segments.length === 1) {
+      initialSection = 'projects';
+    } else if (segments[0] !== 'photography' || segments.length > 2) {
       notFound();
+    } else {
+      initialSection = 'portfolio';
     }
-    initialSection = 'portfolio';
-    if (segments.length === 2) {
+    if (initialSection === 'portfolio' && segments.length === 2) {
       initialAlbumSlug = decodeURIComponent(segments[1]);
     }
   }
 
   const {
     hero: { name, tags },
-  } = getStaticContent(['hero']) as StaticContent;
+    projects,
+  } = getStaticContent(['hero', 'projects']) as StaticContent;
 
   const portfolioData = getPortfolioData();
 
@@ -53,6 +59,7 @@ export default async function Page({ params }: PageProps) {
     <MainPage
       heroData={{ name, tags }}
       portfolioData={portfolioData}
+      projects={projects}
       initialSection={initialSection}
       initialAlbumSlug={initialAlbumSlug}
     />

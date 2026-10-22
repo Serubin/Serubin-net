@@ -1,0 +1,48 @@
+// Shared layout for the paper sections on the home page (photography, projects).
+@use 'breakpoints';
+
+%paperSection {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  padding: var(--section-padding);
+  background-color: var(--bg-light);
+  color: var(--fg-dark);
+  overflow: hidden;
+
+  @media (max-width: breakpoints.$small) {
+    padding: var(--section-padding-small);
+  }
+}
+
+%sectionTitle {
+  font-size: 2em;
+  font-weight: 200;
+  margin: 0 0 0.2em 0;
+  text-align: center;
+  flex-shrink: 0;
+
+  @media (max-width: breakpoints.$small) {
+    font-size: 1.5em;
+  }
+}
+
+// Fills its box with --cols x --rows equal cells (see lib/fillGrid.ts); never scrolls.
+%fillGrid {
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--rows), minmax(0, 1fr));
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  // Room for the hover lift and focus ring, which overflow would clip.
+  padding: 8px;
+
+  @media (orientation: portrait) {
+    grid-template-columns: repeat(var(--cols-p), minmax(0, 1fr));
+    grid-template-rows: repeat(var(--rows-p), minmax(0, 1fr));
+  }
+}

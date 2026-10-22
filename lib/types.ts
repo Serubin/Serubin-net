@@ -45,6 +45,13 @@ export type PortfolioData = {
   albums: Album[];
 };
 
+export type Project = {
+  name: string;
+  description: string;
+  tags: string[];
+  href: string;
+};
+
 export enum ColorMode {
   Light = 'light',
   Dark = 'dark',
