@@ -6,7 +6,7 @@ import {
   verifyPortfolioViewCookie,
 } from './lib/portfolioViewCookie';
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const res = NextResponse.next();
   const raw = request.cookies.get(PORTFOLIO_VIEW_COOKIE)?.value;
   if (!raw || !(await verifyPortfolioViewCookie(raw))) {
