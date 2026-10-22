@@ -26,6 +26,16 @@
     background: var(--hero-scrim) !important;
   }
 
+  .background {
+    position: absolute;
+    inset: 0;
+
+    // Run on under iOS Safari's floating toolbar (0 where lvh == dvh).
+    @supports (height: 100lvh) {
+      bottom: calc(100dvh - 100lvh);
+    }
+  }
+
   .innerWrapper {
     position: relative;
     padding: 1em;
