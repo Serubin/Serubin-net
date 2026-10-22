@@ -41,8 +41,10 @@
   }
 }
 
-// Stands in for a cover image, so it takes whatever height the cell leaves.
+// The cover image, or the name in its place; takes whatever height the cell leaves.
 .projectFrame {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,6 +60,16 @@
     font-weight: 200;
     text-align: center;
     overflow-wrap: anywhere;
+  }
+}
+
+// The portrait cover is composed centred, so the wide cover's focus doesn't apply to it.
+.cover {
+  object-fit: cover;
+  object-position: var(--focus, 50% 50%);
+
+  @media (orientation: portrait) {
+    object-position: 50% 50%;
   }
 }
 
@@ -86,11 +98,16 @@
   margin: 0;
   font-size: 0.9rem;
   line-height: 1.4;
+  // Every card reserves the full clamp, so all covers come out the same height.
+  min-height: 3lh;
 }
 
 .projectTags {
   margin: 0;
   font-size: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .srOnly {
@@ -110,6 +127,7 @@
 
   .projectDescription {
     -webkit-line-clamp: 1;
+    min-height: 1lh;
   }
 }
 

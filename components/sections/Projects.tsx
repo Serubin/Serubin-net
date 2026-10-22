@@ -1,6 +1,7 @@
 "use client";
-import { useId, useRef } from 'react';
+import { useId, useRef, type CSSProperties } from 'react';
 import { motion } from 'framer-motion';
+import Image, { getImageProps } from 'next/image';
 import { ColorMode, Project } from '../../lib/types';
 import useSectionForegroundColor from '../../lib/effects/useSectionForegroundColor';
 import { stagger, fadeIn } from '../../lib/animations';
@@ -10,6 +11,22 @@ import styles from '../../styles/sections/Projects.module.scss';
 type ProjectsProps = {
   projects: Project[];
 };
+
+const coverProps = { fill: true, sizes: '50vw' } as const;
+
+function Cover({ image, portrait, focus }: { image: string; portrait?: string; focus?: string }) {
+  if (!portrait) {
+    return <Image src={image} alt="" {...coverProps} style={{ objectFit: 'cover', objectPosition: focus }} />;
+  }
+  const { props: { srcSet: portraitSrcSet } } = getImageProps({ src: portrait, alt: '', ...coverProps });
+  const { props } = getImageProps({ src: image, alt: '', ...coverProps });
+  return (
+    <picture>
+      <source media="(orientation: portrait)" srcSet={portraitSrcSet} sizes={coverProps.sizes} />
+      <img {...props} alt="" className={styles.cover} style={{ ...props.style, '--focus': focus } as CSSProperties} />
+    </picture>
+  );
+}
 
 export default function Projects({ projects }: ProjectsProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -42,7 +59,11 @@ export default function Projects({ projects }: ProjectsProps) {
           >
             {/* Decorative: the name below labels the link */}
             <div className={styles.projectFrame} aria-hidden="true">
-              <span>{project.name}</span>
+              {project.image ? (
+                <Cover image={project.image} portrait={project.portrait} focus={project.focus} />
+              ) : (
+                <span>{project.name}</span>
+              )}
             </div>
             <div className={styles.projectMeta}>
               <h3 id={`${idPrefix}-${i}-name`} className={styles.projectName}>
