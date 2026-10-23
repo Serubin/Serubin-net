@@ -17,11 +17,24 @@
   @media print { @include meta.load-css('../resume/styles/print'); }
   @include meta.load-css('../resume/styles/custom');
 
+  // The submodule sizes the container only from 980px up; below that the absolute sheet overflows it.
+  @media screen {
+    .document-container {
+      height: 1100px;
+      width: 850px;
+    }
+  }
+
   // Narrow screens get the 850px sheet scaled down to fit, gutters included.
   @media screen and (max-width: 880px) {
     @supports (zoom: calc(100vw / 850px)) {
       #page-wrapper {
         zoom: calc((100vw - 32px) / 850px);
+        margin-top: 0;
+      }
+
+      .document-container {
+        margin-top: 0;
       }
     }
   }
