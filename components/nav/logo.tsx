@@ -3,8 +3,8 @@ import styles from '../../styles/sections/Logo.module.scss';
 // Outlined from Poppins ExtraLight (200) at 24px on a 38px-tall artboard, baseline y=27.4.
 // Static copies live in public/images/logo/.
 
-// The box minus the middle of its right edge, which is drawn separately so it can retract.
-const BOX_OPEN = 'M0 0h36v1h-36ZM0 37h36v1h-36ZM0 0h1v38h-1ZM35 0h1v6.64h-1ZM35 30.4h1v7.6h-1Z';
+// The box, in CSS px so its edges snap alike, minus the middle of its right edge, which retracts.
+const BOX_OPEN = 'M0 0h38v1h-38ZM0 39h38v1h-38ZM0 0h1v40h-1ZM37 0h1v7h-1ZM37 32h1v8h-1Z';
 const S_GLYPH =
   'M12.648 23.248H13.776Q13.968 24.568 15.012 25.6Q16.056 26.632 18.192 26.632Q19.44 26.632 20.364 26.176Q21.288 25.72 21.792 24.928Q22.296 24.136 22.296 23.176Q22.296 21.952 21.708 21.232Q21.12 20.512 20.244 20.152Q19.368 19.792 17.88 19.384Q16.248 18.952 15.252 18.52Q14.256 18.088 13.572 17.188Q12.888 16.288 12.888 14.728Q12.888 13.528 13.524 12.532Q14.16 11.536 15.336 10.96Q16.512 10.384 18.048 10.384Q20.28 10.384 21.648 11.488Q23.016 12.592 23.28 14.2H22.128Q21.984 13.552 21.492 12.88Q21 12.208 20.1 11.764Q19.2 11.32 17.952 11.32Q16.272 11.32 15.12 12.244Q13.968 13.168 13.968 14.704Q13.968 15.928 14.568 16.66Q15.168 17.392 16.044 17.764Q16.92 18.136 18.408 18.52Q20.064 18.976 21.036 19.396Q22.008 19.816 22.692 20.716Q23.376 21.616 23.376 23.152Q23.376 24.28 22.776 25.288Q22.176 26.296 21.012 26.932Q19.848 27.568 18.192 27.568Q16.56 27.568 15.336 26.992Q14.112 26.416 13.428 25.432Q12.744 24.448 12.648 23.248Z';
 // The full wordmark's glyphs after the S, in the same 114-unit coordinate space.
@@ -28,14 +28,15 @@ export default function Logo({ expanded }: PropsType) {
         className={styles.mark}
         width={38}
         height={40}
-        viewBox="0 0 36 38"
+        viewBox="0 0 38 40"
         fill="currentColor"
         aria-hidden="true"
         focusable="false"
       >
         <path d={BOX_OPEN} shapeRendering="crispEdges" />
-        <rect className={styles.edge} x={35} y={6.64} width={1} height={23.76} shapeRendering="crispEdges" />
-        <path d={S_GLYPH} />
+        <rect className={`${styles.edge} ${styles.edgeTop}`} x={37} y={7} width={1} height={13} shapeRendering="crispEdges" />
+        <rect className={`${styles.edge} ${styles.edgeBottom}`} x={37} y={20} width={1} height={12} shapeRendering="crispEdges" />
+        <path d={S_GLYPH} transform={`scale(${40 / 38})`} />
       </svg>
       <span className={styles.letters} aria-hidden="true">
         <svg width={120} height={40} viewBox="0 0 114 38" fill="currentColor" focusable="false">

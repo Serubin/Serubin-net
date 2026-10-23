@@ -1,4 +1,6 @@
 $open-curve: cubic-bezier(.2, .7, .2, 1);
+// The open curve reversed, so closing plays the open backwards.
+$close-curve: cubic-bezier(.8, 0, .8, .3);
 
 .logo {
   position: relative;
@@ -22,7 +24,15 @@ $open-curve: cubic-bezier(.2, .7, .2, 1);
 
 .edge {
   transform-box: fill-box;
-  transform-origin: center;
+}
+
+// The edge splits and retracts into the corner stubs.
+.edgeTop {
+  transform-origin: top;
+}
+
+.edgeBottom {
+  transform-origin: bottom;
 }
 
 .letters {
@@ -34,31 +44,32 @@ $open-curve: cubic-bezier(.2, .7, .2, 1);
 // Each state declares the transition used when arriving at it.
 .logo[data-state='mark'] {
   width: 38px;
-  transition: color .3s ease, width 250ms ease-in;
+  transition: color .3s ease, width 350ms $close-curve;
 
   .edge {
     transform: scaleY(1);
-    transition: transform 200ms ease-out 200ms;
+    transition: transform 120ms ease-in 290ms;
   }
 
   .letters {
     clip-path: inset(0 94px 0 26px);
-    transition: clip-path 250ms ease-in;
+    transition: clip-path 350ms $close-curve;
   }
 }
 
 .logo[data-state='full'] {
   width: 120px;
-  transition: color .3s ease, width 350ms $open-curve;
+  // The letters wait for the edge to clear before they sweep across it.
+  transition: color .3s ease, width 350ms $open-curve 60ms;
 
   .edge {
     transform: scaleY(0);
-    transition: transform 200ms ease-out;
+    transition: transform 120ms ease-out;
   }
 
   .letters {
     clip-path: inset(0 0 0 26px);
-    transition: clip-path 350ms $open-curve;
+    transition: clip-path 350ms $open-curve 60ms;
   }
 }
 
