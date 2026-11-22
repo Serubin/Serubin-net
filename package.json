@@ -14,14 +14,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "adm-zip": "^0.5.16",
+    "adm-zip": "^0.6.1",
     "framer-motion": "^11.15.0",
     "js-yaml": "^4.3.2",
-    "next": "^16.3.3",
+    "next": "^16.4.6",
     "next-plausible": "^3.12.5",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "sharp": "^0.34.5"
+    "sharp": "^0.35.5"
   },
   "devDependencies": {
     "@types/adm-zip": "^0.5.8",
@@ -30,7 +30,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.3.3",
+    "eslint-config-next": "^16.4.6",
     "sass": "^1.103.1",
     "tsx": "^4.19.3",
     "typescript": "^5.9.3"
